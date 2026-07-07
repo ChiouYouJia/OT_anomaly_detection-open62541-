@@ -1,0 +1,35 @@
+[ req ]
+default_bits = 2048
+default_md = sha256
+distinguished_name = req_distinguished_name
+req_extensions = v3_req
+x509_extensions = v3_self_signed
+prompt = no
+
+[ req_distinguished_name ]
+C = TW
+L = Taipei
+O = ZTA-Test
+CN = OPCUATestServer@localhost
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment, keyCertSign
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = @alt_names
+
+[ v3_self_signed ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer
+# OPC UA 的憑證通常需要宣告自己也能當作信任根
+basicConstraints = CA:TRUE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment, keyCertSign
+extendedKeyUsage = serverAuth, clientAuth
+# 這裡會吃 Python 腳本抓到的本機 IP 與 URI
+subjectAltName = URI:${ENV::URI1}, IP:${ENV::IPADDRESS1}, IP:${ENV::IPADDRESS2}, DNS:${ENV::HOSTNAME}
+
+[ alt_names ]
+URI = ${ENV::URI1}
+IP.1 = ${ENV::IPADDRESS1}
+IP.2 = ${ENV::IPADDRESS2}
+DNS.1 = ${ENV::HOSTNAME}

@@ -1,0 +1,3 @@
+gcc client_sks.c -o client_sks -lopen62541 -llgpio
+gcc -o sensor_server_sks sensor_server_sks.c -lopen62541
+gcc sks_server.c -o sks_server -lopen62541
