@@ -1,1 +1,9 @@
+# 忽略所有子資料夾下的 build 目錄與 CMake 暫存檔
+build/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
 open62541
+# 忽略所有子資料夾下產出的 bin 執行檔目錄
+bin/

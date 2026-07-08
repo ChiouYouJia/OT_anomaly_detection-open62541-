@@ -1,5 +1,5 @@
 ## Usage  
-open62541 (v1.5.5) 已經在裡面了，整個一起pull下來後  
+先去open62541 pull v1.5.5
 ```bash
 cd open62541
 mkdir -p build && cd build //如果有看到build記得先刪掉
