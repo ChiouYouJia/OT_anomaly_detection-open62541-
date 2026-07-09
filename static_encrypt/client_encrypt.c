@@ -18,9 +18,23 @@
 #define UA_AES128CTR_KEYNONCE_LENGTH 4
 
 // 必須與 Sensor 端完全一致
-static UA_Byte signingKey[UA_AES128CTR_SIGNING_KEY_LENGTH] = {0};
-static UA_Byte encryptingKey[UA_AES128CTR_KEY_LENGTH] = {0};
-static UA_Byte keyNonce[UA_AES128CTR_KEYNONCE_LENGTH] = {0};
+static UA_Byte signingKey[UA_AES128CTR_SIGNING_KEY_LENGTH] = {
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11,
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11,
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11,
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11
+};
+
+// 加密金鑰 (16 bytes)
+static UA_Byte encryptingKey[UA_AES128CTR_KEY_LENGTH] = {
+    0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22,
+    0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22
+};
+
+// 隨機數 Nonce (4 bytes)
+static UA_Byte keyNonce[UA_AES128CTR_KEYNONCE_LENGTH] = {
+    0x33, 0x33, 0x33, 0x33
+};
 // =========================================================
 
 UA_Boolean running = true;
@@ -78,7 +92,7 @@ int main(void) {
     memset(&connectionConfig, 0, sizeof(connectionConfig));
     connectionConfig.name = UA_STRING("UDP Connection");
     connectionConfig.transportProfileUri = UA_STRING("http://opcfoundation.org/UA-Profile/Transport/pubsub-udp-uadp");
-    UA_NetworkAddressUrlDataType networkAddressUrl = {UA_STRING_NULL, UA_STRING("opc.udp://127.0.0.1:4843/")};
+    UA_NetworkAddressUrlDataType networkAddressUrl = {UA_STRING("eth0"), UA_STRING("opc.udp://224.0.2.14:4840/")};
     UA_Variant_setScalar(&connectionConfig.address, &networkAddressUrl, &UA_TYPES[UA_TYPES_NETWORKADDRESSURLDATATYPE]);
     UA_Server_addPubSubConnection(server, &connectionConfig, &connectionIdentifier);
 

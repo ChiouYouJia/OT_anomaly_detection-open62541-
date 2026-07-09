@@ -16,9 +16,23 @@
 #define UA_AES128CTR_KEYNONCE_LENGTH 4
 
 // 這裡我們直接給定一組固定的金鑰 (與 Client 端保持一致即可)
-static UA_Byte signingKey[UA_AES128CTR_SIGNING_KEY_LENGTH] = {0};
-static UA_Byte encryptingKey[UA_AES128CTR_KEY_LENGTH] = {0};
-static UA_Byte keyNonce[UA_AES128CTR_KEYNONCE_LENGTH] = {0};
+static UA_Byte signingKey[UA_AES128CTR_SIGNING_KEY_LENGTH] = {
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11,
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11,
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11,
+    0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11
+};
+
+// 加密金鑰 (16 bytes)
+static UA_Byte encryptingKey[UA_AES128CTR_KEY_LENGTH] = {
+    0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22,
+    0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22, 0x22
+};
+
+// 隨機數 Nonce (4 bytes)
+static UA_Byte keyNonce[UA_AES128CTR_KEYNONCE_LENGTH] = {
+    0x33, 0x33, 0x33, 0x33
+};
 // =========================================================
 
 UA_Boolean running = true;
@@ -50,7 +64,7 @@ static void addPubSubConnection(UA_Server *server) {
     memset(&connectionConfig, 0, sizeof(connectionConfig));
     connectionConfig.name = UA_STRING("UADP Connection 1");
     connectionConfig.transportProfileUri = UA_STRING("http://opcfoundation.org/UA-Profile/Transport/pubsub-udp-uadp");
-    UA_NetworkAddressUrlDataType networkAddressUrl = {UA_STRING_NULL, UA_STRING("opc.udp://127.0.0.1:4843/")};
+    UA_NetworkAddressUrlDataType networkAddressUrl = {UA_STRING("eth0"), UA_STRING("opc.udp://224.0.2.14:4843/")};
     UA_Variant_setScalar(&connectionConfig.address, &networkAddressUrl, &UA_TYPES[UA_TYPES_NETWORKADDRESSURLDATATYPE]);
     connectionConfig.publisherId.idType = UA_PUBLISHERIDTYPE_UINT16;
     connectionConfig.publisherId.id.uint16 = 2234;
