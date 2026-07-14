@@ -29,8 +29,16 @@ static void customLogger(void *logContext, UA_LogLevel level, UA_LogCategory cat
         va_end(args_copy);
 
         UA_DateTimeStruct dts = UA_DateTime_toStruct(UA_DateTime_now());
-        const char *levelNames[] = {"trace", "debug", "info", "warn", "error", "fatal"};
-        const char *levelStr = (level >= 0 && level <= 5) ? levelNames[level] : "unknown";
+        const char *levelStr = "unknown";
+        switch (level) {
+            case UA_LOGLEVEL_TRACE:   levelStr = "trace"; break;
+            case UA_LOGLEVEL_DEBUG:   levelStr = "debug"; break;
+            case UA_LOGLEVEL_INFO:    levelStr = "info"; break;
+            case UA_LOGLEVEL_WARNING: levelStr = "warn"; break;
+            case UA_LOGLEVEL_ERROR:   levelStr = "error"; break;
+            case UA_LOGLEVEL_FATAL:   levelStr = "fatal"; break;
+            default:                  levelStr = "unknown"; break;
+        }
         char full_log[512];
         snprintf(full_log, sizeof(full_log), "[%04u-%02u-%02u %02u:%02u:%02u.%03u (UTC)] %s/application   %s", 
                  dts.year, dts.month, dts.day, dts.hour, dts.min, dts.sec, dts.milliSec, levelStr, msg_buf);

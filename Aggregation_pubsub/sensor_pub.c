@@ -30,8 +30,16 @@ static void customLogger(void *logContext, UA_LogLevel level, UA_LogCategory cat
         va_end(args_copy);
 
         UA_DateTimeStruct dts = UA_DateTime_toStruct(UA_DateTime_now());
-        const char *levelNames[] = {"trace", "debug", "info", "warn", "error", "fatal"};
-        const char *levelStr = (level >= 0 && level <= 5) ? levelNames[level] : "unknown";
+        const char *levelStr = "unknown";
+        switch (level) {
+            case UA_LOGLEVEL_TRACE:   levelStr = "trace"; break;
+            case UA_LOGLEVEL_DEBUG:   levelStr = "debug"; break;
+            case UA_LOGLEVEL_INFO:    levelStr = "info"; break;
+            case UA_LOGLEVEL_WARNING: levelStr = "warn"; break;
+            case UA_LOGLEVEL_ERROR:   levelStr = "error"; break;
+            case UA_LOGLEVEL_FATAL:   levelStr = "fatal"; break;
+            default:                  levelStr = "unknown"; break;
+        }
 
         char full_log[512];
         snprintf(full_log, sizeof(full_log), "[%04u-%02u-%02u %02u:%02u:%02u.%03u (UTC)] %s/application   %s", 
@@ -61,29 +69,9 @@ int main(void) {
     signal(SIGINT, stopHandler); signal(SIGTERM, stopHandler);
     srand(time(NULL));
 
-    // 連接 Aggregation Server (Port 4840)
-    syslogClient = UA_Client_new();
-    UA_ClientConfig *clientConfig = UA_Client_getConfig(syslogClient);
-    UA_ClientConfig_setDefault(clientConfig);
-    if (!original_logger) original_logger = clientConfig->logging->log;
-    clientConfig->logging->log = customLogger;
-
-    printf("⏳ 嘗試連線至 Aggregation Server (Port: 4840) 以啟用日誌上報...\n");
-    
-    // 💡 升級：加入自動重試機制，直到連線成功或使用者按下 Ctrl+C
-    while(running && UA_Client_connect(syslogClient, "opc.tcp://localhost:4840") != UA_STATUSCODE_GOOD) {
-        printf("⚠️ 尚未找到 Aggregation Server，3 秒後自動重試...\n");
-        sleep(3);
-    }
-    
-    if (running) {
-        printf("✅ 成功連線！Sensor 日誌上報機制已啟動。\n");
-    } else {
-        // 如果使用者在等待期間按了 Ctrl+C
-        UA_Client_delete(syslogClient); 
-        syslogClient = NULL;
-    }
-
+    // =========================================================================
+    // 1. 初始化並啟動 Sensor 本身的 Server 與 PubSub
+    // =========================================================================
     UA_Server *server = UA_Server_new();
     UA_ServerConfig *config = UA_Server_getConfig(server);
     UA_ServerConfig_setMinimal(config, 4842, NULL); 
@@ -142,10 +130,51 @@ int main(void) {
     UA_Server_addDataSetWriter(server, writerGroupIdent, publishedDataSetIdent, &dswConfig, NULL);
 
     UA_Server_enableAllPubSubComponents(server);
-
     UA_LOG_INFO(config->logging, UA_LOGCATEGORY_USERLAND, "Sensor Server (PubSub + C/S 雙模式) 已上線");
-    UA_Server_run(server, &running);
 
+    // 💡 讓 Port 4842 立刻開始監聽！
+    UA_Server_run_startup(server); 
+
+    // =========================================================================
+    // 2. 建立 Syslog Client 並在背景重試，同時保持 Server 運作
+    // =========================================================================
+    syslogClient = UA_Client_new();
+    UA_ClientConfig *clientConfig = UA_Client_getConfig(syslogClient);
+    UA_ClientConfig_setDefault(clientConfig);
+    if (!original_logger) original_logger = clientConfig->logging->log;
+    clientConfig->logging->log = customLogger;
+
+    printf("⏳ 嘗試連線至 Aggregation Server (Port: 4840) 以啟用日誌上報...\n");
+    
+    while(running && UA_Client_connect(syslogClient, "opc.tcp://localhost:4840") != UA_STATUSCODE_GOOD) {
+        printf("⚠️ 尚未找到 Aggregation Server，3 秒後自動重試...\n");
+        for(int i = 0; i < 300 && running; i++) {
+            UA_Server_run_iterate(server, 10);
+            usleep(10000); 
+        }
+    }
+    
+    if (running) {
+        printf("✅ 成功連線！Sensor 日誌上報機制已啟動。\n");
+    } else {
+        UA_Client_delete(syslogClient); 
+        syslogClient = NULL;
+    }
+
+    // =========================================================================
+    // 3. 正確的雙軌迴圈 (💡 這裡補上了漏掉的 Client Iterate)
+    // =========================================================================
+    while(running) {
+        // 處理作為 Server (4842) 的網路請求與 PubSub 推播
+        UA_Server_run_iterate(server, 10);
+        
+        // 處理作為 Client 向上拋 Log 的網路緩衝區，避免阻塞卡死！
+        if (syslogClient) {
+            UA_Client_run_iterate(syslogClient, 10);
+        }
+    }
+
+    UA_Server_run_shutdown(server);
     if(syslogClient) { UA_Client_disconnect(syslogClient); UA_Client_delete(syslogClient); }
     UA_Server_delete(server);
     return 0;
