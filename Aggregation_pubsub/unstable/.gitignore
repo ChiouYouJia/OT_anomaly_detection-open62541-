@@ -1,0 +1,11 @@
+# === 編譯產物（可由 .c 重新編譯）===
+aggregation_server
+sensor_pub
+motor_sub
+Anomaly_client
+*_asan
+*.o
+
+# === 測試產物（DOS 測試/抓包每次執行都會產生）===
+*.log
+*.pcap
