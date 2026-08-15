@@ -7,3 +7,27 @@ cmake_install.cmake
 open62541
 # 忽略所有子資料夾下產出的 bin 執行檔目錄
 bin/
+
+# ML 管線：虛擬環境與大型二進位資產（可由腳本/下載重建，不進版控）
+Aggregation_clientServer/ml/venv/
+Aggregation_clientServer/ml/assets/*.ttf
+Aggregation_clientServer/ml/out/parsed_all.csv
+
+# Python 快取
+__pycache__/
+*.pyc
+
+# 實驗資料與結果產物一律不進版控（只保留程式碼）
+Aggregation_clientServer/net/captures/
+Aggregation_clientServer/attacks/logs/
+Aggregation_clientServer/ml/out/
+Aggregation_clientServer/ml/figures/
+*.pcap
+
+# 編譯產物（run_all.sh 會從 .c 自動重建）
+Aggregation_clientServer/aggregation_server
+Aggregation_clientServer/sensor_pub
+Aggregation_clientServer/motor_sub
+Aggregation_clientServer/Anomaly_client
+Aggregation_clientServer/attacks/*_attack
+Aggregation_clientServer/net/*.so
