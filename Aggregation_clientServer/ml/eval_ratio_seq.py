@@ -172,7 +172,7 @@ def compute_scores(df, vocab):
 def rule_layer1(d):
     return ((d["dist_ts_occurrence"].values > 1) |
             (d["session_denied_cumcount"].values > 1) |
-            (d["sensor_events_in_sec"].values > 1)).astype(int)
+            (d["sensor_events_in_sec_persrc"].values > 1)).astype(int)
 
 
 def rule_sourcenode(d):

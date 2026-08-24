@@ -256,9 +256,19 @@ def process_scenario(scendir):
         raw = raw.rstrip("\n")
         if "[Anomaly Input]" not in raw:
             continue  # 只取被 Anomaly 收集到的行（跳過本地 client 狀態列）
-        body = raw.split("[Anomaly Input] ", 1)[1]
+        # 收集程序被中斷時，檔尾可能留下截斷的 '[Anomaly Input]'（無內容、無換行），
+        # 此時 split 只會得到一段 → 直接跳過，不要讓整批解析炸掉。
+        parts = raw.split("[Anomaly Input] ", 1)
+        if len(parts) < 2:
+            continue
+        body = parts[1]
         p = parse_line(body)
         if p is None:
+            continue
+        # 採集中斷會留下「有表頭、訊息本體是空的」殘行。放行的話 extract_template
+        # 會把空字串雜湊成一個假模板（Td41d8c），混進詞彙表污染所有序列模型
+        # ——也會讓 embed_semantic 的 encode() 收到 NaN 而崩。
+        if not p["msg"] or not p["msg"].strip():
             continue
         tmpl = extract_template(p["msg"])
         tid = template_id(tmpl)
@@ -283,31 +293,130 @@ def process_scenario(scendir):
     return df
 
 # ---- 5. 跨行特徵（在每個場景內計算，避免跨場景污染）----
+
+# 拓樸無關的「角色」與「pair 歸屬」
+# --------------------------------------------------------------------------
+# ⚠ 為什麼需要這兩個欄位（2026-08-16 修）：
+#   `source` 欄在新格式下就是 SourceName —— 單 pair 拓樸是 "Sensor"/"Motor"，
+#   但 1:1 三 pair 拓樸是 "Sensor"/"Sensor2"/"Sensor3"/"Motor".../"Motor3"。
+#   舊碼各處用 `source == "Sensor"` 精確比對來認「這是不是感測器行」，在三 pair
+#   資料上**只認得 pair1**，Sensor2/Sensor3 共 15188 行被整批漏掉（實測
+#   sensor_events_in_sec_persrc 對 Sensor2/3 全為 0）。
+#   `role` 改從訊息前綴推（"[Sensor]"/"[Motor]"/"[System]"），與 SourceName 的
+#   編號無關，因此拓樸再擴張也不必改判斷式。
+#   `pair` 則是 1:1 配對的歸屬鍵：sensor_i 只該與 motor_i 做一致性比對，
+#   跨 pair 比對會讓候選值集合變成 N 倍、「無回音」檢查因巧合命中而失效。
+def _role_of(msg, source):
+    m = msg if isinstance(msg, str) else ""
+    if m.startswith("[Sensor]"):
+        return "Sensor"
+    if m.startswith("[Motor]"):
+        return "Motor"
+    if m.startswith("[System]"):
+        return "System"
+    s = source if isinstance(source, str) else ""
+    if s.startswith("Sensor"):
+        return "Sensor"
+    if s.startswith("Motor"):
+        return "Motor"
+    if s == "System":
+        return "System"
+    return "App"
+
+_PAIR_RE = re.compile(r"^(?:Sensor|Motor)(?:Source)?(\d*)$")
+
+def _pair_of(source):
+    """SourceName → pair 編號字串（"1"/"2"/…）；非設備行回 NaN。
+
+    "Sensor" 與 "SensorSource" 都視為 pair1（無編號後綴＝第一組）。
+    用 (\\d*)$ 而非取末字元，10 組以上的拓樸才不會把 "Sensor10" 讀成 pair0。
+    """
+    s = source if isinstance(source, str) else ""
+    if ";s=" in s:
+        s = s.split(";s=", 1)[1]
+    m = _PAIR_RE.match(s.strip())
+    if not m:
+        return np.nan
+    return m.group(1) or "1"
+
+
 def add_cross_line_features(df):
     df = df.sort_values(["scenario", "ts"]).reset_index(drop=True)
 
-    # (a) S 特徵：同一秒內 [Sensor] Updated distance 的筆數
-    is_sensor_upd = df["msg"].str.contains("Updated distance", na=False) & (df["source"] == "Sensor")
+    df["role"] = [_role_of(m, s) for m, s in zip(df["msg"], df["source"])]
+    df["pair"] = [_pair_of(s) for s in df["source"]]
+    # 分流鍵：優先用 server 蓋章的 SourceName，缺值時退回訊息推得的 source
+    df["srckey"] = df["lr_SourceName"].where(df["lr_SourceName"].notna(), df["source"])
+
+    # (a) S 特徵：同一秒內 [Sensor] Updated distance 的筆數（**全域**，跨所有 sensor）
+    #   ⚠ 多 pair 拓樸下這一欄不可拿來當 spoof 判據：三 pair 時 benign 每秒本就有
+    #     3 筆（各 sensor 一筆），`> 1` 對每一行都成立。請改用下面的 _persrc。
+    #     保留本欄是為了單 sensor 舊資料的結果可重現。
+    is_sensor_upd = df["msg"].str.contains("Updated distance", na=False) & (df["role"] == "Sensor")
     sec_counts = (df[is_sensor_upd].groupby(["scenario", "ts_sec"]).size()
                     .rename("sensor_events_in_sec"))
     df = df.merge(sec_counts, on=["scenario", "ts_sec"], how="left")
     df["sensor_events_in_sec"] = df["sensor_events_in_sec"].fillna(0).astype(int)
 
     # (a2) S 特徵（多 sensor 拓樸正解）：同一秒內、**同一個 SourceName** 的 sensor 筆數。
-    #   為什麼需要：三 pair 拓樸下 benign 每秒本就有 ~3 筆 sensor（Sensor/Sensor2/Sensor3
-    #   各一），全域 sensor_events_in_sec 常態就是 3，spoof 的「同秒雙報」淹沒在其中。
     #   正確的 spoof 判據是「**某一個** sensor 在同一秒送出 >1 筆」——即 per-SourceName。
     #   單 sensor 拓樸時 lr_SourceName 恆為 "Sensor"，本欄與 sensor_events_in_sec 等值，
-    #   故對既有單 sensor 資料/結果零影響（additive，不改動 (a)）。
-    df["_srckey"] = df["lr_SourceName"].where(df["lr_SourceName"].notna(), df["source"])
-    persrc = (df[is_sensor_upd].groupby(["scenario", "ts_sec", "_srckey"]).size()
+    #   故對既有單 sensor 資料/結果零影響。
+    persrc = (df[is_sensor_upd].groupby(["scenario", "ts_sec", "srckey"]).size()
                 .rename("sensor_events_in_sec_persrc"))
-    df = df.merge(persrc, on=["scenario", "ts_sec", "_srckey"], how="left")
+    df = df.merge(persrc, on=["scenario", "ts_sec", "srckey"], how="left")
     df["sensor_events_in_sec_persrc"] = df["sensor_events_in_sec_persrc"].fillna(0).astype(int)
-    df.drop(columns=["_srckey"], inplace=True)
 
-    # (b) RP 特徵：同一場景內，(內嵌時間戳 ts, 距離值) 出現的次數；>1 = 疑似重放
-    dup_key = df["ts"].astype(str) + "|" + df["dist"].astype(str)
+    # (a3) S 特徵（時序版）：同一 sensor 的**到達間隔**與**視窗速率**。
+    #   為什麼加：實測 benign 的間隔極穩（median 1.002s、p1 0.990、p95 1.003），
+    #   而 S 注入是**隨機相位**的 —— 被注入那一筆的 Δt 近似 U(0,1)（median 0.547）。
+    #   因此逐行 Δt 門檻只抓得到「剛好插很近」的一半；而且注入會同時壓縮**下一筆
+    #   真實讀數**的 Δt（實測 Δt<0.5 的 normal 行有 90.7% 前一行就是 S/RP），
+    #   逐行看會製造假的 FP。不受相位影響的是**速率**：每個視窗的筆數。
+    #   實測（10s 視窗、每 source）：benign 恆為 10，被注入的視窗 >=11
+    #   → 規則 `sensor_win_count > 10` 達 P=0.923 R=0.908（視窗級）。
+    SENSOR_WIN = "10s"
+    t = pd.to_datetime(df["ts"], errors="coerce")
+
+    # dt_source：**所有角色**的同來源到達間隔（秒）。
+    #   給多變量序列模型（mvdeeplog.py）當輸入的一維 —— 模型從 benign 學到
+    #   sensor 的節律是 1.002±0.005，S（隨機相位，median 0.547）與
+    #   RP（重放帶原始內嵌時間戳，median 0.000）都會在這一維上偏離。
+    #   ⚠ 與 sensor_dt 的差別：sensor_dt 只算 sensor 行（給規則層用），
+    #     dt_source 對 motor/system 也算，因為模型的每一步都需要這個值。
+    tm = t.notna()
+    df["dt_source"] = np.nan
+    df.loc[tm, "dt_source"] = (
+        t[tm].groupby([df.loc[tm, "scenario"], df.loc[tm, "srckey"]])
+             .diff().dt.total_seconds()
+    )
+
+    # sensor_dt：只在「sensor 讀數行」之間算間隔（跳過 "Connected to backend"
+    #   之類的非讀數行）。與 dt_source 語意不同，刻意分開算，不要合併。
+    df["sensor_dt"] = np.nan
+    sm = is_sensor_upd & tm
+    df.loc[sm, "sensor_dt"] = (
+        t[sm].groupby([df.loc[sm, "scenario"], df.loc[sm, "srckey"]])
+             .diff().dt.total_seconds()
+    )
+
+    df["_win"] = t.dt.floor(SENSOR_WIN)
+    wc = (df[sm].groupby(["scenario", "srckey", "_win"]).size()
+            .rename("sensor_win_count"))
+    df = df.merge(wc, on=["scenario", "srckey", "_win"], how="left")
+    df["sensor_win_count"] = df["sensor_win_count"].fillna(0).astype(int)
+    df.drop(columns=["_win"], inplace=True)
+
+    # (b) RP 特徵：同一場景內，(內嵌時間戳 ts, 距離值, 角色) 出現的次數；>1 = 疑似重放
+    #   ⚠ 去重鍵必須包含 role（2026-08-16 修）：原本只用 (ts, dist)，而
+    #     Sensor 的 "Updated distance: X" 與 Motor 的 "Received distance: X"
+    #     是**同一筆讀數的正常回音**，兩行共用同一個內嵌時間戳與數值 → motor 行
+    #     被算成 dtso=2，整批被誤判成重放。實測 topo3 測試集上這條規則產生
+    #     1286 個誤報、precision 只有 0.126；加入 role 後誤報歸零、
+    #     precision 1.000 而 RP recall 完全不變（94%）。
+    #   RP 的定義本來就是「**同一個來源**重送同一份內容」，跨角色的重複不是重放。
+    dup_key = (df["ts"].astype(str) + "|" + df["dist"].astype(str)
+               + "|" + df["role"].astype(str))
     df["_dupkey"] = np.where(df["dist"].notna(), dup_key, np.nan)
     dup_counts = df[df["_dupkey"].notna()].groupby(["scenario", "_dupkey"]).cumcount() + 1
     df["dist_ts_occurrence"] = 0
@@ -344,10 +453,13 @@ def add_cross_line_features(df):
     #        （實測 mean|Δ|=16.0、p99=43.1），因此這個特徵在**目前的模擬資料上
     #        不具鑑別力**。保留它是因為在真實感測器上這是最有效的一招；
     #        eval_numeric.py 會誠實報告它在本資料上的實際表現。
+    #      ⚠ 必須以 srckey 分組：多 sensor 拓樸下若只用 scenario 分組，diff() 會把
+    #        Sensor→Sensor2→Sensor3 三條互不相干的軌跡交錯相減，算出來的「變化率」
+    #        是排程雜訊而非任何感測器的物理變化。
     df["dist_delta"] = np.nan
-    sensor_mask = (df["source"] == "Sensor") & df["dist"].notna()
+    sensor_mask = (df["role"] == "Sensor") & df["dist"].notna()
     df.loc[sensor_mask, "dist_delta"] = (
-        df[sensor_mask].groupby("scenario")["dist"].diff().abs()
+        df[sensor_mask].groupby(["scenario", "srckey"])["dist"].diff().abs()
     )
 
     # (e3) 感測器↔馬達 物理一致性（抓 S 欺騙的物理解法）
@@ -364,14 +476,19 @@ def add_cross_line_features(df):
     #        （motor 當時未正常運作，使用者已確認）。沒有 motor 端資料就無法做
     #        一致性檢查 —— 這類場景一律留 NaN（不判定），而不是當成「一致」，
     #        否則會把「沒資料」誤報成「沒問題」。
+    #
+    #      ⚠ 必須**逐 pair** 比對（2026-08-16 修）：1:1 三 pair 拓樸下 motor_i 只訂閱
+    #        sensor_i。若把整個場景的 sensor/motor 混在一起比，候選值集合變成 3 倍，
+    #        假讀數只要碰巧接近**其他 pair** 的真值就會被判為「一致」——
+    #        一致性檢查會因此失效。groupby 的 pair 為 NaN 者（System/App 行）自動略過。
     MATCH_WINDOW = 5          # 容許的延遲秒數（>1s 的餘裕，涵蓋抖動）
-    MIN_MOTOR_ROWS = 10       # motor 行數太少視為該場景無有效 motor 資料
+    MIN_MOTOR_ROWS = 10       # motor 行數太少視為該 pair 無有效 motor 資料
     df["sensor_motor_mismatch"] = np.nan
-    for scn, g in df.groupby("scenario"):
-        s_rows = g[(g["source"] == "Sensor") & g["dist"].notna()]
-        m_rows = g[(g["source"] == "Motor") & g["dist"].notna()]
+    for (scn, pr), g in df.groupby(["scenario", "pair"]):
+        s_rows = g[(g["role"] == "Sensor") & g["dist"].notna()]
+        m_rows = g[(g["role"] == "Motor") & g["dist"].notna()]
         if s_rows.empty or len(m_rows) < MIN_MOTOR_ROWS:
-            continue          # 無 motor 資料 → 該場景不做一致性判定
+            continue          # 無 motor 資料 → 該 pair 不做一致性判定
         # sensor 讀數：以 seq_pos 排序，供「最近 W 秒」查表
         s_times = pd.to_datetime(s_rows["ts_sec"]).astype("int64") // 10**9
         s_vals  = s_rows["dist"].values
@@ -389,10 +506,11 @@ def add_cross_line_features(df):
     #        並沒有真的改動 sensor 節點 → motor 從未收到那個值 → 「無回音」。
     #        實測：S 攻擊的 15 筆假讀數，motor 回報同值次數全部為 0。
     #      這是物理因果檢查：真感測器的讀數必然在下游留下痕跡。
+    #      （同樣逐 pair —— 跨 pair 的「回音」不算回音。）
     df["sensor_no_echo"] = np.nan
-    for scn, g in df.groupby("scenario"):
-        s_rows = g[(g["source"] == "Sensor") & g["dist"].notna()]
-        m_rows = g[(g["source"] == "Motor") & g["dist"].notna()]
+    for (scn, pr), g in df.groupby(["scenario", "pair"]):
+        s_rows = g[(g["role"] == "Sensor") & g["dist"].notna()]
+        m_rows = g[(g["role"] == "Motor") & g["dist"].notna()]
         if s_rows.empty or len(m_rows) < MIN_MOTOR_ROWS:
             continue
         s_times = pd.to_datetime(s_rows["ts_sec"]).astype("int64") // 10**9

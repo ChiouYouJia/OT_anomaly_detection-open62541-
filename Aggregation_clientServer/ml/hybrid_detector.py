@@ -10,7 +10,7 @@
 #   第1層 統計特徵（規則，零訓練）：
 #     - dist_ts_occurrence > 1        → RP 重放（同一 (內嵌時間戳,數值) 重複出現）
 #     - session_denied_cumcount > 1   → T 竄改（同 session 反覆 write-denied）
-#     - sensor_events_in_sec > 1      → S 欺騙（同一秒出現多筆 sensor 事件）
+#     - sensor_events_in_sec_persrc > 1 → S 欺騙（同一 sensor 同一秒多筆）
 #   第2層 DeepLog 序列：
 #     - 真實模板不在預測 top-k        → 序列/轉移異常
 #
@@ -39,7 +39,24 @@ FIX_DTSO_FOR = ["T97dc7c", "T82e2a8"]
 
 WINDOW, HIDDEN, LAYERS, EPOCHS, BATCH, TOPK, LR = 10, 64, 2, 15, 128, 3, 1e-3
 SEED   = 42
-TARGET = "Four_combined_20260731_0156"
+
+# 場景選取（2026-08-16 修，配合 1:1 三 pair 拓樸的新命名）
+#   舊碼寫死 TARGET="Four_combined_20260731_0156" 且用 startswith("baseline")
+#   選訓練集。改拓樸後場景一律帶前綴（topo3_baseline_* / topo3_Four_combined_*），
+#   startswith 只會命中一個 7/31 的舊單 pair 場景，而寫死的 TARGET 已不存在
+#   → base/tgt 皆為空、IsolationForest 與評估直接崩。
+#   改成與 ngram_detector.py 相同的慣例：SCENARIO_FILTER 選資料批次，
+#   baseline 用『包含 baseline』，四攻擊混合場景動態尋找。
+SCENARIO_FILTER = os.environ.get("SCENARIO_FILTER", "").strip()
+
+def pick_scenarios(df):
+    """回傳 (baseline 場景, 測試場景, 四攻擊混合場景)。"""
+    scen = [s for s in df.scenario.unique()
+            if not SCENARIO_FILTER or SCENARIO_FILTER in s]
+    base = [s for s in scen if "baseline" in s]
+    test = [s for s in scen if "baseline" not in s]
+    four = [s for s in test if "Four_combined" in s]
+    return base, test, four
 
 log = []
 def out(s=""):
@@ -56,12 +73,52 @@ def load_ablated():
     return df, len(vocab)
 
 
+# S 規則的速率上限：由純正常 baseline 學到的「每視窗最多幾筆 sensor」。
+#   零訓練精神不變 —— 只看 benign 資料的極值，不看任何攻擊標籤。
+SENSOR_RATE_CAP = None      # 由 fit_sensor_rate_cap() 在載入 baseline 後填入
+
+
+def fit_sensor_rate_cap(df, base_scen):
+    """從 baseline 場景學 sensor_win_count 的上限。"""
+    b = df[df.scenario.isin(base_scen) & df["role"].eq("Sensor")]
+    if b.empty:
+        return 0
+    return int(b["sensor_win_count"].max())
+
+
 def layer1_rules(sub):
-    """第1層：純統計規則，零訓練。回傳 (總預測, 各規則個別預測)。"""
+    """第1層：純統計規則，零訓練。回傳 (總預測, 各規則個別預測)。
+
+    S 規則改版（2026-08-16）
+    -----------------------
+    舊規則 `sensor_events_in_sec_persrc > 1`（同一 sensor 同一秒多筆）recall 很高
+    （99%）但 precision 只有 0.225 —— 因為它把注入那一秒的**另一筆真實讀數**也一起
+    標記，而且整秒分桶會把正常的排程抖動誤判。
+
+    新規則是兩個互補維度的 AND：
+      · 速率（sensor_win_count > cap）—— 「這個視窗多出了東西」。
+        benign 的每 10s 每 source 筆數恆為 10，注入會讓它變 11 以上。
+        單獨用不行：它會把該視窗全部 10 餘行一起標記，precision 僅 0.076。
+      · 歸屬（sensor_no_echo == 1）—— 「這一筆讀數 motor 從未回報過」。
+        攻擊者把假 log 注入彙整伺服器，並沒有真的改動 sensor 節點，
+        下游 motor 因此收不到那個值。這是物理因果檢查，指出**是哪一行**。
+
+    速率說「何時」，回音說「哪一行」；兩者 AND 之後 P=0.806 R=0.887（僅看 S），
+    對比舊規則的 P=0.225 R=0.987 —— 換到 3.6 倍的 precision，代價是 10% recall。
+
+    ⚠ 這條規則刻意不負責 RP：重放送的是**真實的舊值**，motor 當初確實回報過，
+      因此 no_echo=0。RP 由 dist_ts_occurrence 規則接手，不需要在這裡重複覆蓋。
+    """
+    cap = SENSOR_RATE_CAP if SENSOR_RATE_CAP is not None else 0
+    is_sensor = sub["role"].values == "Sensor"
     rules = {
         "RP: dist_ts_occurrence>1":      (sub["dist_ts_occurrence"].values > 1),
         "T : session_denied_cumcount>1": (sub["session_denied_cumcount"].values > 1),
-        "S : sensor_events_in_sec>1":    (sub["sensor_events_in_sec"].values > 1),
+        f"S : win_count>{cap} AND no_echo": (
+            is_sensor
+            & (sub["sensor_win_count"].values > cap)
+            & (sub["sensor_no_echo"].values == 1)
+        ),
     }
     total = np.zeros(len(sub), dtype=bool)
     for v in rules.values():
@@ -84,9 +141,9 @@ class IntDeepLog(nn.Module):
         o, _ = s.lstm(s.emb(x)); return s.fc(o[:, -1, :])
 
 
-def train_deeplog(df, V):
+def train_deeplog(df, V, base_scen):
     torch.manual_seed(SEED); np.random.seed(SEED)
-    base = df[df.scenario.str.startswith("baseline")]
+    base = df[df.scenario.isin(base_scen)]
     Xtr, ytr = [], []
     for s in base.scenario.unique():
         seq = base[base.scenario == s].sort_values("seq_pos")["tid"].values
@@ -184,18 +241,31 @@ def main():
     out("=" * 76)
     out("動機：先前結論說『三層疊加』但從未實測。這裡把 OR 疊加真的跑出來。")
     out(f"資料已關閉洩漏管道（R/S 偽造模板併入正常、dtso 補正），V={V}。")
-    out("\n第1層規則（全部零訓練，直接由 parse_logs.py 的跨行特徵推出）:")
-    out("  RP: dist_ts_occurrence      > 1   （內嵌時間戳+數值重複出現）")
-    out("  T : session_denied_cumcount > 1   （同 session 反覆 write-denied）")
-    out("  S : sensor_events_in_sec    > 1   （同一秒多筆 sensor 事件）")
+    base_scen, test_scen, four_scen = pick_scenarios(df)
+    if not base_scen:
+        out(f"沒有 baseline 場景可當訓練集（SCENARIO_FILTER={SCENARIO_FILTER!r}）")
+        return
 
-    model = train_deeplog(df, V)
-    test_scen = [s for s in df.scenario.unique() if not s.startswith("baseline")]
+    global SENSOR_RATE_CAP
+    SENSOR_RATE_CAP = fit_sensor_rate_cap(df, base_scen)
+
+    out("\n第1層規則（全部零訓練，直接由 parse_logs.py 的跨行特徵推出）:")
+    out("  RP: dist_ts_occurrence      > 1   （同一來源重送同一 (時間戳,數值)）")
+    out("  T : session_denied_cumcount > 1   （同 session 反覆 write-denied）")
+    out(f"  S : sensor_win_count > {SENSOR_RATE_CAP} AND sensor_no_echo == 1")
+    out(f"      速率『何時』＋回音『哪一行』；上限 {SENSOR_RATE_CAP} 由 baseline 學得")
+
+    model = train_deeplog(df, V, base_scen)
 
     _, _, rh_all = evaluate(df, model, test_scen,
                             "(1) 全部攻擊場景（與 deeplog.py 可比）")
-    _, _, rh_fc  = evaluate(df, model, [TARGET],
-                            f"(2) 只用四攻擊混合場景 {TARGET}（與 eval_four_combined.py 可比）")
+    if four_scen:
+        _, _, rh_fc = evaluate(df, model, four_scen,
+                               f"(2) 只用四攻擊混合場景（{len(four_scen)} 個，"
+                               f"與 eval_four_combined.py 可比）")
+    else:
+        out("\n(2) 略過：這批資料沒有 Four_combined 場景")
+        rh_fc = rh_all
 
     out("\n" + "=" * 76)
     out("結論")

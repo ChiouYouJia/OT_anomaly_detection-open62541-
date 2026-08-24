@@ -50,6 +50,7 @@
 #        ml/out/ngram_scores.csv    （逐行分數，供 make_figures / 融合使用）
 # =============================================================================
 import os
+import re
 import sys
 import math
 from collections import defaultdict, Counter
@@ -149,7 +150,10 @@ def stream_key(name, mode):
     # mode == "pair"：只有設備行有 pair 歸屬。SensorSource2 / Sensor2 都要認得。
     # System 之類非設備行自成一流，不能塞進任何 pair（不參與 sensor→motor 循環）。
     if s.startswith(("Sensor", "Motor")):
-        return "pair" + (s[-1] if s[-1].isdigit() else "1")
+        # 取**結尾的整段數字**，不是末一個字元 —— 否則 10 組以上的拓樸會把
+        # "Sensor10" 讀成 pair0、"Sensor11" 讀成 pair1（與真 pair1 混流）。
+        m = re.search(r"(\d+)$", s)
+        return "pair" + (m.group(1) if m else "1")
     return "other:" + s
 
 
@@ -292,12 +296,14 @@ def main(mode=None):
 
     # ---- baseline 切 train / val（時序切，不打散：保留序列結構）----
     # 先在場景層做時序切分（確保 val 嚴格晚於 train），再各自分流成多條序列。
-    train_seqs, val_seqs = [], []
+    train_seqs, val_packs = [], []
     for s in base_scen:
         sub = df[df.scenario == s]
         cut = int(len(sub) * (1 - VAL_FRAC))
         train_seqs += [seq for seq, _ in split_segments(sub.iloc[:cut], mode)]
-        val_seqs   += [seq for seq, _ in split_segments(sub.iloc[cut:], mode)]
+        # val 保留 index：閾值要在 val 上定，且逐秒評估需要 (scenario, ts_sec)
+        val_packs  += split_segments(sub.iloc[cut:], mode)
+    val_seqs = [seq for seq, _ in val_packs]
     n_train = sum(len(x) for x in train_seqs)
     n_val   = sum(len(x) for x in val_seqs)
     emit(f"train={n_train} 行(純正常)   val={n_val} 行(純正常, 只用來定閾值)")
@@ -329,6 +335,7 @@ def main(mode=None):
 
     results = {}
     score_cols = {}
+    val_score_cols = {}      # {欄名: (val 行索引, 分數)} —— 供 val 校準門檻使用
 
     for n in NS:
         emit()
@@ -343,11 +350,14 @@ def main(mode=None):
              f"訓練集出現過的模板: {len(model.seen_uni)}/{V}")
 
         # ---- val（純正常）分數：用來定零誤報閾值 ----
-        val_scores = []
-        for seq in val_seqs:
+        val_scores, val_parts = [], []
+        for seq, vidx in val_packs:
             sc, _, _ = model.surprisal(seq)
-            val_scores.append(sc[WARMUP:])
-        val_scores = [v for v in val_scores if len(v)]
+            if len(sc[WARMUP:]):
+                val_scores.append(sc[WARMUP:]); val_parts.append(np.asarray(vidx)[WARMUP:])
+        val_idx_n = np.concatenate(val_parts) if val_parts else np.array([], int)
+        val_score_cols[f"ngram{n}"] = (val_idx_n,
+                                       np.concatenate(val_scores) if val_scores else np.array([]))
         val_scores = np.concatenate(val_scores) if val_scores else np.array([0.0])
         thr = float(val_scores.max()) if len(val_scores) else 0.0
         emit(f"val 正常分數: 中位數={np.median(val_scores):.3f} "
@@ -479,6 +489,20 @@ def main(mode=None):
         sc_df[k] = v
     sc_df.to_csv(os.path.join(OUT, f"ngram_scores{suffix}.csv"), index=False)
 
+    # val（純正常、訓練期未使用）逐行分數，供 second_level_eval 以 val 校準門檻。
+    # 各 n 的 val 行索引相同（同一組 val_packs），故取任一組建表即可。
+    if val_score_cols:
+        any_idx = next(iter(val_score_cols.values()))[0]
+        vdf = pd.DataFrame({
+            "scenario": df.loc[any_idx, "scenario"].values,
+            "ts_sec":   df.loc[any_idx, "ts_sec"].values,
+        })
+        for k, (vidx, vsc) in val_score_cols.items():
+            assert np.array_equal(vidx, any_idx), f"{k} 的 val 索引與其他 n 不一致"
+            vdf[k] = vsc
+        vdf.to_csv(os.path.join(OUT, f"ngram_valscores{suffix}.csv"), index=False)
+        print(f"val 分數: {OUT}/ngram_valscores{suffix}.csv")
+
     print(f"\n報告已存: {OUT}/ngram_results{suffix}.txt")
     print(f"逐行分數: {OUT}/ngram_scores{suffix}.csv")
 
@@ -578,9 +602,15 @@ def compare_streams(n=2):
              f"H(next|context)={cond_entropy(model):.3f} bits  thr={thr:.3f}")
         emit(f"     seen-only: PR-AUC={ap:.3f}  P={p:.3f} R={r:.3f} F1={f1:.3f}  "
              f"TP={tp} FP={fp} FN={fn}")
-        emit(f"     ⚠ 閾值懸崖: 分數只有 {len(uniq)} 個相異值；"
-             f"閾值抬到下一個相異值 {nxt[0]:.3f} → TP={tp_next} FP={fp_next}"
-             + ("（FP 掉一個數量級，TP 不變）" if fp_next * 5 < fp and tp_next == tp else ""))
+        if len(nxt):
+            emit(f"     ⚠ 閾值懸崖: 分數只有 {len(uniq)} 個相異值；"
+                 f"閾值抬到下一個相異值 {nxt[0]:.3f} → TP={tp_next} FP={fp_next}"
+                 + ("（FP 掉一個數量級，TP 不變）" if fp_next * 5 < fp and tp_next == tp else ""))
+        else:
+            # thr（val 的 max）已 >= 測試集所有分數：沒有更高的相異值可抬，
+            # 也就沒有懸崖可談 —— 此粒度在這個操作點上什麼都告不出來。
+            emit(f"     ⚠ 分數只有 {len(uniq)} 個相異值，且全部 < 閾值 "
+                 f"{thr:.3f} → 此操作點恆不告警（請看 PR-AUC）")
         per = "  ".join(
             f"[{a}] {int(pred[typ == a].sum())}/{int((typ == a).sum())}"
             for a in ATTACKS if (typ == a).sum())

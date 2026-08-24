@@ -41,7 +41,10 @@ def main():
         template=("template", "first"),
         count=("template_id", "size"),
         n_attack=("label", "sum"),
-        in_baseline=("scenario", lambda s: any(x.startswith("baseline") for x in s)),
+        # 用『包含 baseline』而非 startswith：改拓樸後場景帶前綴
+        # （topo3_baseline_* / v2_baseline_*），startswith 會把它們全判為非 baseline，
+        # 導致幾乎每個模板都被誤標成 attack_only。
+        in_baseline=("scenario", lambda s: any("baseline" in x for x in s)),
     ).reset_index()
     tmpl["attack_only"] = (tmpl["n_attack"] > 0) & (~tmpl["in_baseline"])
 

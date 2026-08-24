@@ -107,11 +107,11 @@ def run_condition(df, tag):
     out(f"條件：{tag}   (模板詞彙量 V={V})")
     out("=" * 68)
 
-    base      = df[df.scenario.str.startswith("baseline")]
-    test_scen = [s for s in df.scenario.unique() if not s.startswith("baseline")]
+    base      = df[df.scenario.str.contains("baseline")]
+    test_scen = [s for s in df.scenario.unique() if "baseline" not in s]
     res = {}
 
-    NUM_FEATS = ["sensor_events_in_sec", "dist_ts_occurrence", "session_denied_cumcount", "is_write_denied"]
+    NUM_FEATS = ["sensor_events_in_sec_persrc", "dist_ts_occurrence", "session_denied_cumcount", "is_write_denied"]
 
     # ---- 模型1：IsolationForest（無監督，只用 baseline 擬合）----
     test_df = df[df.scenario.isin(test_scen)]
@@ -193,7 +193,7 @@ def main():
 
     # ---- 第二個洩漏管道：dist_ts_occurrence 假訊號 ----
     # 注意：Motor/Sensor 記在 source 欄（cat 一律是 application），不可用 cat 篩
-    norm_motor = df[(df.attack_type == "normal") & (df.source == "Motor")]
+    norm_motor = df[(df.attack_type == "normal") & (df.role == "Motor")]
     n_dtso0 = int(((df.attack_type == "normal") & (df.dist_ts_occurrence == 0)).sum())
     n_norm  = int((df.attack_type == "normal").sum())
     out("\n第二個洩漏管道 —— dist_ts_occurrence 的『無距離值』假訊號:")
@@ -246,7 +246,7 @@ def main():
     out("  (IF/RF)吃的是『Motor 行卻沒有距離值』。要證偽必須同時關閉，只關一個會誤以為")
     out("  數值模型『真的抓得到 R』。這本身是評估方法上的教訓。")
     out("- S 受到部分影響（DeepLog 96%→74%，IF 22%→0%）：代表 S 的分數也有一部分靠")
-    out("  Motor 偽造模板。但 S 另有 sensor_events_in_sec（每秒雙報）這個真實可分特徵，")
+    out("  Motor 偽造模板。但 S 另有 sensor_events_in_sec_persrc（同一 sensor 每秒雙報）這個真實可分特徵，")
     out("  故 RandomForest 仍維持 100%，未如 R 般完全崩潰 —— 這正是『真訊號 vs 洩漏』的對照。")
     out("- T/RP 幾乎不受影響 → 它們的分數本來就建立在真實行為特徵上（denied 序列、")
     out("  參數重複），是可信的。")

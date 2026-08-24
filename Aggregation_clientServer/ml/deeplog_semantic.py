@@ -66,8 +66,8 @@ def main():
     out("="*68)
     out(f"V={V}  window={WINDOW}  top-k={TOPK}  (與整數版 deeplog.py 相同超參)")
 
-    train_scen = [s for s in df.scenario.unique() if s.startswith("baseline")]
-    test_scen  = [s for s in df.scenario.unique() if not s.startswith("baseline")]
+    train_scen = [s for s in df.scenario.unique() if "baseline" in s]
+    test_scen  = [s for s in df.scenario.unique() if "baseline" not in s]
 
     Xtr, ytr = [], []
     for s in train_scen:

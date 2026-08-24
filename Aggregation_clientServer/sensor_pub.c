@@ -194,14 +194,63 @@ static void customLogger(void *logContext, UA_LogLevel level, UA_LogCategory cat
     }
 }
 
-double read_distance(void){ return 2.0 + ((double)rand() / (RAND_MAX / (50.0 - 2.0))); }
+// ---------------------------------------------------------------------------
+// 感測器模擬：**受限隨機遊走**（2026-08-16 改，原本是每次獨立的均勻亂數）
+// ---------------------------------------------------------------------------
+// 為什麼改：舊版 `2.0 + rand()/(RAND_MAX/48.0)` 是 uniform(2,50)，每一筆與前一筆
+//   完全獨立。而 spoof 攻擊注入的假讀數用的是**同一個分布**，於是「值」這個觀測
+//   維度的可分性嚴格為 0 —— 實測 |Δdistance| 的 normal 中位數 14.018、S 為 13.478，
+//   完全重疊。任何值型特徵/模型在這種資料上都註定失效（dist_delta 的註解早已指出
+//   這點，但根因在資料生成，不在特徵）。
+//
+// 改成有慣性的遊走之後（模擬真實距離感測器量測一個移動中的物體）：
+//   · 下一筆讀數只會偏離前一筆 ±STEP_MAX 公分 → 值變成**高度可預測**，
+//     序列模型的 value head 才有東西可學。
+//   · 對現行的天真 spoof（注入 uniform(2,50)）可分性上限 AUC ≈ 0.97（σ_step≈0.87）。
+//   · 對「讀了 log 才注入合理值」的物理感知攻擊者，單步檢定失效（AUC≈0.51），
+//     但仍留下**結構性**破綻：真感測器的下一筆是從真值 x_t 繼續走的，不是從
+//     假值 x' 繼續走，因此注入處的相鄰兩步呈負相關（Cov=-σ²），而 benign 的
+//     隨機遊走增量是獨立的。實測該訊號 AUC≈0.70 且與 STEP_MAX 無關。
+//
+// ⚠ 邊界用**反射**而不是 clip：clip 會讓值黏在 2.0 / 50.0 兩個端點，製造一個
+//   資料生成造成的假特徵（攻擊者的均勻取樣幾乎不會剛好落在端點），那等於用一個
+//   新的洩漏管道換掉舊的。反射保持分布在區間內平滑。
+#define DIST_MIN   2.0
+#define DIST_MAX  50.0
+#define STEP_MAX   1.5      // 每秒最大位移（公分）；σ_step ≈ 0.87
+
+static double g_dist = (DIST_MIN + DIST_MAX) / 2.0;   // 起始值取量程中點
+
+double read_distance(void){
+    double step = (((double)rand() / RAND_MAX) - 0.5) * 2.0 * STEP_MAX;
+    g_dist += step;
+    // 反射邊界（可能連續反射兩次，故用 while）
+    while (g_dist < DIST_MIN || g_dist > DIST_MAX) {
+        if (g_dist < DIST_MIN) g_dist = DIST_MIN + (DIST_MIN - g_dist);
+        if (g_dist > DIST_MAX) g_dist = DIST_MAX - (g_dist - DIST_MAX);
+    }
+    return g_dist;
+}
+
+// ⚠ 數值一律先用標準 snprintf 組好字串，再以 "%s" 交給 UA_LOG_*（2026-08-16 改）
+//   原因：本檔的 log hook 用 open62541 的 UA_String_vformat() 展開格式字串，
+//   而它**不支援 C 標準的精度修飾詞** —— 寫 "%.1f" 實際印出的是全精度
+//   （實測 "[Sensor] Updated distance: 5.7126743363741195 cm"，不是 "5.7"）。
+//   後果不只是「精度跟你以為的不同」：攻擊程式用的是標準 C 的 snprintf("%.15g")，
+//   精度正常生效，於是真假兩邊的**小數位數分布不同** ——
+//   實測 normal 有 22299 筆是 15~16 位小數，而 S 一筆都沒有，
+//   「位數 >= 15」可以零漏判地排除 58% 的正常行。那是格式化器造成的假訊號，
+//   與攻擊行為毫無關係，任何吃 dist 的模型都會撿到。
+//   統一成 %.15g（與 attacks/*.c 相同）即可關掉這條洩漏管道。
+#define DIST_FMT "%.15g"
 
 static void updateDistanceCallback(UA_Server *server, void *data) {
     UA_Double distance = read_distance();
     UA_Variant value; UA_Variant_setScalar(&value, &distance, &UA_TYPES[UA_TYPES_DOUBLE]);
     UA_Server_writeValue(server, distanceNodeId, value);
-    UA_LOG_INFO(UA_Server_getConfig(server)->logging, UA_LOGCATEGORY_USERLAND,
-                "[Sensor] Updated distance: %.1f cm", distance);
+    char msg[128];
+    snprintf(msg, sizeof(msg), "[Sensor] Updated distance: " DIST_FMT " cm", distance);
+    UA_LOG_INFO(UA_Server_getConfig(server)->logging, UA_LOGCATEGORY_USERLAND, "%s", msg);
 }
 
 int main(int argc, char **argv) {

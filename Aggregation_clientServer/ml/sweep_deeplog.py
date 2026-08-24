@@ -77,8 +77,8 @@ def train_and_score(df, V, window, hidden, seed):
     用它當連續分數就能掃出完整 PR 曲線；rank >= k 等價於傳統 top-k 判異常。
     """
     torch.manual_seed(seed); np.random.seed(seed)
-    base      = df[df.scenario.str.startswith("baseline")]
-    test_scen = [s for s in df.scenario.unique() if not s.startswith("baseline")]
+    base      = df[df.scenario.str.contains("baseline")]
+    test_scen = [s for s in df.scenario.unique() if "baseline" not in s]
 
     Xtr, ytr = [], []
     for s in base.scenario.unique():

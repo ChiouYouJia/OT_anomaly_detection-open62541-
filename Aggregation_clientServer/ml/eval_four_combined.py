@@ -24,10 +24,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT  = os.path.join(HERE, "out")
 torch.manual_seed(42); np.random.seed(42)
 
-TARGET = "Four_combined_20260731_0156"
+# 場景選取（2026-08-16 修，配合 1:1 三 pair 拓樸的新命名）
+#   舊碼寫死 TARGET="Four_combined_20260731_0156"、baseline 用 startswith 選。
+#   改拓樸後場景改帶前綴（topo3_*），兩者都選不到東西 → base/tgt 皆空、
+#   IsolationForest 收到 shape=(0,4) 直接崩。改成與 ngram_detector.py 同慣例。
+SCENARIO_FILTER = os.environ.get("SCENARIO_FILTER", "").strip()
 WINDOW, HIDDEN, LAYERS, EPOCHS, BATCH, TOPK, LR = 10, 64, 2, 15, 128, 3, 1e-3
 
-df = pd.read_csv(os.path.join(OUT, "parsed_all.csv"))
+df = pd.read_csv(os.path.join(OUT, "parsed_all.csv"), low_memory=False)
+_scen = [s for s in df.scenario.unique()
+         if not SCENARIO_FILTER or SCENARIO_FILTER in s]
+_four = [s for s in _scen if "baseline" not in s and "Four_combined" in s]
+TARGET = ", ".join(_four) if _four else "(無)"
 tids = sorted(df["template_id"].unique())
 vocab = {t: i for i, t in enumerate(tids)}
 df["tid"] = df["template_id"].map(vocab)
@@ -37,17 +45,22 @@ log = []
 def out(s=""):
     print(s); log.append(str(s))
 
-base = df[df.scenario.str.startswith("baseline")]
-tgt  = df[df.scenario == TARGET].sort_values("seq_pos").reset_index(drop=True)
+base = df[df.scenario.isin([s for s in _scen if "baseline" in s])]
+tgt  = (df[df.scenario.isin(_four)]
+        .sort_values(["scenario", "seq_pos"]).reset_index(drop=True))
+if base.empty or tgt.empty:
+    raise SystemExit(
+        f"沒有可用場景（SCENARIO_FILTER={SCENARIO_FILTER!r}）："
+        f"baseline {len(base)} 行 / Four_combined {len(tgt)} 行")
 
 out("="*68)
-out(f"只用『四攻擊混合』場景 {TARGET} 當測試集")
+out(f"只用『四攻擊混合』場景當測試集（{len(_four)} 個）")
 out("="*68)
 out(f"訓練/擬合：純正常 baseline（{len(base)} 行）")
 out(f"測試：{TARGET}（{len(tgt)} 行，異常 {int(tgt.label.sum())} 筆）")
 out(f"  異常組成：{tgt[tgt.label==1].attack_type.value_counts().to_dict()}")
 
-NUM_FEATS = ["sensor_events_in_sec","dist_ts_occurrence","session_denied_cumcount","is_write_denied"]
+NUM_FEATS = ["sensor_events_in_sec_persrc","dist_ts_occurrence","session_denied_cumcount","is_write_denied"]
 
 def per_type(pred, sub, title):
     true = sub["label"].values; typ = sub["attack_type"].values

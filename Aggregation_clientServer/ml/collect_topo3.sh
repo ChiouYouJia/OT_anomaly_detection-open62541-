@@ -20,8 +20,13 @@
 #   （每個 sensor 各自每秒幾筆）。這是本實驗刻意要壓測的難點，不是 bug。
 #
 # 用法：
-#   ./ml/collect_topo3.sh                 # baseline 60min + benign×2 + FC×10 + R×10
-#   ./ml/collect_topo3.sh 10 2 2 1        # 短測：baseline分 FC輪 R輪 benign輪
+#   ./ml/collect_topo3.sh                 # baseline 60min + benign×2 + FC×10 + R×10 + S(各)×5
+#   ./ml/collect_topo3.sh 10 2 2 1 1      # 短測：baseline分 FC輪 R輪 benign輪 S輪
+#
+# 2026-08-17：sensor 改受限隨機遊走（值有慣性）+ 新增物理感知 spoof。
+#   本批採集會產生兩種新場景 topo3_Snaive_* / topo3_Sphys_*（見下方第 4 區塊）。
+#   ⚠ 需搭配已改過的 sensor_pub.c（隨機遊走 + %.15g）與 motor_sub.c（%.15g）；
+#     腳本用 `.c -nt 執行檔` 判斷自動重編，直接跑即可。
 # =============================================================================
 set -u
 
@@ -29,6 +34,7 @@ MINUTES="${1:-60}"
 N_FC="${2:-10}"
 N_R="${3:-10}"
 N_BENIGN="${4:-2}"
+N_S="${5:-5}"          # 每種 spoof（天真 / 物理感知）各幾輪獨立場景
 N_PAIR=3
 ATTACK_SEC=300
 
@@ -64,8 +70,8 @@ fi
 if [ "$HAVE_MOTOR" = "0" ]; then
   echo "[topo3] ✗ 三 pair 拓樸必須有 motor（否則 R 洩漏修正失效）。中止。"; exit 1
 fi
-for a in repudiation_attack spoof_attack tamper_attack replay_attack; do
-  gcc -o "attacks/$a" "attacks/$a.c" $UA_INC $UA_LIB 2>/dev/null \
+for a in repudiation_attack spoof_attack tamper_attack replay_attack physics_aware_spoof; do
+  gcc -o "attacks/$a" "attacks/$a.c" $UA_INC $UA_LIB -lm 2>/dev/null \
     && echo "[topo3]   ✓ $a" || { echo "[topo3]   ✗ $a"; exit 1; }
 done
 
@@ -123,7 +129,7 @@ report_scenario() {
 echo "" | tee "$REPORT"
 echo "============================================================" | tee -a "$REPORT"
 echo "【實驗1】三 pair 拓樸採集報告 ($STAMP)" | tee -a "$REPORT"
-echo "  baseline ${MINUTES}分 · benign×${N_BENIGN} · FC×${N_FC} · R×${N_R}  (每場景 3 pair)" | tee -a "$REPORT"
+echo "  baseline ${MINUTES}分 · benign×${N_BENIGN} · FC×${N_FC} · R×${N_R} · Snaive/Sphys×${N_S}  (每場景 3 pair)" | tee -a "$REPORT"
 echo "============================================================" | tee -a "$REPORT"
 kill_all
 
@@ -190,18 +196,49 @@ for i in $(seq 1 "$N_R"); do
   stop_system; make_marked "$DEST"; report_scenario "$DEST" "$(basename "$DEST")"; echo ""
 done
 
+# ---------------------------------------------------------------------------
+# 4) 兩階 S 威脅模型 —— 天真 spoof vs 物理感知 spoof，**各自獨立場景**
+# ---------------------------------------------------------------------------
+# 為什麼要分開成兩種場景，而不是塞進 Four_combined：
+#   兩種攻擊注入的內容都是 "[Sensor] Updated distance"，mark_anomalies.py 只會
+#   把兩者都標成 S —— 行內容分不出攻擊者強度。唯一能區分的是**場景名稱**。
+#   分成 topo3_Snaive_* 與 topo3_Sphys_* 兩批，消融時才能分別回答：
+#     · Snaive：sensor 改隨機遊走後，天真攻擊者（注入 uniform 亂數）好不好抓
+#               —— 預期單步值檢定 AUC≈0.97。
+#     · Sphys ：物理感知攻擊者（先讀節點當前值、注入合理的一小步）好不好抓
+#               —— 預期單步失效（AUC≈0.51），但相鄰兩步負相關的二階結構仍可分
+#                  （AUC≈0.70），那是序列模型該學的訊號。
+#   兩批都只放單一種攻擊、其餘維度乾淨，才是消融的正解。
+run_spoof_scenario() {   # $1=場景前綴  $2=攻擊執行檔  $3=第幾輪
+  local DEST="$LOGROOT/topo3_$1_r$3_${STAMP}"; mkdir -p "$DEST"
+  echo "[topo3] === (4.$1.$3) $1 ×3 (${ATTACK_SEC}s) ==="
+  start_system "$DEST"
+  ATK=()
+  for k in 1 2 3; do
+    "./attacks/$2" "$k" > "$DEST/$2_p${k}.log" 2>&1 & ATK+=($!)
+  done
+  sleep $(( ATTACK_SEC + 10 ))
+  for p in "${ATK[@]}"; do kill -9 "$p" 2>/dev/null; done
+  stop_system; make_marked "$DEST"; report_scenario "$DEST" "$(basename "$DEST")"; echo ""
+}
+for i in $(seq 1 "$N_S"); do run_spoof_scenario "Snaive" spoof_attack        "$i"; done
+for i in $(seq 1 "$N_S"); do run_spoof_scenario "Sphys"  physics_aware_spoof "$i"; done
+
 {
   echo ""
   echo "============================================================"
   echo "採集完成 —— 下一步"
   echo "============================================================"
-  echo "  # ⚠ 先改 parse_logs.py 的 sensor_events_in_sec 為 per-SourceName 計數，"
-  echo "  #   否則三 sensor 併發會讓 S 特徵失效（見本檔頂部說明）。"
   echo "  ml/venv/bin/python ml/parse_logs.py"
+  echo "  # 兩階 S 威脅模型的多變量序列模型消融："
+  echo "  SCENARIO_FILTER=topo3_${STAMP} ml/venv/bin/python ml/mvdeeplog.py"
   echo "  SCENARIO_FILTER=topo3_${STAMP} ml/venv/bin/python ml/ngram_detector.py"
-  echo "  SCENARIO_FILTER=topo3_${STAMP} ml/venv/bin/python ml/compare_ngram_deeplog.py"
   echo ""
-  echo "驗收：benign 應含三 sensor 的 SourceNode=ns=1;s=SensorSource{,2,3}；"
-  echo "      benign_ctrl 的 SourceNode=null 應為 0。"
+  echo "驗收 (1) benign 應含三 sensor 的 SourceNode=ns=1;s=SensorSource{,2,3}；"
+  echo "        benign_ctrl 的 SourceNode=null 應為 0。"
+  echo "驗收 (2) 隨機遊走生效：benign sensor 讀數的相鄰 |Δ| 應 <=1.5（不再是 ~16）。"
+  echo "驗收 (3) 格式統一：真實與偽造 sensor 行的小數位數分布應一致（不再有 %.1f 洩漏）。"
+  echo "驗收 (4) Snaive 單步值可分性應遠高於 Sphys（前者 AUC≈0.97、後者 AUC≈0.51）；"
+  echo "        Sphys 的破綻要看相鄰兩步負相關（二階結構，AUC≈0.70）。"
 } | tee -a "$REPORT"
 echo "[topo3] 報告已存：$REPORT"

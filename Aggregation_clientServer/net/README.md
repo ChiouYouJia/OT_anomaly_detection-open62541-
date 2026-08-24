@@ -5,6 +5,12 @@
 > 與 `../ml/` 互補：`ml/` 解析『應用層 log 文字』；本管線改抓『網路封包』，
 > 用**封包/流量統計特徵**做無監督異常偵測。兩者資料來源不同、可交叉佐證。
 
+> ⚠️ **本 repo 只收程式碼。** pcap、圖資料集、實驗報告、設計文件一律不進版控
+> （見根目錄 `.gitignore`）。下文的實測數字是開發時的參考觀測，不是交付物 ——
+> 照〈[三步跑完](#三步跑完)〉／〈[圖與 GNN](#圖與-gnn)〉跑一次會得到自己的報表。
+> 部分程式的開頭註解引用了這些本機文件（`TODO_next_experiments.md` 等），
+> 那是開發脈絡的紀錄，不影響執行。
+
 ## 為什麼流量統計就能抓到 spoof
 
 `attacks/spoof_attack` 冒充 sensor **匿名連上** `aggregation_server@4840`，把偽造
@@ -114,15 +120,89 @@ ml/venv/bin/python net/detect_net.py       net/captures/<atk>_<STAMP>
 | RP | anomaly.log 內容（含內嵌時間戳）重複出現 |
 | R | anomaly.log 中 `SourceNode=null` 的 `[Motor]` 行；**若 log 無 SourceNode 欄位則標不到**（R 本就難偵測）|
 
+## 圖與 GNN
+
+上面的管線把每一秒壓成一個**特徵向量**，丟掉了「誰連了誰」。但四種攻擊在應用層各自
+隱蔽，在**連線結構**上卻都是「多出一個端點／一條邊」—— 這正是 GNN 的長處。
+
+`build_graph.py` 把 pcap + log 建成「**每秒一張圖**」：節點 = OPC UA 端點
+（`agg_server:4840` / `sensor_server` / `motor1..N` / `anomaly_client` / 攻擊時才出現的
+`attacker`），邊 = 該秒兩端點間的 TCP 流量，邊特徵取自流量統計、節點特徵取自 log。
+
+| 模型 | 任務 | 定位 |
+|---|---|---|
+| `egraphsage.py` | **邊分類** | E-GraphSAGE (Lo et al., NOMS 2022) 忠實實作：鄰域聚合改聚合**邊特徵**、邊嵌入 = 兩端節點嵌入串接 |
+| `graph_clf.py` | **圖級分類** | 為 `compromised_node` 設計 —— 攻擊者冒用合法身分、流量完全正常、**沒有任何攻擊邊**，邊分類器對它結構性失明；必須把整秒的圖當一個樣本，讓模型自己聚合出「這群節點彼此不一致」 |
+| `gnn_baseline.py` | 單類異常偵測 | 只用 benign 訓練、多 seed 報 mean ± std、不用 accuracy |
+| `rf_baseline.py` | **不用圖的對照** | GNN 的價值主張是「圖結構帶來額外資訊」。若只看單條邊特徵的 RandomForest 就一樣好，圖結構沒有加值 —— 這支就是用來拆穿這件事的 |
+| `router_fusion.py` | 融合策略對比 | 單一最佳層 vs 全部 OR 疊加 vs **按攻擊類型分工路由**，同資料同測試集 |
+
+**誠實結論（必讀）**：在**靜態拓撲**下，一條零訓練規則 `report_dev_own > 0.1` 在
+compromised 與 compromised_group 上就是 recall 100% / benign 零誤報，GNN 在告警路徑
+上毫無貢獻 —— 因為「某台 motor 回報值 ≠ sensor 真值」本來就只需要一個純量表達。
+**根因不是模型，是攻擊在該拓撲下太簡單。** `capture_topo_rotate.sh` 讓訂閱關係在採集
+期間週期性輪換，打掉這條規則賴以成立的「訂閱固定不變」前提，才是有意義的評估場景。
+
+```bash
+# 1) 採集（保留 log 與 pcap，兩者時間對齊）
+./net/capture_topo.sh                    # 1 sensor + N motor 星狀
+./net/capture_topo_multi.sh              # M sensor + N motor 多對多
+./net/capture_topo_rotate.sh             # 訂閱關係週期輪換（打掉靜態規則）
+
+# 2) 建圖 + 稽核（稽核務必跑，見下）
+ml/venv/bin/python net/build_graph.py  net/captures/<dir>
+ml/venv/bin/python net/audit_graph.py  net/captures/<dir>
+
+# 3) 模型
+ml/venv/bin/python net/rf_baseline.py  net/captures/<dir>   # 先跑對照組
+ml/venv/bin/python net/egraphsage.py   net/captures/<dir>
+ml/venv/bin/python net/graph_clf.py    net/captures/<dir>
+ml/venv/bin/python net/gnn_ablation.py net/captures/<dir>
+```
+
+> **`audit_graph.py` 不是可選步驟。** 本專案已經踩過五次「先報了高分，才發現原因」的
+> 洩漏：攻擊專屬模板、parser 產物、邊標籤把整秒正常通道標成攻擊、整數秒對齊的計時
+> 假象、ground truth 記號 `#MAL` 讓 log 行長 5 bytes 直接反映在 pcap 位元組數。
+> 每一次都是事後才抓到 —— 這支腳本把「事後回頭查」變成「建圖後就自動查」。
+
+### 為什麼需要 `bindsrc.c`
+
+三台 motor 跑在同一台機器上，來源 IP 全是 `127.0.0.1`，只有隨機 client port 不同 →
+pcap 無法穩定分辨「這條連線是哪一台 motor」，GNN 的三個 motor 節點會塌縮成無法對應的
+匿名節點。本專案使用的 open62541 版本，其 POSIX TCP 連線管理器**沒有 source-address
+參數**，改 client 程式碼也做不到。所以用 `LD_PRELOAD` 攔截 `connect()` 綁定指定來源 IP
+（127.0.0.2/.3/.4），是不動函式庫、不動 C 邏輯的最小侵入解法。
+
+```bash
+gcc -shared -fPIC -o net/bindsrc.so net/bindsrc.c -ldl    # 採集腳本會自動編
+```
+
 ## 檔案
 
 | 檔 | 作用 |
 |---|---|
+| **採集** | |
 | `capture_spoof.sh` | S 專用：啟動系統 + tcpdump 抓 lo:4840 + baseline/spoof → 兩份 pcap |
 | `capture_attacks.sh` | **多攻擊通用**：S/R/T/RP/all，抓 4840+4842 |
+| `capture_topo.sh` | 1 sensor + N motor：同時採集 log 與 pcap（GNN 用），每場景獨立 pcap |
+| `capture_topo_multi.sh` | M sensor + N motor 多對多拓撲 |
+| `capture_topo_rotate.sh` | 訂閱關係週期輪換，破壞「靜態訂閱」前提 |
+| `bindsrc.c` | `LD_PRELOAD` 綁定 outbound 來源 IP，讓三台 motor 在網路層可分 |
+| **特徵／建圖** | |
 | `pcap_to_features.py` | scapy 解析 pcap → 每秒 flow 特徵；依資料夾名自動判類型與標籤來源 |
+| `build_graph.py` | pcap + log → 每秒一張圖（nodes/edges/graphs/meta） |
+| `backfill_win_feats.py` | 把 sensor 窗內樣本欄位補進**既有**舊資料集（不必重跑 pcap 解析）|
+| `audit_graph.py` | **建圖後的防洩漏／資料健康稽核** —— 必跑 |
+| **模型** | |
 | `detect_net.py` | IsolationForest 無監督偵測；報 P/R/F1/ROC-AUC/PR-AUC + 特徵診斷 |
-| `captures/` | 每次抓取一個 `<atk>_<STAMP>/` 子資料夾 |
+| `egraphsage.py` | E-GraphSAGE 邊分類 |
+| `graph_clf.py` | 圖級分類（針對 compromised）|
+| `gnn_baseline.py` | GNN 單類異常偵測 baseline |
+| `rf_baseline.py` | RandomForest 邊分類，**不用圖的對照組** |
+| `gnn_ablation.py` | 值特徵／圖結構／時序的消融 |
+| `router_fusion.py` | 融合策略對比：單一最佳層 vs OR 疊加 vs 分工路由 |
+| `hop2_diag.py` | 診斷：peer 聚合為何對偵測沒有貢獻 |
+| `captures/` | 每次抓取一個 `<atk>_<STAMP>/` 子資料夾（**不進版控**）|
 
 ## 每秒特徵（只用封包標頭/大小，不解 payload）
 

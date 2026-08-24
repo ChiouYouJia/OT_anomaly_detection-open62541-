@@ -66,7 +66,7 @@ def close_leaks(df):
     leak_tids = [t for t in atk.index if norm.get(t, 0) == 0]
 
     # 目標：語意等價的正常 motor 模板（正常集中最常見的 Motor 模板）
-    motor_norm = df[(df.label == 0) & (df.source == "Motor")]["template_id"].value_counts()
+    motor_norm = df[(df.label == 0) & (df.role == "Motor")]["template_id"].value_counts()
     target = motor_norm.index[0] if len(motor_norm) else (norm.index[0] if len(norm) else None)
 
     if leak_tids and target is not None:
@@ -107,7 +107,7 @@ def det_layer1(sub):
     """第1層：跨行統計規則（零訓練）。舊實驗的最佳單一偵測器。"""
     return ((sub["dist_ts_occurrence"].values > 1) |
             (sub["session_denied_cumcount"].values > 1) |
-            (sub["sensor_events_in_sec"].values > 1)).astype(int)
+            (sub["sensor_events_in_sec_persrc"].values > 1)).astype(int)
 
 
 def det_sourcenode(sub):
@@ -209,7 +209,7 @@ def main():
     out(f"baseline    : {len(base_scen)} 場景 / {len(df[df.scenario.isin(base_scen)])} 行（只用於訓練）")
     out(f"攻擊場景    : {len(atk_scen)} 場景 / {len(test)} 行 / {int(test.label.sum())} 異常")
     out(f"異常組成    : {test[test.label==1].attack_type.value_counts().to_dict()}")
-    n_motor = int((df.source == 'Motor').sum())
+    n_motor = int((df.role == "Motor").sum())
     out(f"motor 行數  : {n_motor}   ← 舊實驗多數場景為 0（本機無 GPIO）")
     out()
     out(f"洩漏管道關閉: 攻擊專屬模板 {leak_tids} → {leak_target}，並補正其 dtso")

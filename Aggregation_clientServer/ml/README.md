@@ -4,14 +4,11 @@
 STRIDE 攻擊：S(欺騙) / T(竄改) / R(否認) / RP(重放)。
 
 > 本檔說明**方法與如何重現**。
-> 結果與洞見見 [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md)；
-> **三個驗證實驗的完整報告見 [EXPERIMENTS.md](EXPERIMENTS.md)**。
 >
-> 🆕 **最新實驗：[EXPERIMENTS_V2.md](EXPERIMENTS_V2.md)**（2026-08-06）
-> 以新格式（`LogRecord` + 伺服器蓋章的 `SourceNode` + 真 motor）重新採集並重跑評估。
-> 主要結論：`SourceNode==null` 一條零訓練規則達 **precision 1.000 / FPR 0.00% / R recall 100%**，
-> 而 DeepLog 在新資料上失效（F1 0.072 ± 0.118，std > mean）。
-> 採集腳本 [`collect_v2.sh`](collect_v2.sh)、評估 [`eval_v2.py`](eval_v2.py)、繪圖 [`make_figures_v2.py`](make_figures_v2.py)。
+> ⚠️ **本 repo 只收程式碼。** 實驗報告、論文草稿、量測數字、pcap、log、
+> 圖檔一律不進版控（見根目錄 `.gitignore`）—— 每個人跑出來的數字取決於自己
+> 採集的資料，照著〈[重現](#重現)〉跑一次就會在 `ml/out/` 得到自己的報表。
+> 下文引用的實測數字僅為**開發時的參考觀測**，不是本 repo 的交付物。
 
 ## 為什麼不能只用「單行 NLP」
 
@@ -57,8 +54,8 @@ raw log ─▶ [第1層] 解析+特徵工程 ─▶ [第2層] 序列模型 ─�
 | **R** | **無** | 三特徵全 0/1，**與正常不可分** |
 
 > S/T/RP 各有一個乾淨可分的統計特徵；**R 在所有行為特徵上與正常一致**。
-> 這在數據上量化了「R 最難自動偵測」，並由 `ablation_leakage.py` 實驗證實
-> （見 RESULTS_SUMMARY 的 R 消融實驗）。
+> 這在數據上量化了「R 最難自動偵測」，並由 `ablation_leakage.py` 的消融實驗證實
+> （輸出 `out/ablation_leakage.txt`）。
 
 #### OPC UA Part 22 LogRecord 欄位（已於 C 端實作）
 
@@ -85,7 +82,7 @@ log 產生端（`sensor_pub.c` / `motor_sub.c` / `aggregation_server.c`）現在
 
 `SourceNode`（0:NodeId，「這筆記錄來自哪個 Node」）是規範**早就定義好**的欄位，
 先前實作沒有填 → log 無法歸屬來源 → R(否認) 在原理上無法偵測
-（[EXPERIMENTS.md](EXPERIMENTS.md) 消融實驗：三個 ML 模型真實 R recall 都是 **0%**）。
+（`ablation_leakage.py` 消融實驗：三個 ML 模型真實 R recall 都是 **0%**）。
 
 但**光是加一個文字欄位沒有用**：否認攻擊會逐字複製真實 log 的格式
 （見 `attacks/repudiation_attack.c`），行內的任何欄位都能照抄。
@@ -148,6 +145,47 @@ baseline）：
 用 sentence-embedding（all-MiniLM）把 template 轉向量，對「沒見過的新模板」有語意
 泛化力。可作 DeepLog 輸入特徵，或接 Isolation Forest / autoencoder 做無監督偏離偵測。
 
+### 第 4 層：多變量序列模型（mvdeeplog / mvlstm_ae）
+
+前三層把每一行壓成一個 **模板 ID**，於是「值」與「節律」被丟掉了。S(欺騙) 偽造的
+sensor 讀數用的是**與正常讀數完全相同的模板**，所以在模板這個觀測維度上根本不存在
+—— 換更大的 LSTM 不會有幫助，這是**輸入表示**的問題不是容量問題。第 4 層把觀測從
+「模板序列」換成「(模板, 間隔, 值) 的多變量序列」：
+
+| 檔 | 型態 | 形狀 |
+|---|---|---|
+| `mvdeeplog.py` | **預測式** LSTM | 吃 W 步 → 三個頭預測下一步的 `(模板, dt, 值)`；分數 = CE + 兩個 Gaussian NLL，各自用純正常 val 標準化後加權 |
+| `mvlstm_ae.py` | **重建式** LSTM Autoencoder | 只吃連續通道 `log1p(dt_source) / dt_stream / 正規化 dist / val_mask`，壓成 latent 再解回；分數 = 重建 MSE，門檻取 val 高分位 |
+
+兩者共用**完全相同**的資料管線（分流、baseline/test 切分、seen-only、正規化只由
+train 估），所以報表可逐行對照，回答「重建式 vs 預測式，哪個對數值異常更有效」。
+
+三個關鍵設計決定（都寫在各檔開頭的註解裡）：
+
+- **預測目標也要換，不只換輸入。** 若輸出仍然只有模板，S 依舊不可見 —— 異常必須
+  出現在預測目標裡，所以 `head_dt` / `head_val` 是必要的而非加分項。
+- **輸入只放原始觀測，不放衍生的偵測特徵。** 刻意排除 `sensor_no_echo` /
+  `dist_ts_occurrence` / `sensor_win_count` 等 —— 那些是規則的答案，放進去只是
+  「規則換一種寫法」（且 `sensor_no_echo` 用到未來 5 秒資訊，是 lookahead）。
+  也不放 pair 編號：那是身分不是行為，拓樸擴張時就得重訓。
+- **pair 分流是架構前提，不是可調選項。** aggregation_server 把 N 組 pair 匯進同一份
+  檔案，檔案順序是 N 條各自規律的循環隨機交錯的結果 → bigram 的「前一個模板」幾乎
+  不帶資訊。分流邊界必須對齊因果單元（motor i 只訂閱 sensor i，兩者必須同流）。
+  用 `ngram_detector.py --compare-streams` 複現這個對照。
+
+**兩階欺騙威脅模型**（`attacks/physics_aware_spoof.c`）：naive spoof 注入量程內均勻
+亂數，與前值差很大，單步 |Δ| 檢定就能抓 → 不足以支撐「偵測有難度」。物理感知版
+**先讀目標節點當前值**再注入附近的一小步，單步檢定失效；但攻擊者控制不了下一步
+（真感測器從真值繼續遊走），於是相鄰增量呈負相關 —— 這個二階結構在單步上看不見、
+需要至少兩步，正是序列模型該學、規則難寫的訊號。`check_spoof_tier.py` 用模型無關的
+單步 |Δ| 檢定驗證這個難度差異確實只存在於**值**維度。
+
+**逐秒評估**（`second_level_eval.py`）：把逐行分數以 `(scenario, ts_sec)` 聚合成逐秒
+指標。門檻取自 **val 集**（baseline 場景後 20%，訓練期間完全未使用）的正常秒分位數，
+而不是評估集 —— 後者所報告的誤報率必然等於設計值（那是恆等式不是量測），且門檻參數
+接觸了評估資料。改用 val 校準後，「設計誤報率」與「實測誤報率」是兩個不同的數，
+兩者的落差本身就是結果。
+
 ## 評估指標
 
 異常極不平衡（~0.2%），**不可用 accuracy**。用 **Precision / Recall / F1 / PR-AUC**，
@@ -166,7 +204,15 @@ baseline）：
 - `embed_semantic.py` — 第3層 語意偏離偵測 → `out/semantic_results.txt`
 - `deeplog_semantic.py` — 第3層 語意向量 DeepLog → `out/deeplog_semantic_results.txt`
 
-**驗證與方法學（本輪新增）**
+**第 4 層：多變量序列模型**
+- `mvdeeplog.py` — **預測式** LSTM，三頭預測 (模板, dt, 值) → `out/mvdeeplog_results*.txt`
+- `mvlstm_ae.py` — **重建式** LSTM Autoencoder，連續通道重建誤差 → `out/mvlstm_ae_results*.txt`
+- `ngram_detector.py` — n-gram / bigram 零訓練對照組；`--compare-streams` 驗證分流邊界
+- `second_level_eval.py` — 逐行分數 → **逐秒指標**，門檻由 val 校準 → `out/second_level_eval.txt`
+- `check_spoof_tier.py` — 模型無關的單步 |Δ| 檢定，驗證兩階 spoof 的難度差異
+- `diag_T_recover.py` — 多門檻診斷：神經 tmpl surprisal 能撿回多少 T → `out/diag_T_recover.txt`
+
+**驗證與方法學**
 - `ablation_leakage.py` — **R 消融實驗**：證明 R 的高分來自資料洩漏 → `out/ablation_leakage.txt`
 - `sweep_deeplog.py` — **超參掃描 + PR 曲線 + 多 seed** → `out/sweep_deeplog.txt`, `out/pr_curve.csv`
 - `hybrid_detector.py` — **混合偵測器實測**（第1層 OR/AND 第2層）→ `out/hybrid_results.txt`
@@ -178,12 +224,37 @@ baseline）：
 - `collect_sourcenode.sh` — **採集含 SourceNode 的新格式 log**（含自動標記）
 - `eval_sourcenode.py` — **有/無 SourceNode 對照** → `out/sourcenode_eval.txt`
 
+**採集腳本**
+- `collect_baseline.sh` — 產生純正常 baseline
+- `collect_v2.sh` — 單一 pair，新格式（LogRecord + SourceNode）
+- `collect_topo3.sh` — **三組 1:1 pair 匯進同一 aggregation_server**（第 4 層的主資料集），
+  含 naive / physics-aware 兩階 spoof 場景
+
 **其他**
 - `eval_four_combined.py` — 四攻擊混合場景單獨評估 → `out/four_combined_eval.txt`
-- `collect_baseline.sh` — 產生純正常 baseline
-- `venv/` — PyTorch + sentence-transformers CPU 虛擬環境
+- `venv/` — PyTorch + sentence-transformers CPU 虛擬環境（不進版控，見下方環境建置）
 
 ## 重現
+
+### 0) 環境（venv 不進版控，第一次要自己建）
+
+```bash
+cd stable/Aggregation_clientServer
+python3 -m venv ml/venv
+ml/venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
+ml/venv/bin/pip install numpy pandas scikit-learn matplotlib scapy sentence-transformers
+```
+
+### 1) 採集資料（`attacks/logs/` 也不進版控，要自己跑）
+
+```bash
+./ml/collect_topo3.sh 10 2 2 1 1   # 短測，確認流程（約 20 分鐘）
+./ml/collect_topo3.sh              # 正式採集（baseline 60 分 + 各攻擊場景）
+```
+
+> `.c` 比執行檔新時腳本會自動重編，直接跑即可。
+
+### 2) 跑管線
 
 ```bash
 cd stable/Aggregation_clientServer
@@ -202,6 +273,14 @@ ml/venv/bin/python ml/ablation_leakage.py    # R 洩漏消融（最重要）
 ml/venv/bin/python ml/hybrid_detector.py     # 混合偵測器
 ml/venv/bin/python ml/sweep_deeplog.py       # 超參掃描（約 11 次訓練，較慢）
 python3 ml/eval_numeric.py                   # 數值特徵規則（不經模板化）
+
+# 第 4 層：多變量序列模型（topo3 資料集）
+ml/venv/bin/python ml/ngram_detector.py --compare-streams   # 先確認分流邊界
+SCENARIO_FILTER=topo3 DUMP_SCORES=1 ml/venv/bin/python ml/mvdeeplog.py
+SCENARIO_FILTER=topo3 DUMP_SCORES=1 ml/venv/bin/python ml/mvlstm_ae.py
+ml/venv/bin/python ml/second_level_eval.py   # 逐秒指標（需上面的 DUMP_SCORES=1）
+ml/venv/bin/python ml/check_spoof_tier.py    # 兩階 spoof 難度差異（模型無關）
+SCENARIO_FILTER=topo3 ml/venv/bin/python ml/diag_T_recover.py
 
 # SourceNode 對照實驗（需重新採集資料）
 ./ml/collect_sourcenode.sh quick             # 先跑快速驗證（約 6 分鐘，確認流程）
@@ -224,8 +303,8 @@ python3 ml/eval_sourcenode.py                # 對照：ML 的 0% vs 規則的 1
   不是提高異常佔比 —— 真實比例本身是本研究的前提）。
 - **`ST_20260731_003522` 場景已移除**：該次採集 motor 未正常運作（無 `motor.log`），
   無法做下游一致性檢查。移除後資料為 **23,923 行 / 37 異常**。
-  ⚠️ 早期文件（RESULTS_SUMMARY / EXPERIMENTS）中的 **24,062 行 / 49 異常**是含該場景的
-  數字，那些實驗結論仍有效，只是資料基數不同。要完全對齊需重跑三個驗證實驗。
+  ⚠️ 早期報表中的 **24,062 行 / 49 異常**是含該場景的數字，結論仍有效，只是資料基數
+  不同。要完全對齊需重跑三個驗證實驗。
 - **本機無 GPIO** 影響 R/S 的模板分布。已用 `ablation_leakage.py` 模擬有 GPIO 的情況，
   但嚴謹評估仍需在真實 GPIO 環境重採。
 - **DeepLog 整體 PR-AUC 僅 ~0.12**：不是調參不足（整個網格都低），而是序列模型在本

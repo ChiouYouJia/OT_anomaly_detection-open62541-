@@ -22,6 +22,9 @@
 #define SERVO_PIN 18
 #define PWM_FREQ 50.0
 #define SAFE_DISTANCE 20.0
+// 距離數值的字面格式：真實元件與攻擊程式必須完全一致，否則「小數位數」本身
+// 就成為可分特徵（見 sensor_pub.c / updateDistanceCallback 的說明）。
+#define DIST_FMT "%.15g"
 
 // ===== 多實例支援（1 sensor + N motor 拓撲）=====
 // 同一支程式可啟動多個 motor 實例，各自有**不同的身分**。這對兩件事是必要的：
@@ -202,8 +205,16 @@ static void sensorDistanceChanged(UA_Client *client, UA_UInt32 subId, void *subC
     UA_Double currentDistance = *(UA_Double*)value->value.data;
     UA_Logger *logger = UA_Client_getConfig(client)->logging;
 
+    // ⚠ 數值先用標準 snprintf 組好再以 "%s" 交給 UA_LOG_*（2026-08-16 改）。
+    //   本檔的 log hook 用 open62541 的 UA_String_vformat()，它**不支援 C 標準的
+    //   精度修飾詞** —— 寫 "%.1f" 實際印出全精度。而攻擊程式用標準 snprintf("%.15g")，
+    //   精度正常生效 → 真假兩邊小數位數分布不同，成為與攻擊行為無關的假訊號。
+    //   統一成 %.15g（與 sensor_pub.c / attacks/*.c 一致）關掉這條洩漏管道。
+    char mmsg[160];
+
     // 收到值本身先記一筆（不論有無 GPIO），這是「我收到了」的憑據。
-    UA_LOG_INFO(logger, UA_LOGCATEGORY_USERLAND, "[Motor] Received distance: %.1f cm", currentDistance);
+    snprintf(mmsg, sizeof(mmsg), "[Motor] Received distance: " DIST_FMT " cm", currentDistance);
+    UA_LOG_INFO(logger, UA_LOGCATEGORY_USERLAND, "%s", mmsg);
 
     // ---- 致動決策：日誌與 GPIO 解耦 ----
     // ⚠ 這裡原本把兩行 LOG 包在 `if (gpio_handle >= 0)` 裡面，造成一個嚴重的
@@ -219,10 +230,16 @@ static void sensorDistanceChanged(UA_Client *client, UA_UInt32 subId, void *subC
     //   —— 那才是 OPC UA Part 22 這套設計真正要證明的事。
     if (currentDistance < SAFE_DISTANCE) {
         if (gpio_handle >= 0) lgTxPwm(gpio_handle, servo_pin(), PWM_FREQ, 5.0, 0, 0);
-        UA_LOG_WARNING(logger, UA_LOGCATEGORY_USERLAND, "[Motor] Distance too close (%.1f); rotating motor to 0 degrees", currentDistance);
+        snprintf(mmsg, sizeof(mmsg),
+                 "[Motor] Distance too close (" DIST_FMT "); rotating motor to 0 degrees",
+                 currentDistance);
+        UA_LOG_WARNING(logger, UA_LOGCATEGORY_USERLAND, "%s", mmsg);
     } else {
         if (gpio_handle >= 0) lgTxPwm(gpio_handle, servo_pin(), PWM_FREQ, 7.5, 0, 0);
-        UA_LOG_INFO(logger, UA_LOGCATEGORY_USERLAND, "[Motor] Distance safe (%.1f); rotating motor to 90 degrees", currentDistance);
+        snprintf(mmsg, sizeof(mmsg),
+                 "[Motor] Distance safe (" DIST_FMT "); rotating motor to 90 degrees",
+                 currentDistance);
+        UA_LOG_INFO(logger, UA_LOGCATEGORY_USERLAND, "%s", mmsg);
     }
 }
 

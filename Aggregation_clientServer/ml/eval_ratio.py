@@ -44,7 +44,7 @@ def out(s=""):
 def det_layer1(d):
     return ((d["dist_ts_occurrence"].values > 1) |
             (d["session_denied_cumcount"].values > 1) |
-            (d["sensor_events_in_sec"].values > 1)).astype(int)
+            (d["sensor_events_in_sec_persrc"].values > 1)).astype(int)
 
 def det_sourcenode(d):
     sn = d["lr_SourceNode"].astype(str).str.strip().str.lower()

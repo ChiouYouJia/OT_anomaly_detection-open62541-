@@ -59,8 +59,8 @@ def main():
     out("模板化會丟掉數值，但 OT 場域的破綻常常就在數值裡。")
     out("以下四條規則只看數值、不看文字，全部零訓練。")
 
-    base = df[df.scenario.str.startswith("baseline")]
-    test = df[~df.scenario.str.startswith("baseline")].reset_index(drop=True)
+    base = df[df.scenario.str.contains("baseline")]
+    test = df[~df.scenario.str.contains("baseline")].reset_index(drop=True)
     out(f"\n門檻校準用：純正常 baseline {len(base)} 行（不看攻擊資料）")
     out(f"評估對象  ：攻擊場景 {len(test)} 行，異常 {int(test.label.sum())} 筆")
 
@@ -113,11 +113,11 @@ def main():
     out("與既有第1層統計規則的對照（兩者都是零訓練）")
     out("=" * 76)
     out("第1層統計規則（既有）：dist_ts_occurrence>1 OR session_denied_cumcount>1")
-    out("                       OR sensor_events_in_sec>1")
+    out("                       OR sensor_events_in_sec_persrc>1")
 
     stat = ((test["dist_ts_occurrence"] > 1) |
             (test["session_denied_cumcount"] > 1) |
-            (test["sensor_events_in_sec"] > 1)).astype(int).values
+            (test["sensor_events_in_sec_persrc"] > 1)).astype(int).values
     out("")
     res_stat = report(stat, test, "第1層 統計規則（既有）")
     res_num2 = report(num_all, test, "數值規則（本次新增）")
@@ -190,7 +190,7 @@ def main():
         out("    (1) 精確度更高：下游無回音的 FPR 僅 0.51%，遠低於統計規則的 1.48%。")
         out("        若營運上重視告警可信度，它是更好的單一規則。")
         out("    (2) 抗規避能力不同：攻擊者只要把假讀數的注入頻率降到「每秒一筆」，")
-        out("        就能規避 sensor_events_in_sec>1；但只要他沒有真的改動 sensor 節點，")
+        out("        就能規避 sensor_events_in_sec_persrc>1；但只要他沒有真的改動 sensor 節點，")
         out("        『下游無回音』依然成立。**它針對的是攻擊的本質，不是表面統計。**")
         out("    (3) 不依賴模板：它在完全不做模板化的管線上也能運作。")
         out("")

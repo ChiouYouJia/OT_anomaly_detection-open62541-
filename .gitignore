@@ -24,10 +24,24 @@ Aggregation_clientServer/ml/out/
 Aggregation_clientServer/ml/figures/
 *.pcap
 
+# 實驗報告／論文草稿／工作筆記：只有程式碼進版控，結果留在本機
+Aggregation_clientServer/STOCKTAKE_*.md
+Aggregation_clientServer/ml/RESULTS_*.md
+Aggregation_clientServer/ml/EXPERIMENTS*.md
+Aggregation_clientServer/ml/PAPER_*.md
+Aggregation_clientServer/ml/paper_experiment.txt
+Aggregation_clientServer/ml/paper_figures.m
+Aggregation_clientServer/net/RESULTS_*.md
+Aggregation_clientServer/net/SESSION_*.md
+Aggregation_clientServer/net/TODO_*.md
+Aggregation_clientServer/net/TOPO_*_DESIGN.md
+Aggregation_clientServer/net/GNN_DATASET.md
+
 # 編譯產物（run_all.sh 會從 .c 自動重建）
 Aggregation_clientServer/aggregation_server
 Aggregation_clientServer/sensor_pub
 Aggregation_clientServer/motor_sub
 Aggregation_clientServer/Anomaly_client
 Aggregation_clientServer/attacks/*_attack
+Aggregation_clientServer/attacks/*_spoof
 Aggregation_clientServer/net/*.so
