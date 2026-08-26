@@ -1,0 +1,169 @@
+[agg] 授權來源：SensorSource1..3 + MotorSource1..3
+[2026-08-15 22:26:41.313 (UTC+0800)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-08-15 22:26:41.313 (UTC+0800)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-08-15 22:26:41.313 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-15 22:26:41.352 (UTC+0800)] [33mwarn/application[0m	ServerUrls already set. Overriding.
+[2026-08-15 22:26:41.352 (UTC+0800)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-08-15 22:26:41.352 (UTC+0800)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-08-15 22:26:41.352 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-15 22:26:41.352 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-15 22:26:41.352 (UTC+0800)] [32minfo/network[0m	TCP	| Listening on all interfaces
+[2026-08-15 22:26:41.367 (UTC+0800)] [32minfo/network[0m	TCP 8	| Creating listen socket for "0.0.0.0" (with local hostname "MSI") on port 4840
+[2026-08-15 22:26:41.367 (UTC+0800)] [32minfo/server[0m	New DiscoveryUrl added: opc.tcp://MSI:4840
+[2026-08-15 22:26:41.367 (UTC+0800)] [32minfo/network[0m	TCP 9	| Creating listen socket for "::" (with local hostname "MSI") on port 4840
+[2026-08-15 22:26:41.367 (UTC+0800)] [32minfo/application[0m	Aggregation Server started (port 4840)
+[2026-08-15 22:26:41.867 (UTC+0800)] [32minfo/network[0m	TCP 15	| Opening a connection to "127.0.0.1" on port 4842
+[2026-08-15 22:26:42.352 (UTC+0800)] [32minfo/network[0m	TCP 15	| The connection closes with error 111
+[2026-08-15 22:26:42.353 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 0	| SecureChannel closed
+[2026-08-15 22:26:42.353 (UTC+0800)] [31merror/client[0m	Could not open a TCP connection to the Endpoint at opc.tcp://127.0.0.1:4842
+[2026-08-15 22:26:42.353 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionRejected
+[2026-08-15 22:26:42.353 (UTC+0800)] [32minfo/network[0m	TCP 15	| Socket closed
+[2026-08-15 22:26:44.353 (UTC+0800)] [32minfo/network[0m	TCP 15	| Opening a connection to "127.0.0.1" on port 4842
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/network[0m	TCP 16	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| SecureChannel created
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/network[0m	TCP 15	| The connection closes with error 111
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 0	| SecureChannel closed
+[2026-08-15 22:26:44.366 (UTC+0800)] [31merror/client[0m	Could not open a TCP connection to the Endpoint at opc.tcp://127.0.0.1:4842
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionRejected
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/network[0m	TCP 15	| Socket closed
+[2026-08-15 22:26:44.366 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:44.367 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.367 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.367 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.367 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/session[0m	TCP 16	| SC 1	| Session "SensorSource3"	| Session created
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/network[0m	TCP 15	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| SecureChannel created
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/session[0m	TCP 16	| SC 1	| Session "SensorSource3"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/network[0m	TCP 17	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:44.367 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| SecureChannel created
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [32minfo/session[0m	TCP 15	| SC 2	| Session "SensorSource"	| Session created
+[2026-08-15 22:26:44.368 (UTC+0800)] [32minfo/session[0m	TCP 15	| SC 2	| Session "SensorSource"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.368 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:44.369 (UTC+0800)] [32minfo/session[0m	TCP 17	| SC 3	| Session "SensorSource2"	| Session created
+[2026-08-15 22:26:44.369 (UTC+0800)] [32minfo/session[0m	TCP 17	| SC 3	| Session "SensorSource2"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:46.321 (UTC+0800)] [32minfo/network[0m	TCP 18	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:46.321 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| SecureChannel created
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/network[0m	TCP 19	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| SecureChannel created
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/network[0m	TCP 20	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| SecureChannel created
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/network[0m	TCP 21	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| SecureChannel created
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:46.322 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.322 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.323 (UTC+0800)] [32minfo/session[0m	TCP 20	| SC 6	| Session "MotorSource"	| Session created
+[2026-08-15 22:26:46.323 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.323 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.323 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.323 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.324 (UTC+0800)] [32minfo/session[0m	TCP 18	| SC 4	| Session "ns=1;g=3c393f42-4fe8-4ed3-f4ef-be9b450450c5"	| Session created
+[2026-08-15 22:26:46.324 (UTC+0800)] [32minfo/session[0m	TCP 20	| SC 6	| Session "MotorSource"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:46.324 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.324 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.324 (UTC+0800)] [32minfo/session[0m	TCP 21	| SC 7	| Session "MotorSource2"	| Session created
+[2026-08-15 22:26:46.324 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.324 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-15 22:26:46.325 (UTC+0800)] [32minfo/session[0m	TCP 19	| SC 5	| Session "MotorSource3"	| Session created
+[2026-08-15 22:26:46.325 (UTC+0800)] [32minfo/session[0m	TCP 21	| SC 7	| Session "MotorSource2"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:46.325 (UTC+0800)] [32minfo/session[0m	TCP 18	| SC 4	| Session "ns=1;g=3c393f42-4fe8-4ed3-f4ef-be9b450450c5"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:46.325 (UTC+0800)] [32minfo/session[0m	TCP 19	| SC 5	| Session "MotorSource3"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-15 22:26:46.325 (UTC+0800)] [32minfo/session[0m	TCP 18	| SC 4	| Session "ns=1;g=3c393f42-4fe8-4ed3-f4ef-be9b450450c5"	| Subscription 1 | Subscription created (Publishing interval 500.0ms, max 1000 notifications per publish)
+[2026-08-15 22:26:46.325 (UTC+0800)] [32minfo/session[0m	TCP 18	| SC 4	| Session "ns=1;g=3c393f42-4fe8-4ed3-f4ef-be9b450450c5"	| Subscription 1 | MonitoredItem 1 | Created the MonitoredItem (Sampling Interval: 0.0ms, Queue Size: 100)
+[2026-08-15 22:26:47.353 (UTC+0800)] [32minfo/network[0m	TCP 22	| Opening a connection to "127.0.0.1" on port 4842
+[2026-08-15 22:26:47.380 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 22:26:47.380 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-08-15 22:26:47.390 (UTC+0800)] [32minfo/client[0m	The initially defined EndpointURL opc.tcp://127.0.0.1:4842 is valid for the server
+[2026-08-15 22:26:47.401 (UTC+0800)] [33mwarn/client[0m	The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4842 than was used to initialize the connection: opc.tcp://127.0.0.1:4842. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints.
+[2026-08-15 22:26:47.401 (UTC+0800)] [32minfo/client[0m	Endpoint 0: Best endpoint so far with UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 22:26:47.401 (UTC+0800)] [32minfo/client[0m	Endpoint 0 selected with SecurityMode None, SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 22:26:47.401 (UTC+0800)] [32minfo/client[0m	CreateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 22:26:47.412 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-08-15 22:26:47.412 (UTC+0800)] [32minfo/client[0m	ActivateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 22:26:47.422 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-08-15 22:26:47.422 (UTC+0800)] [32minfo/application[0m	Connected to sensor backend; starting data aggregation
+[2026-08-15 22:26:47.422 (UTC+0800)] [32minfo/client[0m	Re-establish the connection for the synchronous service call
+[2026-08-15 22:26:47.422 (UTC+0800)] [33mwarn/client[0m	Client connection already initiated
+[2026-08-15 22:26:49.444 (UTC+0800)] [33mwarn/client[0m	Request with unknown RequestId 7
+[2026-08-15 22:34:14.368 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:14.372 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:14.373 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:16.322 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:16.335 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:16.337 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:16.463 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:34:17.934 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:44.453 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:45.353 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:45.364 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:46.448 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:46.453 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:46.453 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:46.983 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:41:48.936 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:15.358 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:15.368 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:15.368 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:16.459 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:16.470 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:16.471 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:17.330 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:49:19.942 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:45.360 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:45.451 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:46.363 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:46.464 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:47.331 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:47.331 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:47.448 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 22:56:50.933 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:15.374 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:16.376 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:16.376 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:16.467 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:17.449 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:17.454 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:17.966 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:04:21.933 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:46.357 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:46.452 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:46.481 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:47.360 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:47.453 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:47.472 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:48.327 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:11:52.938 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:16.362 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:16.453 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:16.482 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:17.364 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:17.465 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:17.473 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:18.436 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:19:23.941 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 2	| SecureChannel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:46.374 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 1	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:47.322 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 6	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:47.376 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 2	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:47.376 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:47.467 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 7	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:48.333 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 5	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s
+[2026-08-15 23:26:48.956 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 4	| OpenSecureChannel: Channel renewed with a revised lifetime of 600.0s

@@ -1,0 +1,208 @@
+[agg] 授權來源：SensorSource1..3 + MotorSource1..3
+[2026-08-16 00:09:50.671 (UTC+0800)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-08-16 00:09:50.671 (UTC+0800)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-08-16 00:09:50.671 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-16 00:09:50.707 (UTC+0800)] [33mwarn/application[0m	ServerUrls already set. Overriding.
+[2026-08-16 00:09:50.707 (UTC+0800)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-08-16 00:09:50.707 (UTC+0800)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-08-16 00:09:50.707 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-16 00:09:50.707 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-16 00:09:50.707 (UTC+0800)] [32minfo/network[0m	TCP	| Listening on all interfaces
+[2026-08-16 00:09:50.723 (UTC+0800)] [32minfo/network[0m	TCP 8	| Creating listen socket for "0.0.0.0" (with local hostname "MSI") on port 4840
+[2026-08-16 00:09:50.723 (UTC+0800)] [32minfo/server[0m	New DiscoveryUrl added: opc.tcp://MSI:4840
+[2026-08-16 00:09:50.723 (UTC+0800)] [32minfo/network[0m	TCP 9	| Creating listen socket for "::" (with local hostname "MSI") on port 4840
+[2026-08-16 00:09:50.723 (UTC+0800)] [32minfo/application[0m	Aggregation Server started (port 4840)
+[2026-08-16 00:09:51.223 (UTC+0800)] [32minfo/network[0m	TCP 15	| Opening a connection to "127.0.0.1" on port 4842
+[2026-08-16 00:09:51.708 (UTC+0800)] [32minfo/network[0m	TCP 15	| The connection closes with error 111
+[2026-08-16 00:09:52.208 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 0	| SecureChannel closed
+[2026-08-16 00:09:52.208 (UTC+0800)] [31merror/client[0m	Could not open a TCP connection to the Endpoint at opc.tcp://127.0.0.1:4842
+[2026-08-16 00:09:52.208 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionRejected
+[2026-08-16 00:09:52.208 (UTC+0800)] [32minfo/network[0m	TCP 15	| Socket closed
+[2026-08-16 00:09:53.730 (UTC+0800)] [32minfo/network[0m	TCP 15	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:53.730 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 1	| SecureChannel created
+[2026-08-16 00:09:53.730 (UTC+0800)] [32minfo/channel[0m	TCP 15	| SC 1	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:53.730 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.731 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.731 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.731 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.731 (UTC+0800)] [32minfo/session[0m	TCP 15	| SC 1	| Session "SensorSource"	| Session created
+[2026-08-16 00:09:53.731 (UTC+0800)] [32minfo/network[0m	TCP 16	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:53.731 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 2	| SecureChannel created
+[2026-08-16 00:09:53.731 (UTC+0800)] [32minfo/session[0m	TCP 15	| SC 1	| Session "SensorSource"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:53.731 (UTC+0800)] [32minfo/channel[0m	TCP 16	| SC 2	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:53.732 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.732 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.732 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.732 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.732 (UTC+0800)] [32minfo/session[0m	TCP 16	| SC 2	| Session "SensorSource2"	| Session created
+[2026-08-16 00:09:53.732 (UTC+0800)] [32minfo/network[0m	TCP 17	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:53.732 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| SecureChannel created
+[2026-08-16 00:09:53.732 (UTC+0800)] [32minfo/session[0m	TCP 16	| SC 2	| Session "SensorSource2"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:53.732 (UTC+0800)] [32minfo/channel[0m	TCP 17	| SC 3	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:53.733 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.733 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.733 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.733 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:53.733 (UTC+0800)] [32minfo/session[0m	TCP 17	| SC 3	| Session "SensorSource3"	| Session created
+[2026-08-16 00:09:53.733 (UTC+0800)] [32minfo/session[0m	TCP 17	| SC 3	| Session "SensorSource3"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:54.708 (UTC+0800)] [32minfo/network[0m	TCP 18	| Opening a connection to "127.0.0.1" on port 4842
+[2026-08-16 00:09:54.735 (UTC+0800)] [32minfo/channel[0m	TCP 18	| SC 1	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:54.735 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-08-16 00:09:54.745 (UTC+0800)] [32minfo/client[0m	The initially defined EndpointURL opc.tcp://127.0.0.1:4842 is valid for the server
+[2026-08-16 00:09:54.755 (UTC+0800)] [33mwarn/client[0m	The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4842 than was used to initialize the connection: opc.tcp://127.0.0.1:4842. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints.
+[2026-08-16 00:09:54.755 (UTC+0800)] [32minfo/client[0m	Endpoint 0: Best endpoint so far with UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:09:54.755 (UTC+0800)] [32minfo/client[0m	Endpoint 0 selected with SecurityMode None, SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:09:54.755 (UTC+0800)] [32minfo/client[0m	CreateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:09:54.766 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-08-16 00:09:54.766 (UTC+0800)] [32minfo/client[0m	ActivateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:09:54.777 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-08-16 00:09:54.777 (UTC+0800)] [32minfo/application[0m	Connected to sensor backend; starting data aggregation
+[2026-08-16 00:09:54.777 (UTC+0800)] [32minfo/client[0m	Re-establish the connection for the synchronous service call
+[2026-08-16 00:09:54.777 (UTC+0800)] [33mwarn/client[0m	Client connection already initiated
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/network[0m	TCP 19	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 4	| SecureChannel created
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/network[0m	TCP 20	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 5	| SecureChannel created
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/network[0m	TCP 21	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 6	| SecureChannel created
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/network[0m	TCP 22	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 7	| SecureChannel created
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 19	| SC 4	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 20	| SC 5	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 21	| SC 6	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:56.787 (UTC+0800)] [32minfo/channel[0m	TCP 22	| SC 7	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [32minfo/session[0m	TCP 21	| SC 6	| Session "MotorSource3"	| Session created
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.788 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.789 (UTC+0800)] [32minfo/session[0m	TCP 19	| SC 4	| Session "MotorSource"	| Session created
+[2026-08-16 00:09:56.789 (UTC+0800)] [32minfo/session[0m	TCP 21	| SC 6	| Session "MotorSource3"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:56.789 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.789 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.789 (UTC+0800)] [32minfo/session[0m	TCP 22	| SC 7	| Session "MotorSource2"	| Session created
+[2026-08-16 00:09:56.789 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.789 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:56.790 (UTC+0800)] [32minfo/session[0m	TCP 20	| SC 5	| Session "ns=1;g=c2e29251-50ea-567a-d68d-581583088058"	| Session created
+[2026-08-16 00:09:56.790 (UTC+0800)] [32minfo/session[0m	TCP 22	| SC 7	| Session "MotorSource2"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:56.790 (UTC+0800)] [32minfo/session[0m	TCP 19	| SC 4	| Session "MotorSource"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:56.790 (UTC+0800)] [32minfo/session[0m	TCP 20	| SC 5	| Session "ns=1;g=c2e29251-50ea-567a-d68d-581583088058"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:56.791 (UTC+0800)] [32minfo/session[0m	TCP 20	| SC 5	| Session "ns=1;g=c2e29251-50ea-567a-d68d-581583088058"	| Subscription 1 | Subscription created (Publishing interval 500.0ms, max 1000 notifications per publish)
+[2026-08-16 00:09:56.791 (UTC+0800)] [32minfo/session[0m	TCP 20	| SC 5	| Session "ns=1;g=c2e29251-50ea-567a-d68d-581583088058"	| Subscription 1 | MonitoredItem 1 | Created the MonitoredItem (Sampling Interval: 0.0ms, Queue Size: 100)
+[2026-08-16 00:09:56.798 (UTC+0800)] [33mwarn/client[0m	Request with unknown RequestId 7
+[2026-08-16 00:09:58.686 (UTC+0800)] [32minfo/network[0m	TCP 23	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.686 (UTC+0800)] [32minfo/channel[0m	TCP 23	| SC 8	| SecureChannel created
+[2026-08-16 00:09:58.686 (UTC+0800)] [32minfo/channel[0m	TCP 23	| SC 8	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.686 (UTC+0800)] [32minfo/network[0m	TCP 24	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.686 (UTC+0800)] [32minfo/channel[0m	TCP 24	| SC 9	| SecureChannel created
+[2026-08-16 00:09:58.686 (UTC+0800)] [32minfo/channel[0m	TCP 24	| SC 9	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.687 (UTC+0800)] [32minfo/network[0m	TCP 25	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.687 (UTC+0800)] [32minfo/channel[0m	TCP 25	| SC 10	| SecureChannel created
+[2026-08-16 00:09:58.687 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.687 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.687 (UTC+0800)] [32minfo/network[0m	TCP 26	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.687 (UTC+0800)] [32minfo/channel[0m	TCP 26	| SC 11	| SecureChannel created
+[2026-08-16 00:09:58.687 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.687 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.687 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.687 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/session[0m	TCP 24	| SC 9	| Session "ns=1;g=9fe32bcc-b581-0886-ab3a-330377f7bfab"	| Session created
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/network[0m	TCP 27	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/channel[0m	TCP 27	| SC 12	| SecureChannel created
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/session[0m	TCP 24	| SC 9	| Session "ns=1;g=9fe32bcc-b581-0886-ab3a-330377f7bfab"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/network[0m	TCP 28	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/channel[0m	TCP 28	| SC 13	| SecureChannel created
+[2026-08-16 00:09:58.688 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.688 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.688 (UTC+0800)] [32minfo/session[0m	TCP 23	| SC 8	| Session "ns=1;g=2daa73f5-20b8-2513-0020-a24a6d1641e4"	| Session created
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 25	| SC 10	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/network[0m	TCP 29	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 29	| SC 14	| SecureChannel created
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 26	| SC 11	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/network[0m	TCP 30	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 30	| SC 15	| SecureChannel created
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 27	| SC 12	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/session[0m	TCP 23	| SC 8	| Session "ns=1;g=2daa73f5-20b8-2513-0020-a24a6d1641e4"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/network[0m	TCP 31	| Connection opened from "127.0.0.1" via the server socket 8
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 31	| SC 16	| SecureChannel created
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 29	| SC 14	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 28	| SC 13	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.689 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.689 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.689 (UTC+0800)] [32minfo/channel[0m	TCP 30	| SC 15	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.689 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.689 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.689 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.689 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [32minfo/session[0m	TCP 27	| SC 12	| Session "ns=1;g=9805bcfd-e08a-66c0-cefc-7fd791a9ba9b"	| Session created
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [32minfo/channel[0m	TCP 31	| SC 16	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [32minfo/session[0m	TCP 27	| SC 12	| Session "ns=1;g=9805bcfd-e08a-66c0-cefc-7fd791a9ba9b"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [32minfo/session[0m	TCP 25	| SC 10	| Session "ns=1;g=a5bc9d3c-6a92-aaf7-b08b-f8dfc88c68e6"	| Session created
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.690 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.691 (UTC+0800)] [32minfo/session[0m	TCP 29	| SC 14	| Session "ns=1;g=e7fe93c1-7e50-93a1-e45e-95c9be3b73f7"	| Session created
+[2026-08-16 00:09:58.691 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.691 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.691 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.691 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.691 (UTC+0800)] [32minfo/session[0m	TCP 26	| SC 11	| Session "ns=1;g=593e577d-53c9-e516-2ec2-7c67db3d73a7"	| Session created
+[2026-08-16 00:09:58.692 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.692 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.692 (UTC+0800)] [32minfo/session[0m	TCP 31	| SC 16	| Session "ns=1;g=d33d4b6d-52e4-a535-0ae0-fecf77b77b07"	| Session created
+[2026-08-16 00:09:58.692 (UTC+0800)] [32minfo/session[0m	TCP 29	| SC 14	| Session "ns=1;g=e7fe93c1-7e50-93a1-e45e-95c9be3b73f7"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.692 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.692 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 28	| SC 13	| Session "ns=1;g=b8040a3c-8200-736e-15b1-db5d4fa46a26"	| Session created
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 25	| SC 10	| Session "ns=1;g=a5bc9d3c-6a92-aaf7-b08b-f8dfc88c68e6"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.693 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.693 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 31	| SC 16	| Session "ns=1;g=d33d4b6d-52e4-a535-0ae0-fecf77b77b07"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 26	| SC 11	| Session "ns=1;g=593e577d-53c9-e516-2ec2-7c67db3d73a7"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 28	| SC 13	| Session "ns=1;g=b8040a3c-8200-736e-15b1-db5d4fa46a26"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:09:58.693 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.693 (UTC+0800)] [33mwarn/client[0m	Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword)
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 30	| SC 15	| Session "ns=1;g=2c9a9a76-49cb-1022-cf7c-f71fa85a85c8"	| Session created
+[2026-08-16 00:09:58.693 (UTC+0800)] [32minfo/session[0m	TCP 30	| SC 15	| Session "ns=1;g=2c9a9a76-49cb-1022-cf7c-f71fa85a85c8"	| ActivateSession: Session activated with ClientUserId ""
+[2026-08-16 00:14:58.080 (UTC+0800)] [32minfo/session[0m	TCP 28	| SC 13	| Session "ns=1;g=b8040a3c-8200-736e-15b1-db5d4fa46a26"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 29	| SC 14	| Session "ns=1;g=e7fe93c1-7e50-93a1-e45e-95c9be3b73f7"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 27	| SC 12	| Session "ns=1;g=9805bcfd-e08a-66c0-cefc-7fd791a9ba9b"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 31	| SC 16	| Session "ns=1;g=d33d4b6d-52e4-a535-0ae0-fecf77b77b07"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 26	| SC 11	| Session "ns=1;g=593e577d-53c9-e516-2ec2-7c67db3d73a7"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 23	| SC 8	| Session "ns=1;g=2daa73f5-20b8-2513-0020-a24a6d1641e4"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 30	| SC 15	| Session "ns=1;g=2c9a9a76-49cb-1022-cf7c-f71fa85a85c8"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/session[0m	TCP 25	| SC 10	| Session "ns=1;g=a5bc9d3c-6a92-aaf7-b08b-f8dfc88c68e6"	| Closing the Session
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/channel[0m	TCP 28	| SC 13	| SecureChannel closed
+[2026-08-16 00:14:58.081 (UTC+0800)] [32minfo/network[0m	TCP 28	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/session[0m	TCP 24	| SC 9	| Session "ns=1;g=9fe32bcc-b581-0886-ab3a-330377f7bfab"	| Closing the Session
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 29	| SC 14	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 29	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 27	| SC 12	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 27	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 31	| SC 16	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 31	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 26	| SC 11	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 26	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 23	| SC 8	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 23	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 30	| SC 15	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 30	| Socket closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/channel[0m	TCP 25	| SC 10	| SecureChannel closed
+[2026-08-16 00:14:58.082 (UTC+0800)] [32minfo/network[0m	TCP 25	| Socket closed
+[2026-08-16 00:14:58.083 (UTC+0800)] [32minfo/channel[0m	TCP 24	| SC 9	| SecureChannel closed
+[2026-08-16 00:14:58.083 (UTC+0800)] [32minfo/network[0m	TCP 24	| Socket closed

@@ -19,10 +19,15 @@ __pycache__/
 
 # 實驗資料與結果產物一律不進版控（只保留程式碼）
 Aggregation_clientServer/net/captures/
-Aggregation_clientServer/attacks/logs/
 Aggregation_clientServer/ml/out/
 Aggregation_clientServer/ml/figures/
 *.pcap
+
+# 攻擊 log：僅論文所用之 topo3_* 資料集（71 場景）進版控，其餘迭代版本留在本機。
+# 注意要用 logs/* 而非 logs/，被排除的目錄其子項無法再以 ! 重新納入。
+Aggregation_clientServer/attacks/logs/*
+!Aggregation_clientServer/attacks/logs/topo3_*
+!Aggregation_clientServer/attacks/logs/README.md
 
 # 實驗報告／論文草稿／工作筆記：只有程式碼進版控，結果留在本機
 Aggregation_clientServer/STOCKTAKE_*.md

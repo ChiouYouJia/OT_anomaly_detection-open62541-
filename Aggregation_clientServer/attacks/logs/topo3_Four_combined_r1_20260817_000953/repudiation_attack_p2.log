@@ -1,0 +1,22 @@
+[REPUDIATE] Connecting to aggregation_server@4840 (anonymous)...
+[2026-08-17 00:25:38.821 (UTC+0800)] [32minfo/network[0m	TCP 8	| Opening a connection to "127.0.0.1" on port 4840
+[2026-08-17 00:25:38.822 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 12	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-17 00:25:38.822 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-08-17 00:25:38.822 (UTC+0800)] [32minfo/client[0m	The initially defined EndpointURL opc.tcp://127.0.0.1:4840 is valid for the server
+[2026-08-17 00:25:38.822 (UTC+0800)] [33mwarn/client[0m	The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4840 than was used to initialize the connection: opc.tcp://127.0.0.1:4840. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints.
+[2026-08-17 00:25:38.822 (UTC+0800)] [32minfo/client[0m	Endpoint 0: Best endpoint so far with UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 00:25:38.822 (UTC+0800)] [32minfo/client[0m	Endpoint 0 selected with SecurityMode None, SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 00:25:38.822 (UTC+0800)] [32minfo/client[0m	CreateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 00:25:38.823 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-08-17 00:25:38.823 (UTC+0800)] [32minfo/client[0m	ActivateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 00:25:38.824 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[REPUDIATE] Connected as ANONYMOUS. Lurking 300 s, sparsely forging 3
+[REPUDIATE] 'motor action' logs that motor never performed.
+
+[REPUDIATE] t=18s FORGED (impersonating Motor2): [2026-08-16 16:25:56.035 (UTC)] warn/application	[Motor] Distance too close (3.3); rotating motor to 0 degrees | Severity=175 | SourceName=Motor2 | EventType=application
+[REPUDIATE] t=186s FORGED (impersonating Motor2): [2026-08-16 16:28:44.131 (UTC)] warn/application	[Motor] Distance too close (9.1); rotating motor to 0 degrees | Severity=175 | SourceName=Motor2 | EventType=application
+[REPUDIATE] t=233s FORGED (impersonating Motor2): [2026-08-16 16:29:31.157 (UTC)] warn/application	[Motor] Distance too close (15.4); rotating motor to 0 degrees | Severity=175 | SourceName=Motor2 | EventType=application
+[REPUDIATE] Done (3/3 forged; attacker leaves no attributable trace).
+[2026-08-17 00:30:38.195 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 12	| SecureChannel closed
+[2026-08-17 00:30:38.195 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionClosed
+[2026-08-17 00:30:38.195 (UTC+0800)] [32minfo/network[0m	TCP 8	| Socket closed

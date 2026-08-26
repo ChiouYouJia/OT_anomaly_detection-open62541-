@@ -1,0 +1,22 @@
+[SPOOF] Connecting to aggregation_server@4840 (anonymous, no auth)...
+[2026-08-17 02:47:00.887 (UTC+0800)] [32minfo/network[0m	TCP 8	| Opening a connection to "127.0.0.1" on port 4840
+[2026-08-17 02:47:00.890 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 13	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-17 02:47:00.890 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-08-17 02:47:00.890 (UTC+0800)] [32minfo/client[0m	The initially defined EndpointURL opc.tcp://127.0.0.1:4840 is valid for the server
+[2026-08-17 02:47:00.891 (UTC+0800)] [33mwarn/client[0m	The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4840 than was used to initialize the connection: opc.tcp://127.0.0.1:4840. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints.
+[2026-08-17 02:47:00.891 (UTC+0800)] [32minfo/client[0m	Endpoint 0: Best endpoint so far with UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 02:47:00.891 (UTC+0800)] [32minfo/client[0m	Endpoint 0 selected with SecurityMode None, SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 02:47:00.891 (UTC+0800)] [32minfo/client[0m	CreateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 02:47:00.892 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-08-17 02:47:00.892 (UTC+0800)] [32minfo/client[0m	ActivateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-17 02:47:00.894 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[SPOOF] Connected. Lurking for 300 s, sparsely injecting 5 fake logs...
+[SPOOF] t=50s injected (as Sensor3): [2026-08-16 18:47:50.120 (UTC)] info/application	[Sensor] Updated distance: 19.3688134631928 cm | Severity=75 | SourceName=Sensor3 | EventType=application
+[SPOOF] t=105s injected (as Sensor3): [2026-08-16 18:48:45.150 (UTC)] info/application	[Sensor] Updated distance: 9.91266485672103 cm | Severity=75 | SourceName=Sensor3 | EventType=application
+[SPOOF] t=153s injected (as Sensor3): [2026-08-16 18:49:33.175 (UTC)] info/application	[Sensor] Updated distance: 39.9752352414537 cm | Severity=75 | SourceName=Sensor3 | EventType=application
+[SPOOF] t=202s injected (as Sensor3): [2026-08-16 18:50:22.002 (UTC)] info/application	[Sensor] Updated distance: 27.2376138312917 cm | Severity=75 | SourceName=Sensor3 | EventType=application
+[SPOOF] t=234s injected (as Sensor3): [2026-08-16 18:50:54.020 (UTC)] info/application	[Sensor] Updated distance: 7.09940614788765 cm | Severity=75 | SourceName=Sensor3 | EventType=application
+[SPOOF] Done (5/5 injected). Disconnecting.
+[2026-08-17 02:52:00.058 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 13	| SecureChannel closed
+[2026-08-17 02:52:00.058 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionClosed
+[2026-08-17 02:52:00.058 (UTC+0800)] [32minfo/network[0m	TCP 8	| Socket closed

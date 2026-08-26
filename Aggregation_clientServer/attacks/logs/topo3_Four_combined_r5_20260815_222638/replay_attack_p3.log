@@ -1,0 +1,23 @@
+[REPLAY] Connecting to aggregation_server@4840 (anonymous)...
+[2026-08-15 23:59:14.525 (UTC+0800)] [32minfo/network[0m	TCP 8	| Opening a connection to "127.0.0.1" on port 4840
+[2026-08-15 23:59:14.526 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 15	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-15 23:59:14.526 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-08-15 23:59:14.527 (UTC+0800)] [32minfo/client[0m	The initially defined EndpointURL opc.tcp://127.0.0.1:4840 is valid for the server
+[2026-08-15 23:59:14.528 (UTC+0800)] [33mwarn/client[0m	The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4840 than was used to initialize the connection: opc.tcp://127.0.0.1:4840. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints.
+[2026-08-15 23:59:14.528 (UTC+0800)] [32minfo/client[0m	Endpoint 0: Best endpoint so far with UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 23:59:14.528 (UTC+0800)] [32minfo/client[0m	Endpoint 0 selected with SecurityMode None, SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 23:59:14.528 (UTC+0800)] [32minfo/client[0m	CreateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 23:59:14.530 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-08-15 23:59:14.530 (UTC+0800)] [32minfo/client[0m	ActivateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-15 23:59:14.530 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[REPLAY] Connected.
+[REPLAY] CAPTURED a genuine past event for target pair (seq stripped):
+         [2026-08-15 15:59:13.641 (UTC)] info/application	[Sensor] Updated distance: 33.17825317344547 cm | Severity=75 | SourceName=Sensor3 | EventType=application | SourceNode=ns=1;s=SensorSource3
+[REPLAY] Lurking 300 s, sparsely replaying the captured event 3 times...
+[REPLAY] t=42s REPLAYED #1 (identical text, NEW seq): [2026-08-15 15:59:13.641 (UTC)] info/application	[Sensor] Updated distance: 33.17825317344547 cm | Severity=75 | SourceName=Sensor3 | EventType=application | SourceNode=ns=1;s=SensorSource3
+[REPLAY] t=153s REPLAYED #2 (identical text, NEW seq): [2026-08-15 15:59:13.641 (UTC)] info/application	[Sensor] Updated distance: 33.17825317344547 cm | Severity=75 | SourceName=Sensor3 | EventType=application | SourceNode=ns=1;s=SensorSource3
+[REPLAY] t=248s REPLAYED #3 (identical text, NEW seq): [2026-08-15 15:59:13.641 (UTC)] info/application	[Sensor] Updated distance: 33.17825317344547 cm | Severity=75 | SourceName=Sensor3 | EventType=application | SourceNode=ns=1;s=SensorSource3
+[REPLAY] Done (3/3 replayed). 在 Anomaly 端會看到『內容相同、seq 不同、時間較晚』的重複事件。
+[2026-08-16 00:04:14.122 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 15	| SecureChannel closed
+[2026-08-16 00:04:14.122 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionClosed
+[2026-08-16 00:04:14.122 (UTC+0800)] [32minfo/network[0m	TCP 8	| Socket closed

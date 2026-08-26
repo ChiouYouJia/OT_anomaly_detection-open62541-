@@ -1,0 +1,338 @@
+[2026-08-16 00:09:53.673 (UTC+0800)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-08-16 00:09:53.673 (UTC+0800)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-08-16 00:09:53.673 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-16 00:09:53.710 (UTC+0800)] [33mwarn/application[0m	ServerUrls already set. Overriding.
+[2026-08-16 00:09:53.710 (UTC+0800)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-08-16 00:09:53.710 (UTC+0800)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-08-16 00:09:53.710 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-16 00:09:53.710 (UTC+0800)] [33mwarn/server[0m	x509 Certificate Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-08-15 16:09:53.710 (UTC)] info/application	Sensor Server online (Client/Server mode, id=2 port=4843) | Severity=75 | SourceName=Sensor2 | EventType=application
+Entering background polling mode: attempting to connect to Aggregation Server...
+Connected successfully. Log forwarding started.
+[2026-08-15 16:09:54.715 (UTC)] info/application	[Sensor] Updated distance: 29.761171748750456 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:09:55.687 (UTC)] info/network	[System] TCP 16	| Connection opened from "127.0.0.1" via the server socket 8 | Severity=75 | SourceName=System | EventType=network
+[2026-08-15 16:09:55.687 (UTC)] info/channel	[System] TCP 16	| SC 1	| SecureChannel created | Severity=75 | SourceName=System | EventType=channel
+[2026-08-15 16:09:56.797 (UTC)] info/application	[Sensor] Updated distance: 38.533916967238255 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:09:56.818 (UTC)] info/channel	[System] TCP 16	| SC 1	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s | Severity=75 | SourceName=System | EventType=channel
+[2026-08-15 16:09:56.838 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:56.838 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:56.849 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:56.849 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:56.849 (UTC)] info/session	[System] TCP 16	| SC 1	| Session "ns=1;g=b7fdd673-5333-2c1e-af2a-82b8526586b8"	| Session created | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:09:56.860 (UTC)] info/session	[System] TCP 16	| SC 1	| Session "ns=1;g=b7fdd673-5333-2c1e-af2a-82b8526586b8"	| ActivateSession: Session activated with ClientUserId "" | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:09:57.245 (UTC)] info/session	[System] TCP 16	| SC 1	| Session "ns=1;g=b7fdd673-5333-2c1e-af2a-82b8526586b8"	| Subscription 1 | Subscription created (Publishing interval 500.0ms, max 1000 notifications per publish) | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:09:57.266 (UTC)] info/session	[System] TCP 16	| SC 1	| Session "ns=1;g=b7fdd673-5333-2c1e-af2a-82b8526586b8"	| Subscription 1 | MonitoredItem 1 | Created the MonitoredItem (Sampling Interval: 250.0ms, Queue Size: 1) | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:09:57.803 (UTC)] info/application	[Sensor] Updated distance: 20.512892374076365 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:09:58.694 (UTC)] info/network	[System] TCP 17	| Connection opened from "127.0.0.1" via the server socket 8 | Severity=75 | SourceName=System | EventType=network
+[2026-08-15 16:09:58.694 (UTC)] info/channel	[System] TCP 17	| SC 2	| SecureChannel created | Severity=75 | SourceName=System | EventType=channel
+[2026-08-15 16:09:58.714 (UTC)] info/channel	[System] TCP 17	| SC 2	| OpenSecureChannel: Channel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s | Severity=75 | SourceName=System | EventType=channel
+[2026-08-15 16:09:58.735 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:58.735 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:58.745 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:58.745 (UTC)] warn/client	[System] Removing a UserTokenPolicy that would allow the password to be transmitted without encryption (Can be enabled via config->allowNonePolicyPassword) | Severity=175 | SourceName=System | EventType=client
+[2026-08-15 16:09:58.746 (UTC)] info/session	[System] TCP 17	| SC 2	| Session "ns=1;g=e5ce322e-09d0-5b06-cc0c-b07b313333b3"	| Session created | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:09:58.756 (UTC)] info/session	[System] TCP 17	| SC 2	| Session "ns=1;g=e5ce322e-09d0-5b06-cc0c-b07b313333b3"	| ActivateSession: Session activated with ClientUserId "" | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:09:58.797 (UTC)] info/application	[Sensor] Updated distance: 45.06255797066844 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:09:59.799 (UTC)] info/application	[Sensor] Updated distance: 37.73766312177184 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:00.801 (UTC)] info/application	[Sensor] Updated distance: 13.286478919576144 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:01.804 (UTC)] info/application	[Sensor] Updated distance: 29.76983696025323 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:02.806 (UTC)] info/application	[Sensor] Updated distance: 10.289231758699394 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:03.798 (UTC)] info/application	[Sensor] Updated distance: 10.114329557919097 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:04.800 (UTC)] info/application	[Sensor] Updated distance: 6.647308351773447 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:05.802 (UTC)] info/application	[Sensor] Updated distance: 32.50048731942684 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:06.805 (UTC)] info/application	[Sensor] Updated distance: 6.942282746053432 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:07.807 (UTC)] info/application	[Sensor] Updated distance: 25.563181575184306 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:08.799 (UTC)] info/application	[Sensor] Updated distance: 21.966208906828523 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:09.801 (UTC)] info/application	[Sensor] Updated distance: 28.875749675033497 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:10.803 (UTC)] info/application	[Sensor] Updated distance: 13.663877731032612 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:11.806 (UTC)] info/application	[Sensor] Updated distance: 35.747164183178526 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:12.798 (UTC)] info/application	[Sensor] Updated distance: 5.1112893461768 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:13.800 (UTC)] info/application	[Sensor] Updated distance: 5.8161721098312045 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:14.801 (UTC)] info/application	[Sensor] Updated distance: 27.365331683943666 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:15.803 (UTC)] info/application	[Sensor] Updated distance: 24.970339867738232 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:16.806 (UTC)] info/application	[Sensor] Updated distance: 41.78001856421121 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:17.798 (UTC)] info/application	[Sensor] Updated distance: 7.3406451220347755 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:18.801 (UTC)] info/application	[Sensor] Updated distance: 44.7315378835106 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:19.803 (UTC)] info/application	[Sensor] Updated distance: 33.32838237999397 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:20.805 (UTC)] info/application	[Sensor] Updated distance: 11.83509992521028 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:21.807 (UTC)] info/application	[Sensor] Updated distance: 18.325162112864273 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:22.799 (UTC)] info/application	[Sensor] Updated distance: 42.595930699536545 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:23.801 (UTC)] info/application	[Sensor] Updated distance: 11.673655752871957 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:24.803 (UTC)] info/application	[Sensor] Updated distance: 47.08119379593115 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:25.805 (UTC)] info/application	[Sensor] Updated distance: 16.822055689441996 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:26.807 (UTC)] info/application	[Sensor] Updated distance: 39.434827501622415 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:27.800 (UTC)] info/application	[Sensor] Updated distance: 35.61511074081767 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:28.802 (UTC)] info/application	[Sensor] Updated distance: 35.33494806351836 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:29.805 (UTC)] info/application	[Sensor] Updated distance: 34.49738547229086 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:30.807 (UTC)] info/application	[Sensor] Updated distance: 23.35277386258951 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:31.801 (UTC)] info/application	[Sensor] Updated distance: 46.6214269830945 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:32.803 (UTC)] info/application	[Sensor] Updated distance: 14.26722241019235 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:33.807 (UTC)] info/application	[Sensor] Updated distance: 31.642005621288902 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:34.800 (UTC)] info/application	[Sensor] Updated distance: 6.735756541013604 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:35.803 (UTC)] info/application	[Sensor] Updated distance: 18.914530761965796 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:36.806 (UTC)] info/application	[Sensor] Updated distance: 14.142492918364 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:37.799 (UTC)] info/application	[Sensor] Updated distance: 11.678039287067037 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:38.802 (UTC)] info/application	[Sensor] Updated distance: 42.4777123371501 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:39.804 (UTC)] info/application	[Sensor] Updated distance: 34.108701825192526 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:40.807 (UTC)] info/application	[Sensor] Updated distance: 38.55378896210053 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:41.800 (UTC)] info/application	[Sensor] Updated distance: 6.141590068182717 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:42.804 (UTC)] info/application	[Sensor] Updated distance: 19.855866008371052 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:43.797 (UTC)] info/application	[Sensor] Updated distance: 41.66507833062907 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:44.802 (UTC)] info/application	[Sensor] Updated distance: 9.957762178013922 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:45.805 (UTC)] info/application	[Sensor] Updated distance: 45.22119769231472 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:46.798 (UTC)] info/application	[Sensor] Updated distance: 16.63541817601557 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:47.802 (UTC)] info/application	[Sensor] Updated distance: 49.737780742225134 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:48.806 (UTC)] info/application	[Sensor] Updated distance: 2.5618427919977544 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:49.799 (UTC)] info/application	[Sensor] Updated distance: 11.366956037174424 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:50.803 (UTC)] info/application	[Sensor] Updated distance: 33.06616312221911 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:51.806 (UTC)] info/application	[Sensor] Updated distance: 12.396942739559776 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:52.800 (UTC)] info/application	[Sensor] Updated distance: 27.6921181500387 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:53.804 (UTC)] info/application	[Sensor] Updated distance: 25.662093799403912 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:54.797 (UTC)] info/application	[Sensor] Updated distance: 22.07059849243173 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:55.801 (UTC)] info/application	[Sensor] Updated distance: 24.773311923618106 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:56.804 (UTC)] info/application	[Sensor] Updated distance: 40.48414948884591 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:57.798 (UTC)] info/application	[Sensor] Updated distance: 11.505425994054146 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:58.801 (UTC)] info/application	[Sensor] Updated distance: 10.388422664435776 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:10:59.805 (UTC)] info/application	[Sensor] Updated distance: 25.81909755236427 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:00.799 (UTC)] info/application	[Sensor] Updated distance: 44.00281146634501 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:01.802 (UTC)] info/application	[Sensor] Updated distance: 31.741196527025288 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:02.805 (UTC)] info/application	[Sensor] Updated distance: 22.440524513107036 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:03.799 (UTC)] info/application	[Sensor] Updated distance: 8.27003385418562 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:04.802 (UTC)] info/application	[Sensor] Updated distance: 13.383202125962452 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:05.806 (UTC)] info/application	[Sensor] Updated distance: 27.17628105412064 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:06.799 (UTC)] info/application	[Sensor] Updated distance: 25.184564616151416 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:07.803 (UTC)] info/application	[Sensor] Updated distance: 25.525695066678196 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:08.807 (UTC)] info/application	[Sensor] Updated distance: 36.854320363539415 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:09.800 (UTC)] info/application	[Sensor] Updated distance: 17.66227693094978 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:10.803 (UTC)] info/application	[Sensor] Updated distance: 9.634396869518978 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:11.807 (UTC)] info/application	[Sensor] Updated distance: 25.40810930328821 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:12.800 (UTC)] info/application	[Sensor] Updated distance: 21.803866999132495 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:13.803 (UTC)] info/application	[Sensor] Updated distance: 27.49026287789003 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:14.806 (UTC)] info/application	[Sensor] Updated distance: 17.073187611565544 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:15.800 (UTC)] info/application	[Sensor] Updated distance: 29.761629177146418 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:16.804 (UTC)] info/application	[Sensor] Updated distance: 22.71146057020475 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:17.797 (UTC)] info/application	[Sensor] Updated distance: 31.708605787581114 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:18.801 (UTC)] info/application	[Sensor] Updated distance: 29.49940991937155 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:19.804 (UTC)] info/application	[Sensor] Updated distance: 23.273303362202505 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:20.798 (UTC)] info/application	[Sensor] Updated distance: 41.07556182475554 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:21.801 (UTC)] info/application	[Sensor] Updated distance: 12.56557301923892 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:22.805 (UTC)] info/application	[Sensor] Updated distance: 33.67024610176228 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:23.798 (UTC)] info/application	[Sensor] Updated distance: 18.767679952442496 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:24.802 (UTC)] info/application	[Sensor] Updated distance: 36.22766681864283 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:25.805 (UTC)] info/application	[Sensor] Updated distance: 5.740844594194016 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:26.799 (UTC)] info/application	[Sensor] Updated distance: 41.540991898412344 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:27.802 (UTC)] info/application	[Sensor] Updated distance: 26.711816307488743 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:28.805 (UTC)] info/application	[Sensor] Updated distance: 15.246270588248162 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:29.799 (UTC)] info/application	[Sensor] Updated distance: 49.92941456284812 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:30.803 (UTC)] info/application	[Sensor] Updated distance: 2.5309138375012736 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:31.807 (UTC)] info/application	[Sensor] Updated distance: 9.24908203224143 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:32.802 (UTC)] info/application	[Sensor] Updated distance: 31.67061106752167 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:33.807 (UTC)] info/application	[Sensor] Updated distance: 22.97143835060831 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:34.799 (UTC)] info/application	[Sensor] Updated distance: 15.51911588642705 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:35.803 (UTC)] info/application	[Sensor] Updated distance: 43.05381319348412 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:36.797 (UTC)] info/application	[Sensor] Updated distance: 48.147719427080695 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:37.800 (UTC)] info/application	[Sensor] Updated distance: 38.703680502578464 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:38.802 (UTC)] info/application	[Sensor] Updated distance: 18.579508237810575 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:39.806 (UTC)] info/application	[Sensor] Updated distance: 35.00203976826837 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:40.798 (UTC)] info/application	[Sensor] Updated distance: 6.365957411176505 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:41.800 (UTC)] info/application	[Sensor] Updated distance: 26.213905129681297 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:42.803 (UTC)] info/application	[Sensor] Updated distance: 10.410149049204843 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:43.805 (UTC)] info/application	[Sensor] Updated distance: 26.169824432660743 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:44.798 (UTC)] info/application	[Sensor] Updated distance: 3.704167985219587 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:45.800 (UTC)] info/application	[Sensor] Updated distance: 25.483336683122133 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:46.802 (UTC)] info/application	[Sensor] Updated distance: 5.931453587455421 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:47.804 (UTC)] info/application	[Sensor] Updated distance: 24.415628555424338 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:48.807 (UTC)] info/application	[Sensor] Updated distance: 7.191942448351505 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:49.799 (UTC)] info/application	[Sensor] Updated distance: 33.430863506826974 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:50.803 (UTC)] info/application	[Sensor] Updated distance: 45.68893193997859 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:51.805 (UTC)] info/application	[Sensor] Updated distance: 46.267504295458785 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:52.807 (UTC)] info/application	[Sensor] Updated distance: 43.99643652606589 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:53.800 (UTC)] info/application	[Sensor] Updated distance: 29.359178019389127 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:54.802 (UTC)] info/application	[Sensor] Updated distance: 15.035184225549541 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:55.804 (UTC)] info/application	[Sensor] Updated distance: 30.224103344708727 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:56.805 (UTC)] info/application	[Sensor] Updated distance: 33.10002261358314 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:57.798 (UTC)] info/application	[Sensor] Updated distance: 6.576176101610146 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:58.801 (UTC)] info/application	[Sensor] Updated distance: 6.93591962984573 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:11:59.803 (UTC)] info/application	[Sensor] Updated distance: 46.3462932018313 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:00.806 (UTC)] info/application	[Sensor] Updated distance: 6.505590642106529 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:01.798 (UTC)] info/application	[Sensor] Updated distance: 7.466833467347004 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:02.801 (UTC)] info/application	[Sensor] Updated distance: 5.595375211720995 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:03.803 (UTC)] info/application	[Sensor] Updated distance: 36.176201709628195 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:04.806 (UTC)] info/application	[Sensor] Updated distance: 28.438271817955314 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:05.798 (UTC)] info/application	[Sensor] Updated distance: 19.114491098148044 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:06.801 (UTC)] info/application	[Sensor] Updated distance: 29.23001490311232 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:07.804 (UTC)] info/application	[Sensor] Updated distance: 26.585991222684267 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:08.807 (UTC)] info/application	[Sensor] Updated distance: 7.818171578374771 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:09.799 (UTC)] info/application	[Sensor] Updated distance: 45.8095231409229 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:10.802 (UTC)] info/application	[Sensor] Updated distance: 11.588030968600897 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:11.804 (UTC)] info/application	[Sensor] Updated distance: 12.184129011903018 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:12.807 (UTC)] info/application	[Sensor] Updated distance: 22.02342824825245 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:13.799 (UTC)] info/application	[Sensor] Updated distance: 19.998180040157482 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:14.802 (UTC)] info/application	[Sensor] Updated distance: 36.35395344456376 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:15.804 (UTC)] info/application	[Sensor] Updated distance: 23.72759625582378 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:16.806 (UTC)] info/application	[Sensor] Updated distance: 43.48151672327961 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:17.800 (UTC)] info/application	[Sensor] Updated distance: 40.28540703201918 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:18.802 (UTC)] info/application	[Sensor] Updated distance: 46.14322481124812 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:19.803 (UTC)] info/application	[Sensor] Updated distance: 48.673459171631116 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:20.804 (UTC)] info/application	[Sensor] Updated distance: 23.716270538846157 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:21.806 (UTC)] info/application	[Sensor] Updated distance: 41.83215672887496 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:22.799 (UTC)] info/application	[Sensor] Updated distance: 44.940963444738166 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:23.802 (UTC)] info/application	[Sensor] Updated distance: 17.71270704256031 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:24.806 (UTC)] info/application	[Sensor] Updated distance: 21.19133474826409 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:25.799 (UTC)] info/application	[Sensor] Updated distance: 9.976147670287707 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:26.802 (UTC)] info/application	[Sensor] Updated distance: 45.936810387269034 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:27.804 (UTC)] info/application	[Sensor] Updated distance: 4.291357339495494 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:28.806 (UTC)] info/application	[Sensor] Updated distance: 14.552323771897854 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:29.799 (UTC)] info/application	[Sensor] Updated distance: 2.872729994763029 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:30.801 (UTC)] info/application	[Sensor] Updated distance: 48.63765056367854 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:31.803 (UTC)] info/application	[Sensor] Updated distance: 19.057914436356125 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:32.806 (UTC)] info/application	[Sensor] Updated distance: 8.339563462110032 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:33.798 (UTC)] info/application	[Sensor] Updated distance: 4.233025753047794 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:34.800 (UTC)] info/application	[Sensor] Updated distance: 5.234116123632582 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:35.803 (UTC)] info/application	[Sensor] Updated distance: 34.77783530241709 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:36.805 (UTC)] info/application	[Sensor] Updated distance: 21.34751687354758 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:37.797 (UTC)] info/application	[Sensor] Updated distance: 32.4641310267449 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:38.800 (UTC)] info/application	[Sensor] Updated distance: 11.363826502749616 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:39.802 (UTC)] info/application	[Sensor] Updated distance: 27.165688451922353 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:40.805 (UTC)] info/application	[Sensor] Updated distance: 28.2736541676678 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:41.807 (UTC)] info/application	[Sensor] Updated distance: 20.951857493702256 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:42.800 (UTC)] info/application	[Sensor] Updated distance: 37.34981746382537 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:43.802 (UTC)] info/application	[Sensor] Updated distance: 48.29708241592025 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:44.804 (UTC)] info/application	[Sensor] Updated distance: 38.950037533859735 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:45.806 (UTC)] info/application	[Sensor] Updated distance: 23.70377088603739 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:46.799 (UTC)] info/application	[Sensor] Updated distance: 22.024678649392293 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:47.802 (UTC)] info/application	[Sensor] Updated distance: 32.43155423478761 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:48.805 (UTC)] info/application	[Sensor] Updated distance: 13.989177918056575 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:49.807 (UTC)] info/application	[Sensor] Updated distance: 18.167903460640414 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:50.799 (UTC)] info/application	[Sensor] Updated distance: 31.105013384066993 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:51.801 (UTC)] info/application	[Sensor] Updated distance: 35.70544845690273 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:52.803 (UTC)] info/application	[Sensor] Updated distance: 10.000060167163639 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:53.805 (UTC)] info/application	[Sensor] Updated distance: 26.04597682880516 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:54.807 (UTC)] info/application	[Sensor] Updated distance: 3.4181554771113003 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:55.799 (UTC)] info/application	[Sensor] Updated distance: 29.19139491542773 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:56.802 (UTC)] info/application	[Sensor] Updated distance: 34.02212449909287 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:57.805 (UTC)] info/application	[Sensor] Updated distance: 47.35496588673208 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:58.798 (UTC)] info/application	[Sensor] Updated distance: 31.482752277274965 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:12:59.801 (UTC)] info/application	[Sensor] Updated distance: 46.57444827099072 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:00.803 (UTC)] info/application	[Sensor] Updated distance: 48.22769588149511 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:01.806 (UTC)] info/application	[Sensor] Updated distance: 30.120402818601764 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:02.807 (UTC)] info/application	[Sensor] Updated distance: 15.632362684995105 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:03.800 (UTC)] info/application	[Sensor] Updated distance: 6.567259343605143 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:04.802 (UTC)] info/application	[Sensor] Updated distance: 32.35342857164956 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:05.804 (UTC)] info/application	[Sensor] Updated distance: 18.86647883097943 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:06.807 (UTC)] info/application	[Sensor] Updated distance: 39.34509464602223 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:07.799 (UTC)] info/application	[Sensor] Updated distance: 3.7009454228454013 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:08.801 (UTC)] info/application	[Sensor] Updated distance: 49.330609857724326 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:09.804 (UTC)] info/application	[Sensor] Updated distance: 48.70892114877184 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:10.806 (UTC)] info/application	[Sensor] Updated distance: 28.866633897119495 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:11.798 (UTC)] info/application	[Sensor] Updated distance: 27.60426400304039 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:12.800 (UTC)] info/application	[Sensor] Updated distance: 19.66077862012236 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:13.802 (UTC)] info/application	[Sensor] Updated distance: 16.216451338593124 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:14.804 (UTC)] info/application	[Sensor] Updated distance: 25.901346418960646 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:15.805 (UTC)] info/application	[Sensor] Updated distance: 8.610816131630362 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:16.807 (UTC)] info/application	[Sensor] Updated distance: 37.920222246982256 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:17.798 (UTC)] info/application	[Sensor] Updated distance: 45.92602506835294 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:18.800 (UTC)] info/application	[Sensor] Updated distance: 39.04237036641797 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:19.802 (UTC)] info/application	[Sensor] Updated distance: 49.90940016503883 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:20.804 (UTC)] info/application	[Sensor] Updated distance: 14.093928506641614 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:21.806 (UTC)] info/application	[Sensor] Updated distance: 20.14738375048497 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:22.799 (UTC)] info/application	[Sensor] Updated distance: 35.61484859958982 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:23.801 (UTC)] info/application	[Sensor] Updated distance: 22.093988696156995 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:24.803 (UTC)] info/application	[Sensor] Updated distance: 44.19336057929013 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:25.806 (UTC)] info/application	[Sensor] Updated distance: 37.033004076701125 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:26.120 (UTC)] info/session	[System] TCP 17	| SC 2	| Session "ns=1;g=e5ce322e-09d0-5b06-cc0c-b07b313333b3"	| WriteRequest returned status code BadUserAccessDenied | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:13:26.798 (UTC)] info/application	[Sensor] Updated distance: 49.28538361158473 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:27.800 (UTC)] info/application	[Sensor] Updated distance: 28.215485056031255 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:28.802 (UTC)] info/application	[Sensor] Updated distance: 34.387969941081465 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:29.804 (UTC)] info/application	[Sensor] Updated distance: 30.76813586650795 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:30.806 (UTC)] info/application	[Sensor] Updated distance: 24.789933304670235 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:31.798 (UTC)] info/application	[Sensor] Updated distance: 32.615665822576574 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:32.800 (UTC)] info/application	[Sensor] Updated distance: 10.888538662757975 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:33.801 (UTC)] info/application	[Sensor] Updated distance: 38.42229601201708 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:34.803 (UTC)] info/application	[Sensor] Updated distance: 37.18292516618172 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:35.804 (UTC)] info/application	[Sensor] Updated distance: 41.241967256759274 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:36.806 (UTC)] info/application	[Sensor] Updated distance: 7.288774820644769 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:37.798 (UTC)] info/application	[Sensor] Updated distance: 26.52801978985221 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:38.801 (UTC)] info/application	[Sensor] Updated distance: 42.942912679604675 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:39.802 (UTC)] info/application	[Sensor] Updated distance: 6.61938465601736 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:40.804 (UTC)] info/application	[Sensor] Updated distance: 25.236940916272317 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:41.805 (UTC)] info/application	[Sensor] Updated distance: 21.809546554372435 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:42.797 (UTC)] info/application	[Sensor] Updated distance: 32.22364868140949 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:43.800 (UTC)] info/application	[Sensor] Updated distance: 42.897719558746424 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:44.803 (UTC)] info/application	[Sensor] Updated distance: 36.025997915317305 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:45.805 (UTC)] info/application	[Sensor] Updated distance: 8.124995078018397 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:46.798 (UTC)] info/application	[Sensor] Updated distance: 49.50853569037678 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:47.799 (UTC)] info/application	[Sensor] Updated distance: 23.946220139947823 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:48.801 (UTC)] info/application	[Sensor] Updated distance: 4.051020124019598 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:49.803 (UTC)] info/application	[Sensor] Updated distance: 38.55090605679476 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:50.806 (UTC)] info/application	[Sensor] Updated distance: 23.855620282634916 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:51.799 (UTC)] info/application	[Sensor] Updated distance: 16.144948653012953 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:52.801 (UTC)] info/application	[Sensor] Updated distance: 8.698289784927987 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:53.802 (UTC)] info/application	[Sensor] Updated distance: 9.470468859872998 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:54.804 (UTC)] info/application	[Sensor] Updated distance: 36.23893734916995 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:55.805 (UTC)] info/application	[Sensor] Updated distance: 2.891650341866375 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:56.807 (UTC)] info/application	[Sensor] Updated distance: 44.50347293657412 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:57.800 (UTC)] info/application	[Sensor] Updated distance: 35.52432093840294 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:58.802 (UTC)] info/application	[Sensor] Updated distance: 29.10713539789763 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:13:59.804 (UTC)] info/application	[Sensor] Updated distance: 28.89144287765559 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:00.806 (UTC)] info/application	[Sensor] Updated distance: 16.292456804910884 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:01.798 (UTC)] info/application	[Sensor] Updated distance: 3.8970686802161243 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:02.800 (UTC)] info/application	[Sensor] Updated distance: 11.507108677880423 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:03.802 (UTC)] info/application	[Sensor] Updated distance: 25.18099546766886 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:04.804 (UTC)] info/application	[Sensor] Updated distance: 40.31936469223321 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:05.807 (UTC)] info/application	[Sensor] Updated distance: 46.69003384406214 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:06.798 (UTC)] info/application	[Sensor] Updated distance: 16.422962702076397 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:07.800 (UTC)] info/application	[Sensor] Updated distance: 45.608139512877976 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:08.801 (UTC)] info/application	[Sensor] Updated distance: 23.21805361156261 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:09.804 (UTC)] info/application	[Sensor] Updated distance: 9.365875381681079 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:10.806 (UTC)] info/application	[Sensor] Updated distance: 2.2275241688953358 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:11.798 (UTC)] info/application	[Sensor] Updated distance: 46.45499452783493 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:12.800 (UTC)] info/application	[Sensor] Updated distance: 29.17542193605351 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:13.154 (UTC)] info/session	[System] TCP 17	| SC 2	| Session "ns=1;g=e5ce322e-09d0-5b06-cc0c-b07b313333b3"	| WriteRequest returned status code BadUserAccessDenied | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:14:13.802 (UTC)] info/application	[Sensor] Updated distance: 32.45117285030483 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:14.804 (UTC)] info/application	[Sensor] Updated distance: 39.35271406422961 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:15.806 (UTC)] info/application	[Sensor] Updated distance: 15.201419829019075 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:16.797 (UTC)] info/application	[Sensor] Updated distance: 38.57616792832322 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:17.800 (UTC)] info/application	[Sensor] Updated distance: 38.8612497546064 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:18.802 (UTC)] info/application	[Sensor] Updated distance: 37.14763996896689 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:19.805 (UTC)] info/application	[Sensor] Updated distance: 40.627188052342824 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:20.806 (UTC)] info/application	[Sensor] Updated distance: 27.412155789049415 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:21.798 (UTC)] info/application	[Sensor] Updated distance: 11.00326022925007 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:22.799 (UTC)] info/application	[Sensor] Updated distance: 6.772136683004041 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:23.800 (UTC)] info/application	[Sensor] Updated distance: 34.1104455739774 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:24.801 (UTC)] info/application	[Sensor] Updated distance: 18.47372908912307 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:25.802 (UTC)] info/application	[Sensor] Updated distance: 41.01107403217399 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:26.804 (UTC)] info/application	[Sensor] Updated distance: 35.002095915843775 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:27.804 (UTC)] info/application	[Sensor] Updated distance: 12.977202025697194 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:28.805 (UTC)] info/application	[Sensor] Updated distance: 26.535394970576927 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:29.806 (UTC)] info/application	[Sensor] Updated distance: 14.109231291389666 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:30.797 (UTC)] info/application	[Sensor] Updated distance: 39.86864490335278 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:31.798 (UTC)] info/application	[Sensor] Updated distance: 40.827851775487815 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:32.799 (UTC)] info/application	[Sensor] Updated distance: 16.00629997160579 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:33.800 (UTC)] info/application	[Sensor] Updated distance: 49.375753581233205 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:34.801 (UTC)] info/application	[Sensor] Updated distance: 16.008847220804938 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:35.803 (UTC)] info/application	[Sensor] Updated distance: 6.325664663838998 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:36.804 (UTC)] info/application	[Sensor] Updated distance: 46.065787402943606 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:37.805 (UTC)] info/application	[Sensor] Updated distance: 30.431809945233077 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:38.806 (UTC)] info/application	[Sensor] Updated distance: 49.93380417671697 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:39.807 (UTC)] info/application	[Sensor] Updated distance: 19.283840992154477 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:40.798 (UTC)] info/application	[Sensor] Updated distance: 37.797685326914156 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:41.173 (UTC)] info/session	[System] TCP 17	| SC 2	| Session "ns=1;g=e5ce322e-09d0-5b06-cc0c-b07b313333b3"	| WriteRequest returned status code BadUserAccessDenied | Severity=75 | SourceName=System | EventType=session
+[2026-08-15 16:14:41.800 (UTC)] info/application	[Sensor] Updated distance: 2.1613283232605682 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:42.801 (UTC)] info/application	[Sensor] Updated distance: 15.738835497637668 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:43.803 (UTC)] info/application	[Sensor] Updated distance: 16.973107240615928 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:44.805 (UTC)] info/application	[Sensor] Updated distance: 32.61250117356539 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:45.806 (UTC)] info/application	[Sensor] Updated distance: 5.09154956186728 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:46.799 (UTC)] info/application	[Sensor] Updated distance: 30.174527091986743 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:47.801 (UTC)] info/application	[Sensor] Updated distance: 21.188669079536883 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:48.803 (UTC)] info/application	[Sensor] Updated distance: 41.95279931647367 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:49.805 (UTC)] info/application	[Sensor] Updated distance: 17.3221670386019 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:50.806 (UTC)] info/application	[Sensor] Updated distance: 11.81585713187971 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:51.798 (UTC)] info/application	[Sensor] Updated distance: 19.36495508317135 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:52.799 (UTC)] info/application	[Sensor] Updated distance: 26.325427290203713 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:53.800 (UTC)] info/application	[Sensor] Updated distance: 16.587993814883752 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:54.801 (UTC)] info/application	[Sensor] Updated distance: 3.475400634797011 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:55.803 (UTC)] info/application	[Sensor] Updated distance: 42.79915637932678 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:56.805 (UTC)] info/application	[Sensor] Updated distance: 7.599067847057743 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:57.797 (UTC)] info/application	[Sensor] Updated distance: 36.47749655064079 cm | Severity=75 | SourceName=Sensor2 | EventType=application
+[2026-08-15 16:14:58.193 (UTC)] info/session	[System] TCP 17	| SC 2	| Session "ns=1;g=e5ce322e-09d0-5b06-cc0c-b07b313333b3"	| Closing the Session | Severity=75 | SourceName=System | EventType=se

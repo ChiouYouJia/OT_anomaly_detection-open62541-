@@ -1,0 +1,158 @@
+
+============================================================
+【實驗1】三 pair 拓樸採集報告 (20260815_222638)
+  baseline 60分 · benign×2 · FC×10 · R×10  (每場景 3 pair)
+============================================================
+--- topo3_baseline_60min_20260815_222638
+    總行數           : 32578
+    SourceNode = null: 0
+0
+    SensorSource1    : 3648
+    SensorSource2    : 3630
+    SensorSource3    : 3630
+--- topo3_baseline_ctrl_r1_20260815_222638
+    總行數           : 2864
+    SourceNode = null: 0
+0
+    SensorSource1    : 334
+    SensorSource2    : 325
+    SensorSource3    : 325
+--- topo3_baseline_ctrl_r2_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 0
+0
+    SensorSource1    : 334
+    SensorSource2    : 325
+    SensorSource3    : 325
+--- topo3_Four_combined_r1_20260815_222638
+    總行數           : 2932
+    SourceNode = null: 33
+    SensorSource1    : 350
+    SensorSource2    : 342
+    SensorSource3    : 342
+--- topo3_Four_combined_r2_20260815_222638
+    總行數           : 2933
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 342
+    SensorSource3    : 342
+--- topo3_Four_combined_r3_20260815_222638
+    總行數           : 2933
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 342
+    SensorSource3    : 342
+--- topo3_Four_combined_r4_20260815_222638
+    總行數           : 2934
+    SourceNode = null: 33
+    SensorSource1    : 350
+    SensorSource2    : 342
+    SensorSource3    : 342
+--- topo3_Four_combined_r5_20260815_222638
+    總行數           : 2932
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 341
+    SensorSource3    : 341
+--- topo3_Four_combined_r6_20260815_222638
+    總行數           : 2914
+    SourceNode = null: 33
+    SensorSource1    : 349
+    SensorSource2    : 339
+    SensorSource3    : 339
+--- topo3_Four_combined_r7_20260815_222638
+    總行數           : 2932
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 341
+    SensorSource3    : 341
+--- topo3_Four_combined_r8_20260815_222638
+    總行數           : 2933
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 341
+    SensorSource3    : 341
+--- topo3_Four_combined_r9_20260815_222638
+    總行數           : 2933
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 341
+    SensorSource3    : 341
+--- topo3_Four_combined_r10_20260815_222638
+    總行數           : 2933
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 342
+    SensorSource3    : 342
+--- topo3_R_only_r1_20260815_222638
+    總行數           : 2867
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r2_20260815_222638
+    總行數           : 2866
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r3_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 9
+    SensorSource1    : 332
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r4_20260815_222638
+    總行數           : 2866
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r5_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 9
+    SensorSource1    : 332
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r6_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r7_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 9
+    SensorSource1    : 334
+    SensorSource2    : 323
+    SensorSource3    : 323
+--- topo3_R_only_r8_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 324
+    SensorSource3    : 323
+--- topo3_R_only_r9_20260815_222638
+    總行數           : 2866
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_R_only_r10_20260815_222638
+    總行數           : 2865
+    SourceNode = null: 9
+    SensorSource1    : 334
+    SensorSource2    : 323
+    SensorSource3    : 324
+
+============================================================
+採集完成 —— 下一步
+============================================================
+  # ⚠ 先改 parse_logs.py 的 sensor_events_in_sec 為 per-SourceName 計數，
+  #   否則三 sensor 併發會讓 S 特徵失效（見本檔頂部說明）。
+  ml/venv/bin/python ml/parse_logs.py
+  SCENARIO_FILTER=topo3_20260815_222638 ml/venv/bin/python ml/ngram_detector.py
+  SCENARIO_FILTER=topo3_20260815_222638 ml/venv/bin/python ml/compare_ngram_deeplog.py
+
+驗收：benign 應含三 sensor 的 SourceNode=ns=1;s=SensorSource{,2,3}；
+      benign_ctrl 的 SourceNode=null 應為 0。

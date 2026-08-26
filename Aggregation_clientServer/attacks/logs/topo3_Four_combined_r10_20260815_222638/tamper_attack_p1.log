@@ -1,0 +1,22 @@
+[TAMPER] Connecting to sensor@4842 (anonymous, no auth)...
+[2026-08-16 00:26:04.967 (UTC+0800)] [32minfo/network[0m	TCP 8	| Opening a connection to "127.0.0.1" on port 4842
+[2026-08-16 00:26:05.578 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 3	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s
+[2026-08-16 00:26:05.578 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-08-16 00:26:05.588 (UTC+0800)] [32minfo/client[0m	The initially defined EndpointURL opc.tcp://127.0.0.1:4842 is valid for the server
+[2026-08-16 00:26:05.599 (UTC+0800)] [33mwarn/client[0m	The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4842 than was used to initialize the connection: opc.tcp://127.0.0.1:4842. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints.
+[2026-08-16 00:26:05.599 (UTC+0800)] [32minfo/client[0m	Endpoint 0: Best endpoint so far with UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:26:05.599 (UTC+0800)] [32minfo/client[0m	Endpoint 0 selected with SecurityMode None, SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:26:05.599 (UTC+0800)] [32minfo/client[0m	CreateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:26:05.609 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-08-16 00:26:05.609 (UTC+0800)] [32minfo/client[0m	ActivateSession: Using UserTokenPolicy open62541-anonymous-policy-none#None
+[2026-08-16 00:26:05.620 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[TAMPER] Connected.
+[TAMPER] Current DistanceValue (before tamper): 35.051 cm
+[TAMPER] Lurking for 300 s, sparsely attempting 3 tamper writes...
+[TAMPER] t=62s tamper write DistanceValue=5.554 -> BadUserAccessDenied
+[TAMPER] t=68s tamper write DistanceValue=9.586 -> BadUserAccessDenied
+[TAMPER] t=195s tamper write DistanceValue=11.213 -> BadUserAccessDenied
+[TAMPER] Done (3/3 tamper attempts). Disconnecting.
+[2026-08-16 00:31:05.044 (UTC+0800)] [32minfo/channel[0m	TCP 8	| SC 3	| SecureChannel closed
+[2026-08-16 00:31:05.044 (UTC+0800)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadConnectionClosed
+[2026-08-16 00:31:05.044 (UTC+0800)] [32minfo/network[0m	TCP 8	| Socket closed

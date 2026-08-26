@@ -1,0 +1,70 @@
+
+============================================================
+【實驗1】三 pair 拓樸採集報告 (20260817_000953)
+  baseline 10分 · benign×1 · FC×2 · R×2 · Snaive/Sphys×1  (每場景 3 pair)
+============================================================
+--- topo3_baseline_10min_20260817_000953
+    總行數           : 5465
+    SourceNode = null: 0
+0
+    SensorSource1    : 625
+    SensorSource2    : 614
+    SensorSource3    : 614
+--- topo3_baseline_ctrl_r1_20260817_000953
+    總行數           : 2843
+    SourceNode = null: 0
+0
+    SensorSource1    : 332
+    SensorSource2    : 322
+    SensorSource3    : 322
+--- topo3_Four_combined_r1_20260817_000953
+    總行數           : 2934
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 342
+    SensorSource3    : 341
+--- topo3_Four_combined_r2_20260817_000953
+    總行數           : 2931
+    SourceNode = null: 33
+    SensorSource1    : 351
+    SensorSource2    : 341
+    SensorSource3    : 341
+--- topo3_R_only_r1_20260817_000953
+    總行數           : 2869
+    SourceNode = null: 9
+    SensorSource1    : 333
+    SensorSource2    : 325
+    SensorSource3    : 325
+--- topo3_R_only_r2_20260817_000953
+    總行數           : 2862
+    SourceNode = null: 9
+    SensorSource1    : 332
+    SensorSource2    : 324
+    SensorSource3    : 324
+--- topo3_Snaive_r1_20260817_000953
+    總行數           : 2874
+    SourceNode = null: 15
+    SensorSource1    : 333
+    SensorSource2    : 325
+    SensorSource3    : 325
+--- topo3_Sphys_r1_20260817_000953
+    總行數           : 2901
+    SourceNode = null: 15
+    SensorSource1    : 344
+    SensorSource2    : 336
+    SensorSource3    : 336
+
+============================================================
+採集完成 —— 下一步
+============================================================
+  ml/venv/bin/python ml/parse_logs.py
+  # 兩階 S 威脅模型的多變量序列模型消融：
+  SCENARIO_FILTER=topo3_20260817_000953 ml/venv/bin/python ml/mvdeeplog.py
+  SCENARIO_FILTER=topo3_20260817_000953 ml/venv/bin/python ml/ngram_detector.py
+
+驗收 (1) benign 應含三 sensor 的 SourceNode=ns=1;s=SensorSource{,2,3}；
+        benign_ctrl 的 SourceNode=null 應為 0。
+驗收 (2) 隨機遊走生效：benign sensor 讀數的相鄰 |Δ| 應 <=1.5（不再是 ~16）。
+驗收 (3) 格式統一：真實與偽造 sensor 行的小數位數分布應一致（不再有 %.1f 洩漏）。
+驗收 (4) Snaive 單步值可分性應遠高於 Sphys（前者 AUC≈0.97、後者 AUC≈0.51）；
+        Sphys 的破綻要看相鄰兩步負相關（二階結構，AUC≈0.70）。

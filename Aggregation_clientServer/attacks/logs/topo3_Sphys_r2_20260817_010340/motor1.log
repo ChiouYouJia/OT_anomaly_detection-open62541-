@@ -1,0 +1,614 @@
+[2026-08-16 20:34:19.448 (UTC)] info/application	Motor client started; subscribing to sensor DistanceValue (Client/Server mode)... | Severity=75 | SourceName=Motor | EventType=application
+Entering background polling mode: connecting to Sensor & Aggregation Server...
+Connected successfully. Motor log forwarding started.
+[2026-08-16 20:34:19.480 (UTC)] info/channel	[System] TCP 8	| SC 1	| SecureChannel opened with SecurityMode None for SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.0s | Severity=75 | SourceName=System | EventType=channel
+[2026-08-16 20:34:19.501 (UTC)] warn/client	[System] The server returned Endpoints with a different EndpointUrl opc.tcp://MSI:4842 than was used to initialize the connection: opc.tcp://127.0.0.1:4842. Some servers require a complete match of the EndpointUrl/DiscoveryUrl (including the path) to return all endpoints. | Severity=175 | SourceName=System | EventType=client
+[2026-08-16 20:34:19.896 (UTC)] info/application	Connected to sensor backend; subscribing to distance updates | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:20.496 (UTC)] info/application	[Motor] Received distance: 26.9295528023176 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:20.496 (UTC)] info/application	[Motor] Distance safe (26.9295528023176); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:22.541 (UTC)] info/application	[Motor] Received distance: 26.0518688212856 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:22.541 (UTC)] info/application	[Motor] Distance safe (26.0518688212856); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:23.050 (UTC)] info/application	[Motor] Received distance: 24.5632760704324 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:23.050 (UTC)] info/application	[Motor] Distance safe (24.5632760704324); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:23.554 (UTC)] info/application	[Motor] Received distance: 23.6611551773553 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:23.554 (UTC)] info/application	[Motor] Distance safe (23.6611551773553); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:24.554 (UTC)] info/application	[Motor] Received distance: 24.9854672304287 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:24.554 (UTC)] info/application	[Motor] Distance safe (24.9854672304287); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:25.555 (UTC)] info/application	[Motor] Received distance: 23.786267363134 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:25.555 (UTC)] info/application	[Motor] Distance safe (23.786267363134); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:26.545 (UTC)] info/application	[Motor] Received distance: 23.0549899018626 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:26.545 (UTC)] info/application	[Motor] Distance safe (23.0549899018626); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:27.554 (UTC)] info/application	[Motor] Received distance: 23.7326829779114 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:27.554 (UTC)] info/application	[Motor] Distance safe (23.7326829779114); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:28.554 (UTC)] info/application	[Motor] Received distance: 22.8584080621872 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:28.554 (UTC)] info/application	[Motor] Distance safe (22.8584080621872); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:29.555 (UTC)] info/application	[Motor] Received distance: 21.5037608761358 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:29.555 (UTC)] info/application	[Motor] Distance safe (21.5037608761358); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:30.545 (UTC)] info/application	[Motor] Received distance: 21.0831915717959 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:30.545 (UTC)] info/application	[Motor] Distance safe (21.0831915717959); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:31.554 (UTC)] info/application	[Motor] Received distance: 20.3421323205541 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:31.554 (UTC)] info/application	[Motor] Distance safe (20.3421323205541); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:32.554 (UTC)] info/application	[Motor] Received distance: 19.5850912805577 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:32.554 (UTC)] warn/application	[Motor] Distance too close (19.5850912805577); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:33.554 (UTC)] info/application	[Motor] Received distance: 20.3591171199731 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:33.554 (UTC)] info/application	[Motor] Distance safe (20.3591171199731); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:34.554 (UTC)] info/application	[Motor] Received distance: 18.9111621016223 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:34.554 (UTC)] warn/application	[Motor] Distance too close (18.9111621016223); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:35.554 (UTC)] info/application	[Motor] Received distance: 20.0945505814601 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:35.554 (UTC)] info/application	[Motor] Distance safe (20.0945505814601); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:36.545 (UTC)] info/application	[Motor] Received distance: 19.6016207470566 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:36.545 (UTC)] warn/application	[Motor] Distance too close (19.6016207470566); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:37.553 (UTC)] info/application	[Motor] Received distance: 20.8800202549342 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:37.553 (UTC)] info/application	[Motor] Distance safe (20.8800202549342); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:38.544 (UTC)] info/application	[Motor] Received distance: 20.3407269037984 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:38.544 (UTC)] info/application	[Motor] Distance safe (20.3407269037984); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:39.553 (UTC)] info/application	[Motor] Received distance: 20.6706067943809 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:39.553 (UTC)] info/application	[Motor] Distance safe (20.6706067943809); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:40.544 (UTC)] info/application	[Motor] Received distance: 21.9535760222718 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:40.544 (UTC)] info/application	[Motor] Distance safe (21.9535760222718); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:41.552 (UTC)] info/application	[Motor] Received distance: 21.9564182047995 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:41.552 (UTC)] info/application	[Motor] Distance safe (21.9564182047995); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:42.554 (UTC)] info/application	[Motor] Received distance: 22.3990047305818 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:42.554 (UTC)] info/application	[Motor] Distance safe (22.3990047305818); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:43.554 (UTC)] info/application	[Motor] Received distance: 23.7805841911028 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:43.554 (UTC)] info/application	[Motor] Distance safe (23.7805841911028); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:44.544 (UTC)] info/application	[Motor] Received distance: 24.6184791338716 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:44.544 (UTC)] info/application	[Motor] Distance safe (24.6184791338716); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:45.552 (UTC)] info/application	[Motor] Received distance: 25.2340985661066 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:45.552 (UTC)] info/application	[Motor] Distance safe (25.2340985661066); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:46.554 (UTC)] info/application	[Motor] Received distance: 24.9434714172704 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:46.554 (UTC)] info/application	[Motor] Distance safe (24.9434714172704); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:47.554 (UTC)] info/application	[Motor] Received distance: 23.6485934593475 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:47.554 (UTC)] info/application	[Motor] Distance safe (23.6485934593475); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:48.554 (UTC)] info/application	[Motor] Received distance: 22.2133535310688 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:48.554 (UTC)] info/application	[Motor] Distance safe (22.2133535310688); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:49.544 (UTC)] info/application	[Motor] Received distance: 21.6677471623606 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:49.544 (UTC)] info/application	[Motor] Distance safe (21.6677471623606); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:50.552 (UTC)] info/application	[Motor] Received distance: 23.1198194791189 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:50.552 (UTC)] info/application	[Motor] Distance safe (23.1198194791189); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:51.554 (UTC)] info/application	[Motor] Received distance: 22.8671820784766 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:51.554 (UTC)] info/application	[Motor] Distance safe (22.8671820784766); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:52.554 (UTC)] info/application	[Motor] Received distance: 22.9438917287364 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:52.554 (UTC)] info/application	[Motor] Distance safe (22.9438917287364); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:53.555 (UTC)] info/application	[Motor] Received distance: 24.4073712960386 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:53.555 (UTC)] info/application	[Motor] Distance safe (24.4073712960386); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:54.555 (UTC)] info/application	[Motor] Received distance: 24.7526130023192 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:54.555 (UTC)] info/application	[Motor] Distance safe (24.7526130023192); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:55.554 (UTC)] info/application	[Motor] Received distance: 24.6536347042553 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:55.554 (UTC)] info/application	[Motor] Distance safe (24.6536347042553); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:56.555 (UTC)] info/application	[Motor] Received distance: 23.4179144028658 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:56.555 (UTC)] info/application	[Motor] Distance safe (23.4179144028658); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:57.555 (UTC)] info/application	[Motor] Received distance: 24.531878647875 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:57.555 (UTC)] info/application	[Motor] Distance safe (24.531878647875); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:58.555 (UTC)] info/application	[Motor] Received distance: 23.610593424463 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:58.555 (UTC)] info/application	[Motor] Distance safe (23.610593424463); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:59.546 (UTC)] info/application	[Motor] Received distance: 23.0005982087462 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:34:59.546 (UTC)] info/application	[Motor] Distance safe (23.0005982087462); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:00.554 (UTC)] info/application	[Motor] Received distance: 24.259915269101 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:00.554 (UTC)] info/application	[Motor] Distance safe (24.259915269101); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:01.555 (UTC)] info/application	[Motor] Received distance: 24.4180607413491 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:01.555 (UTC)] info/application	[Motor] Distance safe (24.4180607413491); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:02.547 (UTC)] info/application	[Motor] Received distance: 24.5670062743905 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:02.547 (UTC)] info/application	[Motor] Distance safe (24.5670062743905); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:03.554 (UTC)] info/application	[Motor] Received distance: 23.569282293352 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:03.554 (UTC)] info/application	[Motor] Distance safe (23.569282293352); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:04.554 (UTC)] info/application	[Motor] Received distance: 23.0014536036185 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:04.554 (UTC)] info/application	[Motor] Distance safe (23.0014536036185); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:05.555 (UTC)] info/application	[Motor] Received distance: 23.202444118309 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:05.555 (UTC)] info/application	[Motor] Distance safe (23.202444118309); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:06.555 (UTC)] info/application	[Motor] Received distance: 21.8881086171084 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:06.555 (UTC)] info/application	[Motor] Distance safe (21.8881086171084); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:07.549 (UTC)] info/application	[Motor] Received distance: 22.3273500929714 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:07.549 (UTC)] info/application	[Motor] Distance safe (22.3273500929714); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:08.554 (UTC)] info/application	[Motor] Received distance: 22.3067401141425 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:08.554 (UTC)] info/application	[Motor] Distance safe (22.3067401141425); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:09.555 (UTC)] info/application	[Motor] Received distance: 21.953111261806 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:09.555 (UTC)] info/application	[Motor] Distance safe (21.953111261806); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:10.549 (UTC)] info/application	[Motor] Received distance: 21.2222326268545 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:10.549 (UTC)] info/application	[Motor] Distance safe (21.2222326268545); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:11.554 (UTC)] info/application	[Motor] Received distance: 20.9845918745196 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:11.554 (UTC)] info/application	[Motor] Distance safe (20.9845918745196); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:12.554 (UTC)] info/application	[Motor] Received distance: 22.1338052061078 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:12.554 (UTC)] info/application	[Motor] Distance safe (22.1338052061078); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:13.555 (UTC)] info/application	[Motor] Received distance: 23.3455130983356 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:13.555 (UTC)] info/application	[Motor] Distance safe (23.3455130983356); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:14.555 (UTC)] info/application	[Motor] Received distance: 22.9894518051247 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:14.555 (UTC)] info/application	[Motor] Distance safe (22.9894518051247); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:15.550 (UTC)] info/application	[Motor] Received distance: 23.4765600780847 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:15.550 (UTC)] info/application	[Motor] Distance safe (23.4765600780847); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:16.554 (UTC)] info/application	[Motor] Received distance: 23.8038874011505 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:16.554 (UTC)] info/application	[Motor] Distance safe (23.8038874011505); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:17.554 (UTC)] info/application	[Motor] Received distance: 24.6571989605004 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:17.554 (UTC)] info/application	[Motor] Distance safe (24.6571989605004); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:18.555 (UTC)] info/application	[Motor] Received distance: 25.3494292769346 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:18.555 (UTC)] info/application	[Motor] Distance safe (25.3494292769346); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:19.555 (UTC)] info/application	[Motor] Received distance: 25.7415166717216 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:19.555 (UTC)] info/application	[Motor] Distance safe (25.7415166717216); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:20.555 (UTC)] info/application	[Motor] Received distance: 24.5492218609663 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:20.555 (UTC)] info/application	[Motor] Distance safe (24.5492218609663); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:21.549 (UTC)] info/application	[Motor] Received distance: 25.1935244927618 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:21.549 (UTC)] info/application	[Motor] Distance safe (25.1935244927618); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:22.554 (UTC)] info/application	[Motor] Received distance: 23.8329744869065 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:22.554 (UTC)] info/application	[Motor] Distance safe (23.8329744869065); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:23.554 (UTC)] info/application	[Motor] Received distance: 24.217389326411 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:23.554 (UTC)] info/application	[Motor] Distance safe (24.217389326411); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:24.555 (UTC)] info/application	[Motor] Received distance: 24.8251715241117 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:24.555 (UTC)] info/application	[Motor] Distance safe (24.8251715241117); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:25.555 (UTC)] info/application	[Motor] Received distance: 25.309863224537 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:25.555 (UTC)] info/application	[Motor] Distance safe (25.309863224537); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:26.550 (UTC)] info/application	[Motor] Received distance: 24.0952997659777 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:26.550 (UTC)] info/application	[Motor] Distance safe (24.0952997659777); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:27.554 (UTC)] info/application	[Motor] Received distance: 24.9673616636858 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:27.554 (UTC)] info/application	[Motor] Distance safe (24.9673616636858); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:28.554 (UTC)] info/application	[Motor] Received distance: 25.0660176091203 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:28.554 (UTC)] info/application	[Motor] Distance safe (25.0660176091203); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:29.554 (UTC)] info/application	[Motor] Received distance: 24.430168927149 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:29.554 (UTC)] info/application	[Motor] Distance safe (24.430168927149); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:30.541 (UTC)] info/application	[Motor] Received distance: 23.1922356077434 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:30.541 (UTC)] info/application	[Motor] Distance safe (23.1922356077434); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:31.550 (UTC)] info/application	[Motor] Received distance: 23.0502086121357 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:31.550 (UTC)] info/application	[Motor] Distance safe (23.0502086121357); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:32.541 (UTC)] info/application	[Motor] Received distance: 24.0725054038095 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:32.541 (UTC)] info/application	[Motor] Distance safe (24.0725054038095); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:33.549 (UTC)] info/application	[Motor] Received distance: 24.4835176174452 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:33.549 (UTC)] info/application	[Motor] Distance safe (24.4835176174452); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:34.542 (UTC)] info/application	[Motor] Received distance: 24.843766640799 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:34.542 (UTC)] info/application	[Motor] Distance safe (24.843766640799); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:35.550 (UTC)] info/application	[Motor] Received distance: 23.7982347413424 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:35.550 (UTC)] info/application	[Motor] Distance safe (23.7982347413424); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:36.542 (UTC)] info/application	[Motor] Received distance: 22.9102374682716 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:36.542 (UTC)] info/application	[Motor] Distance safe (22.9102374682716); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:37.550 (UTC)] info/application	[Motor] Received distance: 23.4561509904247 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:37.550 (UTC)] info/application	[Motor] Distance safe (23.4561509904247); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:38.543 (UTC)] info/application	[Motor] Received distance: 24.3498605682281 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:38.543 (UTC)] info/application	[Motor] Distance safe (24.3498605682281); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:39.551 (UTC)] info/application	[Motor] Received distance: 24.9412533177255 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:39.551 (UTC)] info/application	[Motor] Distance safe (24.9412533177255); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:40.554 (UTC)] info/application	[Motor] Received distance: 23.6335379875421 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:40.554 (UTC)] info/application	[Motor] Distance safe (23.6335379875421); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:41.544 (UTC)] info/application	[Motor] Received distance: 22.296368928997 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:41.544 (UTC)] info/application	[Motor] Distance safe (22.296368928997); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:42.553 (UTC)] info/application	[Motor] Received distance: 21.1501209247625 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:42.553 (UTC)] info/application	[Motor] Distance safe (21.1501209247625); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:43.554 (UTC)] info/application	[Motor] Received distance: 22.4916189261673 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:43.554 (UTC)] info/application	[Motor] Distance safe (22.4916189261673); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:44.544 (UTC)] info/application	[Motor] Received distance: 23.86615775985 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:44.544 (UTC)] info/application	[Motor] Distance safe (23.86615775985); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:45.553 (UTC)] info/application	[Motor] Received distance: 23.8638484638016 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:45.553 (UTC)] info/application	[Motor] Distance safe (23.8638484638016); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:46.544 (UTC)] info/application	[Motor] Received distance: 24.1924547367694 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:46.544 (UTC)] info/application	[Motor] Distance safe (24.1924547367694); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:47.553 (UTC)] info/application	[Motor] Received distance: 24.3943208935178 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:47.553 (UTC)] info/application	[Motor] Distance safe (24.3943208935178); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:48.544 (UTC)] info/application	[Motor] Received distance: 23.7453231554224 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:48.544 (UTC)] info/application	[Motor] Distance safe (23.7453231554224); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:49.553 (UTC)] info/application	[Motor] Received distance: 23.2661597434274 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:49.553 (UTC)] info/application	[Motor] Distance safe (23.2661597434274); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:50.554 (UTC)] info/application	[Motor] Received distance: 22.3601132935659 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:50.554 (UTC)] info/application	[Motor] Distance safe (22.3601132935659); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:51.555 (UTC)] info/application	[Motor] Received distance: 22.0188207447151 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:51.555 (UTC)] info/application	[Motor] Distance safe (22.0188207447151); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:52.545 (UTC)] info/application	[Motor] Received distance: 20.6839599645156 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:52.545 (UTC)] info/application	[Motor] Distance safe (20.6839599645156); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:53.553 (UTC)] info/application	[Motor] Received distance: 19.9173635087988 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:53.553 (UTC)] warn/application	[Motor] Distance too close (19.9173635087988); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:54.554 (UTC)] info/application	[Motor] Received distance: 18.4604857980555 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:54.554 (UTC)] warn/application	[Motor] Distance too close (18.4604857980555); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:55.554 (UTC)] info/application	[Motor] Received distance: 19.2334072155568 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:55.554 (UTC)] warn/application	[Motor] Distance too close (19.2334072155568); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:56.555 (UTC)] info/application	[Motor] Received distance: 20.4515024616623 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:56.555 (UTC)] info/application	[Motor] Distance safe (20.4515024616623); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:57.555 (UTC)] info/application	[Motor] Received distance: 19.2800612923596 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:57.555 (UTC)] warn/application	[Motor] Distance too close (19.2800612923596); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:58.545 (UTC)] info/application	[Motor] Received distance: 19.425044606172 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:58.545 (UTC)] warn/application	[Motor] Distance too close (19.425044606172); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:59.554 (UTC)] info/application	[Motor] Received distance: 19.2417957963151 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:35:59.554 (UTC)] warn/application	[Motor] Distance too close (19.2417957963151); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:00.554 (UTC)] info/application	[Motor] Received distance: 18.9345059464381 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:00.554 (UTC)] warn/application	[Motor] Distance too close (18.9345059464381); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:01.554 (UTC)] info/application	[Motor] Received distance: 19.3415559408448 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:01.554 (UTC)] warn/application	[Motor] Distance too close (19.3415559408448); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:02.555 (UTC)] info/application	[Motor] Received distance: 20.5162801353802 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:02.555 (UTC)] info/application	[Motor] Distance safe (20.5162801353802); rotating motor to 90 degrees | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:03.555 (UTC)] info/application	[Motor] Received distance: 19.73128707578 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:03.555 (UTC)] warn/application	[Motor] Distance too close (19.73128707578); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:04.548 (UTC)] info/application	[Motor] Received distance: 19.0493492824255 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:04.548 (UTC)] warn/application	[Motor] Distance too close (19.0493492824255); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:05.554 (UTC)] info/application	[Motor] Received distance: 19.0843224989177 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:05.554 (UTC)] warn/application	[Motor] Distance too close (19.0843224989177); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:06.554 (UTC)] info/application	[Motor] Received distance: 18.7537975398608 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:06.554 (UTC)] warn/application	[Motor] Distance too close (18.7537975398608); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:07.555 (UTC)] info/application	[Motor] Received distance: 18.6838624748326 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:07.555 (UTC)] warn/application	[Motor] Distance too close (18.6838624748326); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:08.555 (UTC)] info/application	[Motor] Received distance: 17.7647492134779 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:08.555 (UTC)] warn/application	[Motor] Distance too close (17.7647492134779); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:09.548 (UTC)] info/application	[Motor] Received distance: 16.8279338308274 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:09.548 (UTC)] warn/application	[Motor] Distance too close (16.8279338308274); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:10.554 (UTC)] info/application	[Motor] Received distance: 15.8493915138996 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:10.554 (UTC)] warn/application	[Motor] Distance too close (15.8493915138996); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:11.555 (UTC)] info/application	[Motor] Received distance: 15.1225629223616 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:11.555 (UTC)] warn/application	[Motor] Distance too close (15.1225629223616); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:12.555 (UTC)] info/application	[Motor] Received distance: 14.3485784825629 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:12.555 (UTC)] warn/application	[Motor] Distance too close (14.3485784825629); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:13.547 (UTC)] info/application	[Motor] Received distance: 13.7237881614006 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:13.547 (UTC)] warn/application	[Motor] Distance too close (13.7237881614006); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:14.554 (UTC)] info/application	[Motor] Received distance: 12.8384575698704 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:14.554 (UTC)] warn/application	[Motor] Distance too close (12.8384575698704); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:15.554 (UTC)] info/application	[Motor] Received distance: 11.9390119623574 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:15.554 (UTC)] warn/application	[Motor] Distance too close (11.9390119623574); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:16.554 (UTC)] info/application	[Motor] Received distance: 12.8119123451467 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:16.554 (UTC)] warn/application	[Motor] Distance too close (12.8119123451467); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:17.555 (UTC)] info/application	[Motor] Received distance: 13.7551880265843 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:17.555 (UTC)] warn/application	[Motor] Distance too close (13.7551880265843); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:18.555 (UTC)] info/application	[Motor] Received distance: 14.5576085758198 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:18.555 (UTC)] warn/application	[Motor] Distance too close (14.5576085758198); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:19.555 (UTC)] info/application	[Motor] Received distance: 13.2815112191166 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:19.555 (UTC)] warn/application	[Motor] Distance too close (13.2815112191166); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:20.547 (UTC)] info/application	[Motor] Received distance: 12.2456234885592 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:20.547 (UTC)] warn/application	[Motor] Distance too close (12.2456234885592); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:21.554 (UTC)] info/application	[Motor] Received distance: 13.6419975893302 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:21.554 (UTC)] warn/application	[Motor] Distance too close (13.6419975893302); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:22.554 (UTC)] info/application	[Motor] Received distance: 13.5246076837762 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:22.554 (UTC)] warn/application	[Motor] Distance too close (13.5246076837762); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:23.555 (UTC)] info/application	[Motor] Received distance: 12.6538591730193 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:23.555 (UTC)] warn/application	[Motor] Distance too close (12.6538591730193); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:24.555 (UTC)] info/application	[Motor] Received distance: 11.7836368166765 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:24.555 (UTC)] warn/application	[Motor] Distance too close (11.7836368166765); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:25.548 (UTC)] info/application	[Motor] Received distance: 11.7093692017763 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:25.548 (UTC)] warn/application	[Motor] Distance too close (11.7093692017763); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:26.554 (UTC)] info/application	[Motor] Received distance: 13.1115421085206 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:26.554 (UTC)] warn/application	[Motor] Distance too close (13.1115421085206); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:27.555 (UTC)] info/application	[Motor] Received distance: 11.9594149968863 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:27.555 (UTC)] warn/application	[Motor] Distance too close (11.9594149968863); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:28.555 (UTC)] info/application	[Motor] Received distance: 12.2137062126834 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:28.555 (UTC)] warn/application	[Motor] Distance too close (12.2137062126834); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:29.548 (UTC)] info/application	[Motor] Received distance: 12.2608624332402 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:29.548 (UTC)] warn/application	[Motor] Distance too close (12.2608624332402); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:30.554 (UTC)] info/application	[Motor] Received distance: 12.425486511749 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:30.554 (UTC)] warn/application	[Motor] Distance too close (12.425486511749); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:31.548 (UTC)] info/application	[Motor] Received distance: 13.872487877669 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:31.548 (UTC)] warn/application	[Motor] Distance too close (13.872487877669); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:32.554 (UTC)] info/application	[Motor] Received distance: 12.8266940912356 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:32.554 (UTC)] warn/application	[Motor] Distance too close (12.8266940912356); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:33.555 (UTC)] info/application	[Motor] Received distance: 12.6660423628828 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:33.555 (UTC)] warn/application	[Motor] Distance too close (12.6660423628828); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:34.555 (UTC)] info/application	[Motor] Received distance: 11.8280506678056 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:34.555 (UTC)] warn/application	[Motor] Distance too close (11.8280506678056); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:35.547 (UTC)] info/application	[Motor] Received distance: 11.6003190894147 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:35.547 (UTC)] warn/application	[Motor] Distance too close (11.6003190894147); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:36.554 (UTC)] info/application	[Motor] Received distance: 12.974640578951 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:36.554 (UTC)] warn/application	[Motor] Distance too close (12.974640578951); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:37.555 (UTC)] info/application	[Motor] Received distance: 13.306123926214 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:37.555 (UTC)] warn/application	[Motor] Distance too close (13.306123926214); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:38.555 (UTC)] info/application	[Motor] Received distance: 14.5084572827948 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:38.555 (UTC)] warn/application	[Motor] Distance too close (14.5084572827948); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:39.546 (UTC)] info/application	[Motor] Received distance: 13.4636655095795 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:39.546 (UTC)] warn/application	[Motor] Distance too close (13.4636655095795); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:40.554 (UTC)] info/application	[Motor] Received distance: 14.358333474192 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:40.554 (UTC)] warn/application	[Motor] Distance too close (14.358333474192); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:41.554 (UTC)] info/application	[Motor] Received distance: 13.082124512448 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:41.554 (UTC)] warn/application	[Motor] Distance too close (13.082124512448); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:42.555 (UTC)] info/application	[Motor] Received distance: 12.8105041476947 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:42.555 (UTC)] warn/application	[Motor] Distance too close (12.8105041476947); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:43.545 (UTC)] info/application	[Motor] Received distance: 11.4311876711115 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:43.545 (UTC)] warn/application	[Motor] Distance too close (11.4311876711115); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:44.553 (UTC)] info/application	[Motor] Received distance: 11.0301883882052 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:44.553 (UTC)] warn/application	[Motor] Distance too close (11.0301883882052); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:45.554 (UTC)] info/application	[Motor] Received distance: 11.3732374319216 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:45.554 (UTC)] warn/application	[Motor] Distance too close (11.3732374319216); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:46.554 (UTC)] info/application	[Motor] Received distance: 10.5944753492225 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:46.554 (UTC)] warn/application	[Motor] Distance too close (10.5944753492225); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:47.555 (UTC)] info/application	[Motor] Received distance: 9.56637644910549 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:47.555 (UTC)] warn/application	[Motor] Distance too close (9.56637644910549); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:48.545 (UTC)] info/application	[Motor] Received distance: 9.35270117286251 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:48.545 (UTC)] warn/application	[Motor] Distance too close (9.35270117286251); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:49.553 (UTC)] info/application	[Motor] Received distance: 7.87635963800192 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:49.553 (UTC)] warn/application	[Motor] Distance too close (7.87635963800192); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:50.554 (UTC)] info/application	[Motor] Received distance: 7.07216338118172 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:50.554 (UTC)] warn/application	[Motor] Distance too close (7.07216338118172); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:51.544 (UTC)] info/application	[Motor] Received distance: 7.32260037438132 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:51.544 (UTC)] warn/application	[Motor] Distance too close (7.32260037438132); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:52.553 (UTC)] info/application	[Motor] Received distance: 8.74263294029171 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:52.553 (UTC)] warn/application	[Motor] Distance too close (8.74263294029171); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:53.554 (UTC)] info/application	[Motor] Received distance: 9.32104677931453 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:53.554 (UTC)] warn/application	[Motor] Distance too close (9.32104677931453); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:54.554 (UTC)] info/application	[Motor] Received distance: 10.2007352617573 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:54.554 (UTC)] warn/application	[Motor] Distance too close (10.2007352617573); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:55.545 (UTC)] info/application	[Motor] Received distance: 9.25054547132482 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:55.545 (UTC)] warn/application	[Motor] Distance too close (9.25054547132482); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:56.553 (UTC)] info/application	[Motor] Received distance: 8.2546916940504 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:56.553 (UTC)] warn/application	[Motor] Distance too close (8.2546916940504); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:57.554 (UTC)] info/application	[Motor] Received distance: 9.0365530832375 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:57.554 (UTC)] warn/application	[Motor] Distance too close (9.0365530832375); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:58.554 (UTC)] info/application	[Motor] Received distance: 8.43423618117077 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:58.554 (UTC)] warn/application	[Motor] Distance too close (8.43423618117077); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:59.555 (UTC)] info/application	[Motor] Received distance: 9.19267361969344 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:36:59.555 (UTC)] warn/application	[Motor] Distance too close (9.19267361969344); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:00.555 (UTC)] info/application	[Motor] Received distance: 8.52169122804033 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:00.555 (UTC)] warn/application	[Motor] Distance too close (8.52169122804033); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:01.545 (UTC)] info/application	[Motor] Received distance: 9.58399840587935 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:01.545 (UTC)] warn/application	[Motor] Distance too close (9.58399840587935); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:02.554 (UTC)] info/application	[Motor] Received distance: 10.2894372103221 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:02.554 (UTC)] warn/application	[Motor] Distance too close (10.2894372103221); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:03.555 (UTC)] info/application	[Motor] Received distance: 10.0726610322355 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:03.555 (UTC)] warn/application	[Motor] Distance too close (10.0726610322355); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:04.555 (UTC)] info/application	[Motor] Received distance: 9.47431648032473 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:04.555 (UTC)] warn/application	[Motor] Distance too close (9.47431648032473); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:05.547 (UTC)] info/application	[Motor] Received distance: 10.8417635896903 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:05.547 (UTC)] warn/application	[Motor] Distance too close (10.8417635896903); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:06.554 (UTC)] info/application	[Motor] Received distance: 11.8972558332129 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:06.554 (UTC)] warn/application	[Motor] Distance too close (11.8972558332129); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:07.555 (UTC)] info/application	[Motor] Received distance: 11.1732327694414 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:07.555 (UTC)] warn/application	[Motor] Distance too close (11.1732327694414); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:08.555 (UTC)] info/application	[Motor] Received distance: 11.372163224673 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:08.555 (UTC)] warn/application	[Motor] Distance too close (11.372163224673); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:09.549 (UTC)] info/application	[Motor] Received distance: 12.1299888233794 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:09.549 (UTC)] warn/application	[Motor] Distance too close (12.1299888233794); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:10.554 (UTC)] info/application	[Motor] Received distance: 11.8611739863926 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:10.554 (UTC)] warn/application	[Motor] Distance too close (11.8611739863926); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:11.554 (UTC)] info/application	[Motor] Received distance: 11.4547724062366 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:11.554 (UTC)] warn/application	[Motor] Distance too close (11.4547724062366); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:12.555 (UTC)] info/application	[Motor] Received distance: 12.4363890431991 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:12.555 (UTC)] warn/application	[Motor] Distance too close (12.4363890431991); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:13.555 (UTC)] info/application	[Motor] Received distance: 13.395953841459 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:13.555 (UTC)] warn/application	[Motor] Distance too close (13.395953841459); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:14.550 (UTC)] info/application	[Motor] Received distance: 13.1102357847198 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:14.550 (UTC)] warn/application	[Motor] Distance too close (13.1102357847198); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:15.554 (UTC)] info/application	[Motor] Received distance: 12.1908531387759 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:15.554 (UTC)] warn/application	[Motor] Distance too close (12.1908531387759); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:16.554 (UTC)] info/application	[Motor] Received distance: 11.9934669793553 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:16.554 (UTC)] warn/application	[Motor] Distance too close (11.9934669793553); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:17.555 (UTC)] info/application	[Motor] Received distance: 12.428986839917 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:17.555 (UTC)] warn/application	[Motor] Distance too close (12.428986839917); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:18.555 (UTC)] info/application	[Motor] Received distance: 11.9815052938561 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:18.555 (UTC)] warn/application	[Motor] Distance too close (11.9815052938561); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:19.541 (UTC)] info/application	[Motor] Received distance: 13.0704438595895 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:19.541 (UTC)] warn/application	[Motor] Distance too close (13.0704438595895); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:20.549 (UTC)] info/application	[Motor] Received distance: 13.5296221866876 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:20.549 (UTC)] warn/application	[Motor] Distance too close (13.5296221866876); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:21.541 (UTC)] info/application	[Motor] Received distance: 13.7779443838065 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:21.541 (UTC)] warn/application	[Motor] Distance too close (13.7779443838065); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:22.549 (UTC)] info/application	[Motor] Received distance: 13.6173199413425 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:22.549 (UTC)] warn/application	[Motor] Distance too close (13.6173199413425); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:23.542 (UTC)] info/application	[Motor] Received distance: 13.996530832954 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:23.542 (UTC)] warn/application	[Motor] Distance too close (13.996530832954); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:24.550 (UTC)] info/application	[Motor] Received distance: 13.3232668676987 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:24.550 (UTC)] warn/application	[Motor] Distance too close (13.3232668676987); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:25.542 (UTC)] info/application	[Motor] Received distance: 12.5423309076774 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:25.542 (UTC)] warn/application	[Motor] Distance too close (12.5423309076774); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:26.550 (UTC)] info/application	[Motor] Received distance: 13.4713520088565 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:26.550 (UTC)] warn/application	[Motor] Distance too close (13.4713520088565); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:27.543 (UTC)] info/application	[Motor] Received distance: 13.3022342663269 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:27.543 (UTC)] warn/application	[Motor] Distance too close (13.3022342663269); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:28.551 (UTC)] info/application	[Motor] Received distance: 11.8031596940957 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:28.551 (UTC)] warn/application	[Motor] Distance too close (11.8031596940957); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:29.542 (UTC)] info/application	[Motor] Received distance: 10.629863893208 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:29.542 (UTC)] warn/application	[Motor] Distance too close (10.629863893208); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:30.551 (UTC)] info/application	[Motor] Received distance: 9.71918358920102 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:30.551 (UTC)] warn/application	[Motor] Distance too close (9.71918358920102); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:31.543 (UTC)] info/application	[Motor] Received distance: 9.04912662531672 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:31.543 (UTC)] warn/application	[Motor] Distance too close (9.04912662531672); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:32.552 (UTC)] info/application	[Motor] Received distance: 10.4381380022681 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:32.552 (UTC)] warn/application	[Motor] Distance too close (10.4381380022681); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:33.543 (UTC)] info/application	[Motor] Received distance: 11.7328965027038 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:33.543 (UTC)] warn/application	[Motor] Distance too close (11.7328965027038); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:34.552 (UTC)] info/application	[Motor] Received distance: 12.346063360733 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:34.552 (UTC)] warn/application	[Motor] Distance too close (12.346063360733); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:35.543 (UTC)] info/application	[Motor] Received distance: 11.6367301843766 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:35.543 (UTC)] warn/application	[Motor] Distance too close (11.6367301843766); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:36.552 (UTC)] info/application	[Motor] Received distance: 12.7989357927809 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:36.552 (UTC)] warn/application	[Motor] Distance too close (12.7989357927809); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:37.543 (UTC)] info/application	[Motor] Received distance: 12.9675948943326 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:37.543 (UTC)] warn/application	[Motor] Distance too close (12.9675948943326); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:38.551 (UTC)] info/application	[Motor] Received distance: 13.0342386556017 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:38.551 (UTC)] warn/application	[Motor] Distance too close (13.0342386556017); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:39.543 (UTC)] info/application	[Motor] Received distance: 12.8953747192376 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:39.543 (UTC)] warn/application	[Motor] Distance too close (12.8953747192376); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:40.551 (UTC)] info/application	[Motor] Received distance: 12.3218594180987 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:40.551 (UTC)] warn/application	[Motor] Distance too close (12.3218594180987); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:41.543 (UTC)] info/application	[Motor] Received distance: 13.6196883423811 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:41.543 (UTC)] warn/application	[Motor] Distance too close (13.6196883423811); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:42.552 (UTC)] info/application	[Motor] Received distance: 14.574422825861 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:42.552 (UTC)] warn/application	[Motor] Distance too close (14.574422825861); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:43.554 (UTC)] info/application	[Motor] Received distance: 13.4825241616846 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:43.554 (UTC)] warn/application	[Motor] Distance too close (13.4825241616846); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:44.544 (UTC)] info/application	[Motor] Received distance: 14.2399178842268 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:44.544 (UTC)] warn/application	[Motor] Distance too close (14.2399178842268); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:45.553 (UTC)] info/application	[Motor] Received distance: 13.4089343095705 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:45.553 (UTC)] warn/application	[Motor] Distance too close (13.4089343095705); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:46.544 (UTC)] info/application	[Motor] Received distance: 12.8976529994503 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:46.544 (UTC)] warn/application	[Motor] Distance too close (12.8976529994503); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:47.552 (UTC)] info/application	[Motor] Received distance: 11.9576605611749 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:47.553 (UTC)] warn/application	[Motor] Distance too close (11.9576605611749); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:48.544 (UTC)] info/application	[Motor] Received distance: 13.0621968484773 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:48.544 (UTC)] warn/application	[Motor] Distance too close (13.0621968484773); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:49.552 (UTC)] info/application	[Motor] Received distance: 13.6034339922962 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:49.552 (UTC)] warn/application	[Motor] Distance too close (13.6034339922962); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:50.544 (UTC)] info/application	[Motor] Received distance: 12.2523801183572 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:50.544 (UTC)] warn/application	[Motor] Distance too close (12.2523801183572); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:51.552 (UTC)] info/application	[Motor] Received distance: 12.3160947313607 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:51.552 (UTC)] warn/application	[Motor] Distance too close (12.3160947313607); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:52.554 (UTC)] info/application	[Motor] Received distance: 11.6056540709015 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:52.554 (UTC)] warn/application	[Motor] Distance too close (11.6056540709015); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:53.554 (UTC)] info/application	[Motor] Received distance: 11.5939757558955 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:53.554 (UTC)] warn/application	[Motor] Distance too close (11.5939757558955); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:54.555 (UTC)] info/application	[Motor] Received distance: 10.5369012591135 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:54.555 (UTC)] warn/application	[Motor] Distance too close (10.5369012591135); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:55.545 (UTC)] info/application	[Motor] Received distance: 10.6531966347961 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:55.545 (UTC)] warn/application	[Motor] Distance too close (10.6531966347961); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:56.554 (UTC)] info/application	[Motor] Received distance: 11.3605823597687 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:56.554 (UTC)] warn/application	[Motor] Distance too close (11.3605823597687); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:57.555 (UTC)] info/application	[Motor] Received distance: 12.7325289655628 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:57.555 (UTC)] warn/application	[Motor] Distance too close (12.7325289655628); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:58.546 (UTC)] info/application	[Motor] Received distance: 14.1797065987157 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:58.546 (UTC)] warn/application	[Motor] Distance too close (14.1797065987157); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:59.554 (UTC)] info/application	[Motor] Received distance: 14.8880177514572 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:37:59.554 (UTC)] warn/application	[Motor] Distance too close (14.8880177514572); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:00.555 (UTC)] info/application	[Motor] Received distance: 13.5866685549666 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:00.555 (UTC)] warn/application	[Motor] Distance too close (13.5866685549666); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:01.547 (UTC)] info/application	[Motor] Received distance: 12.6231658827156 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:01.547 (UTC)] warn/application	[Motor] Distance too close (12.6231658827156); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:02.554 (UTC)] info/application	[Motor] Received distance: 11.1614200701757 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:02.554 (UTC)] warn/application	[Motor] Distance too close (11.1614200701757); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:03.554 (UTC)] info/application	[Motor] Received distance: 9.74908224923957 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:03.554 (UTC)] warn/application	[Motor] Distance too close (9.74908224923957); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:04.555 (UTC)] info/application	[Motor] Received distance: 8.58033807602725 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:04.555 (UTC)] warn/application	[Motor] Distance too close (8.58033807602725); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:05.555 (UTC)] info/application	[Motor] Received distance: 9.23175912151659 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:05.555 (UTC)] warn/application	[Motor] Distance too close (9.23175912151659); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:06.548 (UTC)] info/application	[Motor] Received distance: 8.61008812422401 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:06.548 (UTC)] warn/application	[Motor] Distance too close (8.61008812422401); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:07.554 (UTC)] info/application	[Motor] Received distance: 10.103549560813 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:07.554 (UTC)] warn/application	[Motor] Distance too close (10.103549560813); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:08.554 (UTC)] info/application	[Motor] Received distance: 9.42362970645707 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:08.554 (UTC)] warn/application	[Motor] Distance too close (9.42362970645707); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:09.555 (UTC)] info/application	[Motor] Received distance: 10.3686024704336 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:09.555 (UTC)] warn/application	[Motor] Distance too close (10.3686024704336); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:10.555 (UTC)] info/application	[Motor] Received distance: 10.2231999692615 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:10.555 (UTC)] warn/application	[Motor] Distance too close (10.2231999692615); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:11.555 (UTC)] info/application	[Motor] Received distance: 10.4697648151637 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:11.555 (UTC)] warn/application	[Motor] Distance too close (10.4697648151637); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:12.548 (UTC)] info/application	[Motor] Received distance: 11.2125665034226 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:12.548 (UTC)] warn/application	[Motor] Distance too close (11.2125665034226); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:13.553 (UTC)] info/application	[Motor] Received distance: 10.5218984843334 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:13.553 (UTC)] warn/application	[Motor] Distance too close (10.5218984843334); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:14.554 (UTC)] info/application	[Motor] Received distance: 11.1765646660591 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:14.554 (UTC)] warn/application	[Motor] Distance too close (11.1765646660591); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:15.554 (UTC)] info/application	[Motor] Received distance: 11.1767600754633 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:15.554 (UTC)] warn/application	[Motor] Distance too close (11.1767600754633); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:16.555 (UTC)] info/application	[Motor] Received distance: 11.1551084817178 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:16.555 (UTC)] warn/application	[Motor] Distance too close (11.1551084817178); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:17.548 (UTC)] info/application	[Motor] Received distance: 9.79849335192631 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:17.548 (UTC)] warn/application	[Motor] Distance too close (9.79849335192631); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:18.553 (UTC)] info/application	[Motor] Received distance: 10.3586963230552 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:18.553 (UTC)] warn/application	[Motor] Distance too close (10.3586963230552); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:19.554 (UTC)] info/application	[Motor] Received distance: 9.94158101521505 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:19.554 (UTC)] warn/application	[Motor] Distance too close (9.94158101521505); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:20.554 (UTC)] info/application	[Motor] Received distance: 10.6262030292424 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:20.554 (UTC)] warn/application	[Motor] Distance too close (10.6262030292424); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:21.555 (UTC)] info/application	[Motor] Received distance: 11.3353521278293 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:21.555 (UTC)] warn/application	[Motor] Distance too close (11.3353521278293); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:22.555 (UTC)] info/application	[Motor] Received distance: 12.4819514329927 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:22.555 (UTC)] warn/application	[Motor] Distance too close (12.4819514329927); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:23.548 (UTC)] info/application	[Motor] Received distance: 13.9561327865609 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:23.548 (UTC)] warn/application	[Motor] Distance too close (13.9561327865609); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:24.554 (UTC)] info/application	[Motor] Received distance: 13.1536035687446 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:24.554 (UTC)] warn/application	[Motor] Distance too close (13.1536035687446); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:25.554 (UTC)] info/application	[Motor] Received distance: 11.7431283771261 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:25.554 (UTC)] warn/application	[Motor] Distance too close (11.7431283771261); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:26.555 (UTC)] info/application	[Motor] Received distance: 11.8336051049799 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:26.555 (UTC)] warn/application	[Motor] Distance too close (11.8336051049799); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:27.555 (UTC)] info/application	[Motor] Received distance: 13.2384616121363 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:27.555 (UTC)] warn/application	[Motor] Distance too close (13.2384616121363); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:28.550 (UTC)] info/application	[Motor] Received distance: 14.6999330263119 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:28.550 (UTC)] warn/application	[Motor] Distance too close (14.6999330263119); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:29.554 (UTC)] info/application	[Motor] Received distance: 14.7375873873185 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:29.554 (UTC)] warn/application	[Motor] Distance too close (14.7375873873185); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:30.555 (UTC)] info/application	[Motor] Received distance: 15.3507550458194 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:30.555 (UTC)] warn/application	[Motor] Distance too close (15.3507550458194); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:31.555 (UTC)] info/application	[Motor] Received distance: 14.0108772621075 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:31.555 (UTC)] warn/application	[Motor] Distance too close (14.0108772621075); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:32.550 (UTC)] info/application	[Motor] Received distance: 14.5850289508631 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:32.550 (UTC)] warn/application	[Motor] Distance too close (14.5850289508631); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:33.554 (UTC)] info/application	[Motor] Received distance: 15.2364507968241 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:33.554 (UTC)] warn/application	[Motor] Distance too close (15.2364507968241); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:34.541 (UTC)] info/application	[Motor] Received distance: 13.9842351921761 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:34.541 (UTC)] warn/application	[Motor] Distance too close (13.9842351921761); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:35.551 (UTC)] info/application	[Motor] Received distance: 14.8896427091163 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:35.551 (UTC)] warn/application	[Motor] Distance too close (14.8896427091163); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:36.554 (UTC)] info/application	[Motor] Received distance: 14.6924855991697 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:36.554 (UTC)] warn/application	[Motor] Distance too close (14.6924855991697); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:37.541 (UTC)] info/application	[Motor] Received distance: 14.318598997229 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:37.541 (UTC)] warn/application	[Motor] Distance too close (14.318598997229); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:38.549 (UTC)] info/application	[Motor] Received distance: 15.2174679493613 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:38.549 (UTC)] warn/application	[Motor] Distance too close (15.2174679493613); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:39.542 (UTC)] info/application	[Motor] Received distance: 15.8403909864558 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:39.542 (UTC)] warn/application	[Motor] Distance too close (15.8403909864558); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:40.550 (UTC)] info/application	[Motor] Received distance: 14.9114771484916 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:40.550 (UTC)] warn/application	[Motor] Distance too close (14.9114771484916); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:41.542 (UTC)] info/application	[Motor] Received distance: 14.1649435980548 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:41.542 (UTC)] warn/application	[Motor] Distance too close (14.1649435980548); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:42.551 (UTC)] info/application	[Motor] Received distance: 13.5344314796545 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:42.551 (UTC)] warn/application	[Motor] Distance too close (13.5344314796545); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:43.543 (UTC)] info/application	[Motor] Received distance: 14.8483193299492 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:43.543 (UTC)] warn/application	[Motor] Distance too close (14.8483193299492); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:44.551 (UTC)] info/application	[Motor] Received distance: 14.9111177604231 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:44.551 (UTC)] warn/application	[Motor] Distance too close (14.9111177604231); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:45.543 (UTC)] info/application	[Motor] Received distance: 13.4352718223516 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:45.543 (UTC)] warn/application	[Motor] Distance too close (13.4352718223516); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:46.552 (UTC)] info/application	[Motor] Received distance: 13.2493550806536 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:46.552 (UTC)] warn/application	[Motor] Distance too close (13.2493550806536); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:47.543 (UTC)] info/application	[Motor] Received distance: 11.790501915985 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:47.543 (UTC)] warn/application	[Motor] Distance too close (11.790501915985); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:48.552 (UTC)] info/application	[Motor] Received distance: 10.458040848122 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:48.552 (UTC)] warn/application	[Motor] Distance too close (10.458040848122); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:49.554 (UTC)] info/application	[Motor] Received distance: 9.33232707615583 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:49.554 (UTC)] warn/application	[Motor] Distance too close (9.33232707615583); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:50.543 (UTC)] info/application	[Motor] Received distance: 8.95635860504412 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:50.543 (UTC)] warn/application	[Motor] Distance too close (8.95635860504412); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:51.552 (UTC)] info/application	[Motor] Received distance: 9.80851955120847 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:51.552 (UTC)] warn/application	[Motor] Distance too close (9.80851955120847); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:52.554 (UTC)] info/application	[Motor] Received distance: 10.8919548778291 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:52.554 (UTC)] warn/application	[Motor] Distance too close (10.8919548778291); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:53.544 (UTC)] info/application	[Motor] Received distance: 10.1625857104839 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:53.544 (UTC)] warn/application	[Motor] Distance too close (10.1625857104839); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:54.553 (UTC)] info/application	[Motor] Received distance: 10.9889280088194 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:54.553 (UTC)] warn/application	[Motor] Distance too close (10.9889280088194); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:55.554 (UTC)] info/application	[Motor] Received distance: 9.7698341162269 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:55.554 (UTC)] warn/application	[Motor] Distance too close (9.7698341162269); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:56.554 (UTC)] info/application	[Motor] Received distance: 9.12998975726308 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:56.554 (UTC)] warn/application	[Motor] Distance too close (9.12998975726308); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:57.554 (UTC)] info/application	[Motor] Received distance: 8.54680878345239 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:57.554 (UTC)] warn/application	[Motor] Distance too close (8.54680878345239); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:58.554 (UTC)] info/application	[Motor] Received distance: 7.23257139661934 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:58.554 (UTC)] warn/application	[Motor] Distance too close (7.23257139661934); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:59.544 (UTC)] info/application	[Motor] Received distance: 6.5541984504341 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:38:59.544 (UTC)] warn/application	[Motor] Distance too close (6.5541984504341); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:00.553 (UTC)] info/application	[Motor] Received distance: 7.50867183763005 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:00.553 (UTC)] warn/application	[Motor] Distance too close (7.50867183763005); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:01.554 (UTC)] info/application	[Motor] Received distance: 8.30760210929791 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:01.554 (UTC)] warn/application	[Motor] Distance too close (8.30760210929791); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:02.555 (UTC)] info/application	[Motor] Received distance: 7.78935137940074 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:02.555 (UTC)] warn/application	[Motor] Distance too close (7.78935137940074); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:03.555 (UTC)] info/application	[Motor] Received distance: 7.81797645395526 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:03.555 (UTC)] warn/application	[Motor] Distance too close (7.81797645395526); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:04.545 (UTC)] info/application	[Motor] Received distance: 7.76832857018723 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:04.545 (UTC)] warn/application	[Motor] Distance too close (7.76832857018723); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:05.554 (UTC)] info/application	[Motor] Received distance: 7.49786223564196 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:05.554 (UTC)] warn/application	[Motor] Distance too close (7.49786223564196); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:06.555 (UTC)] info/application	[Motor] Received distance: 6.93189482573972 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:06.555 (UTC)] warn/application	[Motor] Distance too close (6.93189482573972); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:07.555 (UTC)] info/application	[Motor] Received distance: 8.18508983342213 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:07.555 (UTC)] warn/application	[Motor] Distance too close (8.18508983342213); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:08.555 (UTC)] info/application	[Motor] Received distance: 9.04073689833317 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:08.555 (UTC)] warn/application	[Motor] Distance too close (9.04073689833317); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:09.546 (UTC)] info/application	[Motor] Received distance: 7.87363843916618 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:09.546 (UTC)] warn/application	[Motor] Distance too close (7.87363843916618); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:10.554 (UTC)] info/application	[Motor] Received distance: 8.24975648254609 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:10.554 (UTC)] warn/application	[Motor] Distance too close (8.24975648254609); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:11.554 (UTC)] info/application	[Motor] Received distance: 9.67648970949299 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:11.554 (UTC)] warn/application	[Motor] Distance too close (9.67648970949299); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:12.555 (UTC)] info/application	[Motor] Received distance: 9.26285769988915 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:12.555 (UTC)] warn/application	[Motor] Distance too close (9.26285769988915); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:13.548 (UTC)] info/application	[Motor] Received distance: 10.5084636248687 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:13.548 (UTC)] warn/application	[Motor] Distance too close (10.5084636248687); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:14.554 (UTC)] info/application	[Motor] Received distance: 11.7490847007134 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:14.554 (UTC)] warn/application	[Motor] Distance too close (11.7490847007134); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:15.554 (UTC)] info/application	[Motor] Received distance: 12.8982511215835 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:15.554 (UTC)] warn/application	[Motor] Distance too close (12.8982511215835); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:16.555 (UTC)] info/application	[Motor] Received distance: 14.1680111084916 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:16.555 (UTC)] warn/application	[Motor] Distance too close (14.1680111084916); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:17.555 (UTC)] info/application	[Motor] Received distance: 13.7227154412412 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:17.555 (UTC)] warn/application	[Motor] Distance too close (13.7227154412412); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:18.548 (UTC)] info/application	[Motor] Received distance: 14.9130286988397 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:18.548 (UTC)] warn/application	[Motor] Distance too close (14.9130286988397); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:19.554 (UTC)] info/application	[Motor] Received distance: 16.3503276178848 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:19.554 (UTC)] warn/application	[Motor] Distance too close (16.3503276178848); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:20.554 (UTC)] info/application	[Motor] Received distance: 16.2793181786683 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:20.554 (UTC)] warn/application	[Motor] Distance too close (16.2793181786683); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:21.555 (UTC)] info/application	[Motor] Received distance: 15.5936629637581 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:21.555 (UTC)] warn/application	[Motor] Distance too close (15.5936629637581); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:22.549 (UTC)] info/application	[Motor] Received distance: 16.3831228275705 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:22.549 (UTC)] warn/application	[Motor] Distance too close (16.3831228275705); rotating motor to 0 degrees | Severity=175 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:23.554 (UTC)] info/application	[Motor] Received distance: 15.8955487149747 cm | Severity=75 | SourceName=Motor | EventType=application
+[2026-08-16 20:39:23.554 (UTC)] warn/application	[Motor] Distance too close (15.8955487149747); rotating motor to 0 degrees | Severity=175 | SourceName=
